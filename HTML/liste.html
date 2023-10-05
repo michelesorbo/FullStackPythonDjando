@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le liste</title>
+</head>
+<body>
+    <h1>Le liste</h1>
+    Link alla documentazione <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul" target="_blank">qui</a>
+    <p>
+        Possiamo creare due tipi di liste.<br>
+        Le liste non ordinate (non numerate) e le liste ordinate (liste numerate).
+    </p>
+
+    <h2>Liste non numerate</h2>
+    <ul><!-- Creo una lista non ordinata -->
+        <li>Elemento uno</li><!-- Elemento della lista -->
+        <li>Elemento due</li>
+        <li>Elemento tre</li>
+    </ul>
+    <p>
+        Cambiare il tipo di punto
+        <ul type="square">
+            <li>Uno</li>
+            <li>Due</li>
+            <li>Tre</li>
+        </ul>
+    </p>
+
+    <h2>Liste Ordinate</h2>
+    <p>Spesa: </p>
+    <ol>
+        <li>Pane</li>
+        <li>Latte</li>
+        <li>Carne</li>
+    </ol>
+
+    <p>Cambiare il tipo di numerazione</p>
+    <ol type="I"> <!-- Cambio il tipo di numerazione -->
+        <li>Pane</li>
+        <li>Latte</li>
+        <li>Carne</li>
+    </ol>
+
+    <p>Faccio partire la numerazione da un numero specifico</p>
+    <ol start="4">
+        <li>Alessio</li>
+        <li>Ludmilla</li>
+        <li>Mirko</li>
+    </ol>
+
+    <p>Faccio il contro all'indietro</p>
+    <ol reversed>
+        <li>Emanuele</li>
+        <li>Giuseppe</li>
+        <li>Fabio</li>
+    </ol>
+
+    <p>Combino tutte le regole contemporaneamente</p>
+    <ol type="I" start="20" reversed>
+        <li>Alessio</li>
+        <li>Ludmilla</li>
+        <li>Mirko</li>
+        <li>Emanuele</li>
+        <li>Giuseppe</li>
+        <li>Fabio</li>
+    </ol>
+
+    <h2>Le sottoliste</h2>
+    <ol>
+        <li><h3>Paragrafo Uno</h3></li>
+        <ol>
+            <li><h4>Capitolo Uno</h4></li>
+            <ul>
+                <li>Argomento uno</li>
+                <li>Argomento due</li>
+            </ul>
+            <li>Capitolo due</li>
+            <ul>
+                <li>Argoento uno </li>
+                <li>Argomento due</li>
+            </ul>
+        </ol>
+        <li>Paragrafo due</li>
+        <ol><h4>Capitolo due</h4>
+        <ul>
+            <li>Argomento uno</li>
+        </ul>
+        </ol>
+    </ol>
+
+</body>
+</html>
