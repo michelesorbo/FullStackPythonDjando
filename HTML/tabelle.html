@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le tabelle</title>
+</head>
+<body>
+    <h1>Le tabelle</h1>
+    <table border="1"><!-- Cro la tabella -->
+        <thead>
+            <tr>
+                <th>Intestazione 1</th>
+                <th>Intestazione 2</th>
+                <th>Intestazione 3</th>
+                <th>Intestazione 4</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><!-- Creo una riga della tabella -->
+                <td>Cella 1</td><!-- Creo la cella -->
+                <td rowspan="2">Cella 2</td> <!-- RowSpan occupa lo pazio delle righe sotto la cella di partenza-->
+                <td>Cella 3</td>
+                <td rowspan="2">Creato da Michele</td>
+            </tr> <!-- Chiudo la prima righa -->
+
+            <tr><!-- Apro la seconda riga -->
+                <td>Cella 4</td>
+                <td>Cella 6</td>
+            </tr><!-- Chiudo la seconda riga -->
+            <tr>
+                <td>Cella 7</td>
+                <td>Cella 8</td>
+                <td>Cella 9</td>
+                <td>Cella 10</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4" align="center">Cella fine 1</td><!-- ColSpan occupa lo spazzio delle colonne a sinistra della cella di partenza-->
+            </tr>
+        </tfoot>
+    </table>
+
+    <p>
+        <a href="link.html">Torna al menu</a>
+    </p>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabelle</title>
+</head>
+
+<body>
+
+    <h1>Benvenuto nel sito uno</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="tabella.html">Tabelle</a>
+        <a href="liste.html">Liste</a>
+    </nav>
+
+    <hr>
+
+    <p>Tabella prodotti e prezzo</p>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Prodotto</th>
+                <th>Prezzo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Tastiera</td>
+                <td>10.00€</td>
+            </tr>
+            <tr>
+                <td>Mouse</td>
+                <td>5.00€</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td><b>Totale</b></td>
+                <td><strong>15.00€</strong></td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <hr>
+    <p>ROWSPAN: Espandere una colonna su più righe</p>
+    <table border="1">
+        <tr>
+            <td rowspan="3">Periferiche</td>
+            <td>Tastiera</td>
+        </tr>
+
+        <tr>
+            <td>Mouse</td>
+        </tr>
+
+        <tr>
+            <td>Monitor</td>
+        </tr>
+
+        <tr>
+            <td>Non row</td>
+            <td>Cella nuova</td>
+        </tr>
+    </table>
+
+    <!--Esercizio-->
+    <hr>
+    <p>Esercizio</p>
+    <table border="1">
+        <caption>Esercizio dipartimenti</caption>
+        <tr>
+            <th>Bil</th>
+            <th>Department</th>
+            <th>Staff</th>
+        </tr>
+        <!--Dipartimento ICT-->
+        <tr>
+            <td rowspan="3">1</td>
+            <td rowspan="3" align="center">ICT</td>
+            <td>James</td>
+        </tr>
+        <tr>
+            <td>Paul</td>
+        </tr>
+        <tr>
+            <td>Afiq</td>
+        </tr>
+        <!--Dipartimento Finance-->
+        <tr>
+            <td>2</td>
+            <td>Finance</td>
+            <td>Mary</td>
+        </tr>
+        <!--Dipartimento Admin-->
+        <tr>
+            <td rowspan="2">3</td>
+            <td rowspan="2">Admin</td>
+            <td>Yus</td>
+        </tr>
+        <tr>
+            <td>Terence</td>
+        </tr>
+    </table>
+
+    <hr>
+    <p>COLSPAN: Espandere una colonna su più colonne.</p>
+    <table border="1">
+        <tr align="center">
+            <td colspan="3">Periferiche</td>
+        </tr>
+        <tr>
+            <td>Monitor</td>
+            <td>Maouse</td>
+            <td>Tastiera</td>
+        </tr>
+    </table>
+
+    <hr>
+    <p>Esercizio 2</p>
+    <table>
+        <caption>Una tabella esemplificativa con celle unificate</caption>
+        <tr style="background-color: red; color: white;">
+            <th rowspan="2">&nbsp;</th>
+            <th colspan="2">Media</th>
+            <th rowspan="2">Occhi Rossi</th>
+        </tr>
+        <tr style="background-color: red; color: wheat;">
+            <th>altezza</th>
+            <th>peso</th>
+        </tr>
+        <tr style="background-color:aqua;">
+            <th>Maschi</th>
+            <td>1.9</td>
+            <td>0.003</td>
+            <td>40%</td>
+        </tr>
+        <tr style="background-color:coral ;">
+            <th>Femmine</th>
+            <td>1.7</td>
+            <td>0.002</td>
+            <td>43%</td>
+        </tr>
+    </table>
+</body>
+
+</html>
