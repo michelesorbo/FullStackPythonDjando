@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestire i Media</title>
+</head>
+<body>
+    <h1>Inserire immagini in HTML</h1>
+    <h4>Metodo Classico</h4>
+    <p><img src="img/html-tagst.jpeg" title="Logo HTML" alt="Alt Logo HTML" width="300"></p>
+    <!-- Metodo Nuovo -->
+    <p>
+        <picture>
+            <source type="image/webp" srcset="img/html-tagst.webp">
+            <img src="img/html-tagst.jpeg" alt="HTML Logo">
+        </picture>
+    </p>
+    <h4>Cambio immagine in base alla dimensione dello schermo (Dimensione intesa in pixel)</h4>
+    <p>
+        <picture>
+            <source srcset="img/img_white_flower.jpg" media="(max-width:800px)">
+            <source srcset="img/img_pink_flowers.jpg" media="(max-width:1000px)">
+            <img src="img/img_pink_flowers.jpg" alt="Pink">
+        </picture>
+    </p>
+
+    <h1>Inserire audio in pagina HTML</h1>
+    <p><a href="https://www.w3schools.com/tags/tag_audio.asp" target="_blank">Documentazione</a></p>
+    <p>
+        <audio controls autoplay>
+            <source src="audio/audio.ogg" type="audio/ogg">
+            <source src="audio/audio.mp3" type="audio/mp3">
+            Il tuo browser non supporta i file audio <!-- viene visualizzato in caso di errore -->
+        </audio>
+    </p>
+
+    <h1>Caricamento dei video</h1>
+    <h4>Visualizzare un video in locale <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video" target="_blank">Documentazione</a></h4>
+    <p>
+        <video width="320" autoplay muted controls>
+            <source src="video/video.mp4" type="video/mp4">
+            Il tuoi browser non supporta i video .mp4
+        </video>
+    </p>
+    <h4>Inserire video da sito esterno es: YouTube</h4>
+    <p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/UwnMFV40d1g?si=eaijQQRKmvarhdGK" title="Jazz Collection" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </p>
+</body>
+</html>
