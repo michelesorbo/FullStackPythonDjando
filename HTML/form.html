@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I Form</title>
+    <!-- Scrivo le regole CSS -->
+    <style>
+        div{
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Form metodo classico</h2>
+    <form action="form.php" method="post"><!-- Devo apreire il tag form e inserire tutti i campi da inviar eal backend all'interno del tag form-->
+        <table>
+            <tr>
+                <td>Nome</td>
+                <td><input type="text" name="nome"></td>
+            </tr>
+            <tr>
+                <td>Cognome</td>
+                <td><input type="text" name="cognome"></td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td><input type="password" name="pwd"></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center"><input type="submit"></td>
+            </tr>
+        </table>
+        <!-- Nome: <input type="text" name="nome"><br>
+        Cognome: <input type="text" name="cognome"><br>
+        Password: <input type="password" name="pwd"><br>
+        <input type="submit"> -->
+    </form>
+
+    <h2>Nuovo metodo di inpaginazione dei form è con i div e label</h2>
+
+    <form method="get" action="form.php" enctype="multipart/form-data">
+        <div><!-- è un contenitore -->
+            <label for="nome">Inserisci il nome<sup>*</sup></label><!-- Etichetta dell'input -->
+            <input type="text" name="nome" required>
+        </div>
+
+        <div><!-- è un contenitore -->
+            <label for="cognome">Inserisci il cognome</label><!-- Etichetta dell'input -->
+            <input type="text" name="cognome">
+        </div>
+
+        <div><!-- è un contenitore -->
+            <label for="pwd">Inserisci la password</label><!-- Etichetta dell'input -->
+            <input type="password" name="pwd"><!-- Type Password inserisce il testo con i puntini (modo nascosto)
+                                                    reuired: serve a rendere il campo obbligatorio-->
+        </div>
+
+        <div>
+            <label for="email">Inserisci la tua mail</label>
+            <input type="email" name="email">
+        </div>
+
+        <div>
+            <label for="cap">Inserisci il CAP</label>
+            <input type="text" name="cap" minlength="5" maxlength="5"><!-- maxlength: non fa inserire più caratteri di quelli specificati
+                                                                        minlenght: devi inserire almeno il numero di caratteri indicati-->
+        </div>
+
+        <div>
+            <label for="commento">Inserisci un commento</label>
+            <textarea name="commento" rows="4" cols="30"></textarea>
+        </div>
+
+        <div>
+            <label for="auto">Che auto guidi?</label>
+            <select name="auto">
+                    <option value="">--- Seleziona un Auto ---</option>
+                <optgroup label="Auto Straniere">
+                    <option value="1">Audi</option>
+                    <option value="2">BMW</option>
+                </optgroup>
+                <optgroup label="Auto Italiane">
+                    <option value="3">FIAT</option>
+                    <option value="alfaromeo">Alfa Romeo</option>
+                </optgroup>
+            </select>
+        </div>
+
+        <div>
+            <label for="primo">Scegli un primo</label><br>
+            <input type="radio" name="primo" value="pasta">Pasta<br>
+            <input type="radio" name="primo" value="riso">Riso<br>
+            <input type="radio" name="primo" value="lasagna">Lasagna<br>
+            <input type="radio" name="primo" value="genovese">Genovese
+        </div>
+
+        <div>
+            <label for="secondi">Scegli un secondo</label><br>
+            <input type="radio" name="secondi" value="carne">Carne<br>
+            <input type="radio" name="secondi" value="pesce">Pesce<br>
+            <input type="radio" name="secondi" value="mozzarella">Mozzarella<br>
+        </div>
+        
+        <div>
+            <label for="veicoli">Quale veicolo possiedi?</label><br>
+            <input type="checkbox" name="veicoli[]" value="bici">Bicicletta<br>
+            <input type="checkbox" name="veicoli[]" value="auto">Auto<br>
+            <input type="checkbox" name="veicoli[]" value="moto">Moto<br>
+            <input type="checkbox" name="veicoli[]" value="sccoter">Scooter
+        </div>
+
+        <!-- Quando voglio far allegare un file devo aggiungere al form la proprietà enctype="multipart/form-data" -->
+        <div>
+            <label for="file">Allega un file</label>
+            <input type="file" name="file" accept="image/*, .pdf, .docx">
+            <!-- 
+                - per accettare tutti i tipi di immagine image/*
+                - per accettare solo un tipo di immagine image/tipo immagina es: image/png
+                - Lo stesso vale per i video e audio
+                - per accettare file es: Word, PDF, Excel si deve specificare l'estensione 
+                es: Word = .doc o .docx - PDF = .pdf
+            -->
+        </div>
+
+        <div>
+            <label for="dataNascita">Inssersci la tua da di nascita</label><!--Le date sono sempre in formata Americano-->
+            <input type="date" name="dataNascita" min="2022-02-03" max="2024-08-30"><!-- Anno - Mese - Giorno-->
+        </div>
+
+        <div>
+            <label for="prenotazione">Inserisci la data l'ora di arrivo</label>
+            <input type="datetime-local" name="prenotazopne">
+        </div>
+
+        <div>
+            <label for="ora">Inserisci solo l'ora</label>
+            <input type="time" name="ora">
+        </div>
+
+        <!-- Campi nascosti che non vengono visti dall'utente -->
+        <input type="hidden" name="pagina" value="form Corso">
+
+        <div>
+            <p><sup>*</sup> Campi obbligatori</p>
+        </div>
+
+        <div>
+            <input type="submit">
+        </div>
+    </form>
+
+
+    
+</body>
+</html>
