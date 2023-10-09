@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inerhit Role</title>
+    <style>
+        body{
+            color: green;
+        }
+
+        .my-class-1 a{
+            color: inherit; /* Prendi la regola di mio padre */
+        }
+
+        .my-class-2 a{
+            color: initial; /*Vado a prendere la regola di default del browser */
+        }
+
+        .my-class-3 a{
+            color: unset; /* Ripristina il valore su quello predefinito in partenza */
+        }
+    </style>
+</head>
+<body>
+    
+    <ul>
+        <li>Default <a href="#">link</a> color</li>
+        <li class="my-class-1">Default <a href="#">link</a> color</li>
+        <li class="my-class-2">Default <a href="#">link</a> color</li>
+        <li class="my-class-3">Default <a href="#">link</a> color</li>
+    </ul>
+</body>
+</html>

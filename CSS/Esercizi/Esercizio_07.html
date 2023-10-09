@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esercizio 07</title>
+    <style>
+        ul{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        li{
+            vertical-align: middle;
+            margin: 5px;
+        }
+
+        li::before{
+            content: url('../img/church_icon.png');
+            padding-right: 10px;
+        }
+
+        li:nth-child(odd){
+            background-color: orange;
+            color: white;
+        }
+
+        li:nth-child(-n+3){
+            border: 2px dotted yellow;
+            border-radius: 5px;
+            padding: 5px;
+            background-color: green;
+            color: white;
+        }
+
+        li:last-child{
+            background-color: white;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <ul>
+        <li>Non avrai altro Dio fuori di me</li>
+        <li>Non nominare il nome di Dio invano</li>
+        <li>Ricordati di santificare le feste</li>
+        <li>Onora il padre e la madre</li>
+        <li>Non uccidere</li>
+        <li>Non commettere atti impuri</li>
+        <li>Non rubare</li>
+        <li>Non dire falsa testimonianza</li>
+        <li>Non desiderare la donna d&#8217;altri</li>
+        <li>Non desiderare la roba d&#8217;altri</li>
+    </ul>
+
+</body>
+
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html{
+            font-size: 10px;
+        }
+
+        div {
+            font-size: 20px;
+        }
+
+        .par1{
+            font-size: 1em;
+        }
+
+        .par2{
+            font-size: 1rem;
+        }
+
+        .par3{
+            font-size: 0.9rem;
+        }
+
+        .par4{
+            font-size: 20px;
+        }
+
+        .box{
+            width: 800px;
+            border: 2px solid black;
+            margin-bottom: 20px;
+        }
+
+        .box_calc{
+            margin: auto;
+            border: 2px solid cadetblue;
+            padding: 5px;
+            width: calc(70% + 20px);
+        }
+    </style>
+</head>
+<body>
+
+    <!--
+        Le misure di dimensione posso essere divise in misure assolute e relative. 
+        Le misure assolute indicano in modo assoluto un valore che sarà resterà immutato per sempre. 
+        Le misure relative invece vengono calcolate in base al rapporto con qualcos’altro, 
+        sia la grandezza dello schermo o un valore percentuale.
+        Abbiamo già detto più volte che il web moderno è composto da tanti schermi e dispositivi differenti. 
+        Diventa quindi fondamentale lavorare con dimensione relative in quanto permettono alla struttura delle nostra
+        pagina di essere flessibile in base allo schermo di utilizzo.
+
+        - em: fa riferimento al font-size del proprio parent
+        - ex
+        - ch
+        - rem: fa riferimento al font-size del root parent (HTML)
+        - lh
+        - vmin
+        - vmax
+    -->
+
+    <div>
+        <p class="par1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus optio officiis asperiores quod error ea praesentium inventore quasi pariatur quae earum reprehenderit culpa, ex debitis eos rem et eligendi esse.</p>
+
+        <p class="par2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates, facere blanditiis? Quos beatae rerum aliquam esse porro aliquid consectetur, nihil totam amet aut labore eligendi veritatis quisquam similique perspiciatis voluptas.</p>
+
+        <p class="par3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel quasi labore qui sit eligendi veniam quaerat expedita dolores earum, ipsum eaque dignissimos, ad quis reprehenderit doloribus voluptate porro voluptas aut.</p>
+
+        <p class="par4">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id delectus, placeat repellendus veritatis officia voluptatum a natus ab, sint optio provident? Iure atque excepturi tenetur minima illum, esse deleniti et.</p>
+
+    </div>
+
+    <div class="box">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam facere cumque natus repellendus beatae perspiciatis repellat enim. Eveniet, voluptas doloribus. Iste recusandae, amet sunt voluptatem quo fugit et deleniti? Aut!
+    </div>
+
+    <div class="box_calc">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus excepturi et dolor ea libero facere veritatis cum debitis sapiente obcaecati voluptatum architecto accusamus, odit suscipit optio animi! Magni, nostrum aut?
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum, quasi, quibusdam tempore incidunt neque laboriosam cupiditate voluptatum, aspernatur praesentium vitae a! Natus, eius dolorem. Rerum illum quaerat esse. Porro, voluptatibus.
+    </div>
+    
+</body>
+</html>

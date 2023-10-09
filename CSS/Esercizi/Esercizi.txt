@@ -30,3 +30,12 @@ Crea una lista di 10 elementi. Inserisci come simbolo degli elementi una icona s
 Evidenzioare solo gli elementi dispari con BG Arancione e testo bianco
 Evidenziare i primi 3 con un BG Verde e testo bianco
 Evidenziare l'utimo con il colore rosso nel testo e bg bianco
+
+Esercizio 8
+Crea 4 paragrafi ed assegna 4 tipologie di font diveverse
+Crea una tabella con 2 o più righe e assegna ad una colonna azioni i seguenti comandi
+Agg contatto
+Modifica Utente
+Elimina Utente
+USare le icone di google (Da scegliere a piacere). Agg contanto deve essere di colore blue
+Modifica di colore verde e elimina di colore rosso

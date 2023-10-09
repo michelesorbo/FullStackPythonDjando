@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestione Font</title>
+    <!-- Link per usare le Icon di Google-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style>
+        /*Importo il font da Google */
+        @import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+        .par1 {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 14px;
+            font-weight: 200;
+        }
+
+        .par2 {
+            font-family: 'Pixelify Sans', cursive;
+            font-size: 20px;
+            color: blue;
+        }
+
+        h1 {
+            font-family: 'Pacifico', cursive;
+        }
+
+        /*Regola per le Icon di Google */
+        .material-symbols-outlined {
+            font-variation-settings:
+                'FILL' 0,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 24
+        }
+
+        a{
+            text-decoration: none;
+        }
+
+        .rosso{
+            color: red;
+            font-size: 1rem;
+        }
+
+        .verde{
+            color: green;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>I google Fonts</h1>
+
+    <p class="par1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. In ipsam impedit minima laudantium sunt?
+        Eligendi debitis pariatur laboriosam sint incidunt necessitatibus minus esse inventore aliquam. Odio animi ullam
+        dolorem dolores.</p>
+    <p class="par2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, enim. Deserunt, quia,
+        ullam eveniet quibusdam neque quo temporibus laboriosam pariatur excepturi ad nemo reprehenderit eius aliquam
+        quas expedita qui enim!</p>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus deleniti aliquam quibusdam corrupti
+        praesentium ipsam! Ratione ipsa quo placeat dolores quod corporis earum neque, adipisci et consectetur
+        reprehenderit, architecto asperiores!</p>
+
+    <p>
+    <table>
+        <tr>
+            <th>Cliente</th>
+            <th>Azioni</th>
+        </tr>
+        <tr>
+            <td>Michele Sorbo</td>
+            <td><a href="#"><span class="material-symbols-outlined verde">edit</span></a><a href="#"><span class="material-symbols-outlined rosso">delete</span></a></td>
+        </tr>
+        <tr>
+            <td>Mario Rossi</td>
+            <td><a href="#"><span class="material-symbols-outlined verde">edit</span></a><a href="#"><span class="material-symbols-outlined rosso">delete</span></a></td>
+        </tr>
+    </table>
+    </p>
+</body>
+
+</html>
