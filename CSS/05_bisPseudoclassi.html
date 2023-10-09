@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pseudoclassi</title>
+    <style>
+        /*Cambio stile puntini ul*/
+        ul{
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li{
+            padding-left: 16px;
+        }
+
+        li::before{
+            content: '->';
+            padding-right: 8px;
+            color: red;
+        }
+        li::after{
+            content: url('img/breakfast.png');
+        }
+
+        .topic::before{
+            content: url('img/breakfast.png');
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Proprietà content</h1>
+
+    <ul>
+        <li>Caffè</li>
+        <li>Tea</li>
+        <li>Coca Cola</li>
+    </ul>
+    
+    <p class="topic">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae vero quos quisquam assumenda a dolore corrupti perferendis recusandae quaerat itaque, odit autem cupiditate aliquam sint, voluptates illo quam cumque rem!
+    </p>
+
+</body>
+</html>

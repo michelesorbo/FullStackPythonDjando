@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Pseudo classi</title>
+    <style>
+        .btn {
+            color: white;
+            border: 2px solid black;
+            border-radius: 5px;
+            background-color: cadetblue;
+            padding: 5px;
+            text-decoration: none;
+        }
+
+        /*Pseudo classe che rileva il passaggio del cursore*/
+        .btn:hover {
+            color: cadetblue;
+            background-color: white;
+            -webkit-box-shadow: 10px 10px 23px 0px rgba(84, 84, 84, 0.82);
+            box-shadow: 10px 10px 23px 0px rgba(84, 84, 84, 0.82);
+        }
+
+        /*Pseudo classe che rileva la pressione del mouse*/
+        .btn:active {
+            background-color: yellow;
+        }
+
+        tbody tr{
+            background-color: cadetblue;
+        }
+
+        tbody tr:hover { /*Solo i tr contenuti nel tag tbody */
+            background-color: gray;
+        }
+
+        /* Pseudo classe su child */
+        li:first-child{
+            border: 2px solid black;
+        }
+
+        li:last-child{
+            border: 2px solid red;
+        }
+
+        li:nth-child(odd){ /* Posso inserire l'indice dei figli o posso decidere solo i pari con even o i dispari con odd */
+            background-color: cadetblue;
+            color: wheat;
+        }
+
+        /*Solo i primi 3 classificati devo avere un border*/
+        li:nth-child(-n + 3){
+            border: 2px solid red;
+            border-radius: 20px;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <p>
+        <button class="btn">Premi</button> - <button>Premi</button>
+    </p>
+
+    <p>
+        Non è un pulsane ma un link <a href="#" class="btn">Premi il link</a>
+    </p>
+
+    <p>
+    <table>
+        <thead>
+            <tr>
+                <th>Intestazione 1</th>
+                <th>Intestazione 2</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Cella 1</td>
+                <td>Cella 2</td>
+            </tr>
+            <tr>
+                <td>Cella 3</td>
+                <td>Cella 4</td>
+            </tr>
+            <tr>
+                <td>Cella 5</td>
+                <td>Cella 6</td>
+            </tr>
+            <tr>
+                <td>Cella 7</td>
+                <td>Cella 8</td>
+            </tr>
+            <tr>
+                <td>Cella 9</td>
+                <td>Cella 10</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="2" align="center">Creata da ...</td>
+            </tr>
+        </tfoot>
+    </table>
+    </p>
+
+    <p>
+        <ul>
+            <li>Adhemar da Silva</li>
+            <li>Wang Junxia</li>
+            <li>Wilma Rudolph</li>
+            <li>Babe Didrikson-Zaharias</li>
+            <li>Betty Cuthbert</li>
+            <li>Fanny Blankers-Koen</li>
+            <li>Florence Griffith-Joyner</li>
+            <li>Irena Szewinska</li>
+            <li>Jackie Joyner-Kersee</li>
+            <li>Shirley Strickland</li>
+            <li>Carl Lewis</li>
+            <li>Emil Zatopek</li>
+            <li>Haile Gebrselassie</li>
+            <li>Jesse Owens</li>
+            <li>Jim Thorpe</li>
+            <li>Paavo Nurmi</li>
+            <li>Sergei Bubka</li>
+            <li>Usain Bolt</li>
+            <li>Mario Rossi</li>
+          </ul>
+    </p>
+
+</body>
+
+</html>

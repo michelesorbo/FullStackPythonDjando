@@ -24,3 +24,9 @@ riga di intestazione.
 Creare le regole CSS per avere il colore di sfondo e il teso delle righe alternate.
 Una riga con sfondo Aranciane e colore del testo bianco.
 Una riga con sfondo Bianco e colore del testo Arancione.
+
+Esercizio 7
+Crea una lista di 10 elementi. Inserisci come simbolo degli elementi una icona scelta a piacere.
+Evidenzioare solo gli elementi dispari con BG Arancione e testo bianco
+Evidenziare i primi 3 con un BG Verde e testo bianco
+Evidenziare l'utimo con il colore rosso nel testo e bg bianco
