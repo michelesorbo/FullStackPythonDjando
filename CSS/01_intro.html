@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intro CSS</title>
+    <!-- Posso inserire lo stile in una pagina in 3 modi i primi due si insereiscono nel tag head (Style esterno) -->
+    <!-- 1° metodo usare un foglio di stile esterno -->
+    <link rel="stylesheet" href="css/stile.css">
+
+    <!-- 2° metodo: scrivere le regole nella pagina usando il tag style (Style in pagina) -->
+    <style>
+        /* Scrivo le regole CSS */
+        /* h3{
+            color: #3D8F1A;
+        } */
+
+        /* h1{
+            background-color: #DB7648;
+        } */
+    </style>
+</head>
+<body>
+    <ul>
+        <li><a href="">Home</a></li>
+        <li><a href="">Chi siamo</a></li>
+        <li><a href="">Contatti</a></li>
+    </ul>
+
+    <h1>Introduzione a CSS</h1>
+    <!-- 3° Metodo: usare l'attributo style del tag. (Style in linea)-->
+    <h3 style="background-color: aquamarine; color: brown;">Titolo del Paragrafo</h3>
+    <p class="txt_rosso">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rem perferendis deserunt est nihil saepe, vel repudiandae optio rerum id eos reprehenderit, ad placeat beatae qui exercitationem dicta earum explicabo! Sed.</p>
+    <h3 class="txt_rosso">Titolo del Paragrafo</h3>
+    <p>Lorem ipsum dolor sit <span class="txt_rosso">consectetur</span> , adipisicing elit. Rem perferendis deserunt est nihil saepe, vel repudiandae optio rerum id eos reprehenderit, ad placeat beatae qui exercitationem dicta earum explicabo! Sed.</p>
+    <h3>Titolo del paragrafo</h3>
+    <p id="txt_verde">Lorem ipsum, dolor sit amet consectetur adipisicing elit. In ratione atque iure laborum nam quibusdam a repellat expedita, porro beatae minima delectus facilis reprehenderit cumque quidem velit nulla nostrum illum!</p>
+
+    <div class="box">
+        <h2>Sono h2 nel div</h2>
+    </div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+/*
+Ci sono 3 modi per riferisi ai tag HTML.
+1) Tutti i tag della pagina. Per dare la regola a tutti i tag della pagina basta inserire solo il nome del tag
+*/
+
+/*Posso assegnare la stessa regola dividendo i tag o le classi con una virgola */
+h1, h3{
+    /* Scrivo le regole per i tag h1 */
+    color: #333BDB; /*Serve a cambiare il colore del testo*/
+}
+
+/*Aggiungere regole solo al tag h3 */
+h3{
+    border: 2px solid black;
+}
+
+/* 2° Metodo usare le classi. Per dare le regole ad una classe uso il .<nome_classe> */
+.txt_rosso{
+    color: red;
+    font-size: 18px; /*La grandezza del font */
+    font-family: 'Times New Roman', Times, serif; /*Tipo di Font */
+}
+
+/* 3° Metodo: dare le regole tramite id per farlo si usa #<nome_id> */
+#txt_verde{
+    color: green;
+    font-size: 9px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+body{
+    background-color: cadetblue;
+}
+
+.box{
+    background-color: brown;
+    color: white;
+}
+
+
