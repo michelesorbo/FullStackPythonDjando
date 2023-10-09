@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box Model</title>
+    <style>
+        .titolo{
+            height: 100px;
+        }
+
+        .box{
+            background-color: cadetblue;
+            color: white;
+            border: 2px solid black;
+            /*margin: 30px; /*Uso la stessa dimensione per tutti i margini */
+            /* margin-top: 10px;
+            margin-right: 20px;
+            margin-bottom: 40px;
+            margin-left: 20px; */
+            /* margin: 10px 20px 40px 20px; */
+            margin: 40px 20px; /* (top botton) (left right)*/
+            padding: 5px 20px;
+        }
+
+        .menu{
+            display: inline;
+        }
+    </style>
+</head>
+<body>
+
+    <!--
+        Block e inline box - display
+            Block) - crea una nuova riga
+                   - il box si espanderà fino ad occupare il 100% del container
+                   - width e height sono rispettate
+                   - padding, margin e border fanno allontanare altri elementi dal box
+            
+            Inline)- non crea una nuova riga
+                   - width e height non vengono applicate
+                   - vertical padding, margin e border si applicano ma non spostano altri elementi a differenza 
+                     di quelli orizzontali 
+
+    -->
+    <nav>
+        <ul class="menu">
+            <li class="menu"><a href="#">Home</a></li>
+            <li class="menu"><a href="#">Chi siamo</a></li>
+            <li class="menu"><a href="#">Contatti</a></li>
+        </ul>
+    </nav>
+
+    <h1 class="titolo">Titolo</h1>
+    <p>Block</p>
+    <a href="#">inline</a>
+    <p>Block 2 <a href="#" class="titolo">Link in line</a></p>
+
+
+    <div class="box">
+        <p>Sono il paragrafo del div</p>
+    </div>
+    <p>
+        Paragrafo dopo il div 
+        <ul>
+            <li>Uno</li>
+        </ul>
+
+    </p>
+    
+</body>
+</html>
