@@ -1,0 +1,26 @@
+Esercizio 1:
+Crea una pagina HTML con una lista non ordinata (ul) contenente alcuni elementi di lista (li). 
+Utilizza il CSS per impostare il colore di sfondo degli elementi di lista su giallo.
+
+Esercizio 2:
+Crea una pagina HTML con tre paragrafi all'interno. Utilizza il CSS per impostare il colore di sfondo 
+del primo paragrafo su verde, del secondo paragrafo su rosso e del terzo paragrafo su blu.
+
+Esercizio 3:
+Crea una pagina HTML con un link all'interno. 
+Utilizza il CSS per impostare il colore di sfondo del link su verde.
+
+Esercizio 4:
+Crea una pagina HTML con tre div all'interno. Utilizza il CSS per impostare il colore di sfondo 
+del primo div su rosso, del secondo div su verde e del terzo div su blu.
+
+Esercizio 5:
+Crea una pagina HTML con una tabella all'interno. 
+Utilizza il CSS per impostare il colore di sfondo di tutte le celle della tabella su grigio.
+
+Esercizio 6:
+Crea una pagina HTML con una tabella all'interno e inserire 4 righe con dati a piacere e una 
+riga di intestazione. 
+Creare le regole CSS per avere il colore di sfondo e il teso delle righe alternate.
+Una riga con sfondo Aranciane e colore del testo bianco.
+Una riga con sfondo Bianco e colore del testo Arancione.
