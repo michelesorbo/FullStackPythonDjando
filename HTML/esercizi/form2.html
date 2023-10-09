@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esercizio Form 2</title>
+</head>
+<body>
+    <form>
+        <table border="1">
+            <tr>
+                <td colspan="2" align="center"><h3>Modulo di Iscrizione</h3></td>
+            </tr>
+            <tr>
+                <td>Cognome</td>
+                <td><input type="text" name="cognome"></td>
+            </tr>
+            <tr>
+                <td>Nome</td>
+                <td><input type="text" name="nome"></td>
+            </tr>
+            <tr>
+                <td>Data di nascita</td>
+                <td><input type="date" name="data_n"></td>
+            </tr>
+            <tr>
+                <td>Sesso</td>
+                <td><input type="radio" name="sesso" value="M">M <input type="radio" name="sesso" value="F">F</td>
+            </tr>
+            <tr>
+                <td>Telefono</td>
+                <td><input type="tel" name="telefono"></td>
+            </tr>
+            <tr>
+                <td>Provincia</td>
+                <td>
+                    <select name="prov">
+                        <option value="ce">CE</option>
+                        <option value="na">NA</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">Come vuoi essere contattato? scegli la modalità che ti piace</td>
+            </tr>
+            <tr>
+                <td>(sono ammesse scelte multiple)</td>
+                <td>
+                    Posta ordinaria <input type="checkbox" name="posta[]" value="po"><br>
+                    Posta elettronica <input type="checkbox" name="posta[]" value="pe"><br>
+                    Telefono <input type="checkbox" name="posta[]" value="tel">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">Inserisci le note aaaa</td>
+            </tr>
+            <tr>
+                <td colspan="2"><textarea name="note" rows="4" cols="40"></textarea></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="submit"></td>
+            </tr>
+        </table>
+    </form>
+    
+</body>
+</html>

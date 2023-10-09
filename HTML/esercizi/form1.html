@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invio Mail</title>
+    <style>
+        div{
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form method="get" action="es_form.php">
+        <div>
+            <label for="nome">Inserisci il tuo nome</label>
+            <input type="text" name="nome" placeholder="Inserisci il tuo nome">
+        </div>
+        <div>
+            <label for="email">Inserisci la tua mail</label>
+            <input type="email" name="email" placeholder="Inserisci la tua mail">
+        </div>
+        <div>
+            <label for="ogg">Oggetto</label>
+            <input type="text" name="ogg">
+        </div>
+        <div>
+            <label for="msg">Messaggio</label>
+            <textarea name="msg" cols="50" rows="5"></textarea>
+        </div>
+        <div>
+            <label for="allegati">Allegati</label>
+            <input type="file">
+        </div>
+        <div>
+            <input type="submit"><input type="reset">
+        </div>
+    </form>
+
+    <p>Creare un form con div labale e i vari input, con metodo di invio get 
+        e una pagina php di atterraggio dei dati chamata es_form.php
+        che stamperà i dati ricevuti.
+    </p>
+    
+</body>
+</html>
