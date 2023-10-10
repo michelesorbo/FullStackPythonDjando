@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+
+/*inizio creazione variabile*/
+/* :root{
+    --colore-testo: #a62e02;
+    --font-titoli: font-family: 'Montserrat', sans-serif;
+    --font-articoli: font-family: 'Dancing Script', cursive;
+    --main-bg-body: #EB2126;
+    --font-color-titolo: #38A0EB;
+    --font-color-titoloDue: #0362a6;
+    --dimensione-testo: 15px;
+} */
+
+@import url('mieRegole.css');
+
+.titolo_principale{
+    color: var(--font-color-titolo);
+    font-family: var(--font-titoli);
+}
+
+.titolo_due{
+    color: var(--font-color-titoloDue);
+}
+
+.box_articolo{
+    width: 200px;
+    height: 200px;
+    font-family: 'Dancing Script', cursive;
+    color: var(--colore-testo);
+}
+
+.box_info{
+    width: 400px;
+    height: 400px;
+    font-family: var(--font-articoli);
+}
+
+p{
+    font-size: var(--dimensione-testo);
+    color: var(--colore-testo);
+}
+

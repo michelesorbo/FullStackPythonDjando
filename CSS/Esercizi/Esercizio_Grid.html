@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esercizio Grid</title>
+    <style>
+
+        .grid-wrapper2{
+            display: grid;
+            grid-template-columns: 1fr 2fr 2fr;
+            grid-template-rows: 200px 800px 100px;
+            grid-gap: 5px;
+        }
+
+        .grid-wrapper2>div{
+            margin: 0;
+            padding: 0;
+            background-color: cadetblue;
+        }
+
+        .testa{
+            grid-column: 1 / 4;
+            grid-row: 1;
+            background-image: url(../img/bg_body.jpeg);
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+        }
+
+        .content_center{
+            grid-column: 2 / 4;
+            grid-row: 2;
+        }
+
+        .footer_content{
+            grid-column: 1/4;
+            grid-row: 3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="grid-wrapper2">
+        <div class="testa">
+            <div class="menu">
+                <p>Ciao a tutti</p>
+            </div>
+        </div>
+        <div class="l_menu">Sono il menu</div>
+        <div class="content_center">Sono il contenuto</div>
+        <div class="footer_content">Sono il Footer</div>
+    </div>
+    
+</body>
+</html>

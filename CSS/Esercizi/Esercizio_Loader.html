@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loader</title>
+    <style>
+        @keyframes spin {
+            from {
+                transform: rotate(0turn);
+            }
+
+            to {
+                transform: rotate(1turn);
+            }
+        }
+
+        .spinner {
+            animation: spin 1000ms;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+
+        .spinner {
+            display: block;
+            width: 32px;
+            height: 32px;
+            top: 50%;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <img alt="Loading..." src="../img/loader.svg" class="spinner">
+
+</body>
+
+</html>

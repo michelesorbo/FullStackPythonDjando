@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animazioni</title>
+    <style>
+        .animazione{
+            position: relative;
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+            animation: cambio_colore; /*Nome dell'animazione*/
+            animation-duration: 4s; /*Durata dell'animazione */
+            animation-iteration-count: 1; /*Numero di ripetizioni dell'animazione*/
+        }
+
+        /*Le regole per creare l'animazione si danno cun un @keyframes*/
+        @keyframes cambio_colore{
+            /* from{
+                background-color: red;
+            }
+            to{
+                background-color: yellow;
+            } */
+            0%{
+                background-color: red;
+                left: 0px;
+                top: 0px;
+            }
+            25%{
+                background-color: orange;
+                left: 200px;
+                top: 0px;
+                
+            }
+            50%{
+                background-color: green;
+                left: 200px;
+                top: 200px;
+            }
+            75%{
+                background-color: cadetblue;
+                left: 0;
+                top: 200px;
+            }
+            100%{
+                background-color: yellow;
+                left: 0px;
+                top: 0px;
+            }
+            
+        }
+
+
+        .sposta{
+            width: 100px;
+            height: 100px;
+            background-color: blueviolet;
+            transition-duration: 1s;
+        }
+
+        .sposta:hover{
+            background-color: brown;
+            /* transform: rotate(20deg); */
+            transform: translate(50px, 50px);
+        }
+    </style>
+</head>
+<body>
+    <div class="animazione"></div>
+    <div class="sposta"></div>
+</body>
+</html>
