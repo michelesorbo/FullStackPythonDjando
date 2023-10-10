@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Query</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+        .box{
+            width: 600px;
+            height: 600px;
+            border: 2px solid cornflowerblue;
+            background-color: salmon;
+        }
+
+        p{
+            background-color: coral;
+            font-size: 25px;
+            font-family: 'Dancing Script', cursive;
+        }
+
+        /* Media Querys */
+        @media screen and (max-width: 400px) {
+            .box{
+                width: 200px;
+                height: 200px;
+                border: 2px solid rgb(0, 23, 67);
+                background-color: rgb(97, 10, 0);
+            }
+
+            p{
+                font-size: 12px;
+            }
+        }
+
+        /* Media Query per la Stampa del docuemnto */
+        @media print{
+            p{
+                font-size: 80px;
+                font-family: 'Times New Roman', Times, serif;
+            }
+
+            .box{
+                display: none; /*Serve a nascondere il tag */
+            }
+
+        }
+    </style>
+</head>
+<body>
+  
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Commodi sed itaque ratione labore libero optio iste eius similique, nihil illo harum eveniet magnam voluptatibus dolorum neque repellat voluptatum voluptates odit.</p>
+    <div class="box">Sono il div e non devo essere stampato</div>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I Layout</title>
+    <style>
+
+        .box{
+            width: 100%;
+            background-color: salmon;
+            height: 1000px;
+            margin-top: 20px;
+        }
+        /* Flex Display */
+
+        .flex-wrapper{
+            display: flex; /*Tipo di visualizzazione degli elementi all'interno del contenitore */
+            flex-direction: row; /*Tipologia di comportamento */
+            flex-wrap: wrap; /* Fa si che se manca spazio gli elementi si posizionano in pila */
+        }
+
+        .flex-wrapper>div{ /*Applico le regole solo ai div contenuti nella classe felx_wrap*/
+            padding: 20px;
+            margin: 5px;
+            background-color: salmon;
+            width: 300px;
+            box-sizing: border-box;
+        }
+
+
+        /* GRID LAYOUT */
+
+        .grid-wrapper{
+            display: grid; /* DIspone gli elementi tipo griglia*/
+            grid-template-columns: 1fr 1fr 1fr; /*Numero di colonne che deve avere la griglia*/
+            grid-template-rows: 100px 100px 100px; /*Dimensione delle celle per riga */
+            grid-gap: 10px; /*Spazziatura tra le celle*/ 
+        }
+
+        .grid-wrapper>div{
+            margin: 0;
+            padding: 5px;
+            background-color: cadetblue;
+        }
+
+        .gbox1{
+            grid-row: 1 / 3; /*Parti dalla riga 1 e occupa fino la riga 3 esclusa*/
+            grid-column: 2/4;
+        }
+
+        .gbox2{
+            grid-row: 1/3;
+            grid-column: 1;
+        }
+
+        /*Positionded Layout*/
+        .simple{
+            background-color: rgb(207,232,220);
+            border: 2px solid rgb(79, 185, 227);
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px; 
+        }
+
+        .positioned{
+            /* position: static; Quella di default */
+            /* position: relative; In base al contenuto */
+            /* position: absolute; in base alla pagina */
+            position: sticky;
+            top: 0px;
+        }
+
+        .button_down_fixed{
+            height: 40px;
+            width: 40px;
+            position: fixed; /*Deve rimanere esattemente dove dico io*/
+            top: 90%;
+            left: 95%;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="#top"><img src="img/star.webp" class="button_down_fixed" ></a>
+
+    <h1 id="#top">Positioning</h1>
+    <p class="simple positioned">Sono un blocco p e sono il menu <a href="#">Home</a> - <a href="#">Contatti</a></p>
+    <p class="simple">Sono il secondo blocco p</p>
+    <p class="simple">Sono il terzo blocco p</p>
+    
+    <!-- Display Flex -->
+    <h1>FlexBox Layout</h1>
+    <div class="flex-wrapper">
+        <div>Uno</div>
+        <div>Due</div>
+        <div>Tre</div>
+    </div>
+
+    <!-- Grid Layout -->
+    <h1>Grid Layout</h1>
+    <div class="grid-wrapper">
+        <div class="gbox1">Uno</div>
+        <div>Due</div>
+        <div>Tre</div>
+        <div>Quattro</div>
+        <div class="gbox2">Cinque</div>
+        <div>Sei</div>
+        <div>Sette</div>
+        <div>Otto</div>
+    </div>
+
+    <div class="box">Riempio lo scherml</div>
+</body>
+</html>
