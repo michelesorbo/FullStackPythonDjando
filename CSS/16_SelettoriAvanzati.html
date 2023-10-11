@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selettori Avanzati</title>
+    <style>
+        /*
+        [attribute=value]	[target="_blank"] 
+        Selezione gli elementi con attributo specificato
+        */
+        a[target="_blank"] {
+            text-decoration: none;
+        }
+
+        a[target="_blank"]:hover {
+            color: red;
+        }
+
+        /*Serve a selezionare l'attributo che ha sito nel proprio alt*/
+        img[alt~="sito"] {
+            background-color: cadetblue;
+        }
+
+        /*Tutto gli attributi che iniziano con en e possono avere altro nel testo */
+        [lang|="en"] {
+            background-color: yellow;
+        }
+
+        /* ^= serve a dire ogni attributo che inizia con */
+        div[class^="test"] {
+            background-color: yellow;
+        }
+
+        /* $= indica la fine dell'attributo */
+        img[src$=".png"]{
+            background-color: yellow;
+        }
+
+        /* *= serve a selezione qualsiasi attributo che contengo la parola specificata*/
+
+        div[class*="talent"]{
+            background-color: cadetblue;
+        }
+
+
+        /*Altri esempi di selezione */
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: cadetblue;
+        }
+
+        div.box{
+            border: 2px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <p>
+        Link alla <a href="https://www.w3schools.com/cssref/css_selectors.php" target="_blank">Documentazione</a>
+    </p>
+
+    <ul>
+        <li><a href="#" target="_blank">Google</a></li>
+        <li><a href="01_intro.html">Intro</a></li>
+        <li><a href="#" target="_blank">HD Blog</a></li>
+        <li><img src="../CSS/img/star.webp" alt="sito stella" width="100px"></li>
+        <li><img src="../CSS/img/breakfast.png" alt="colazzione sito"></li>
+        <li><img src="../CSS/img/church_icon.png" alt="chiesa">aaa</li>
+    </ul>
+
+    <p lang="en">Hello</p>
+    <p lang="en-us">Hi</p>
+    <p lang="it">Ciao</p>
+
+    <div class="first_test">The first div element.</div>
+    <div class="second test">The second div element.</div>
+    <div class="test">The third div element.</div>
+    <div class="test_ex">The fourth div element.</div>
+    <p class="test">This is a paragraph.</p>
+    <p class="test_ex">This is a paragraph.</p>
+
+    <p><img src="../CSS/img/star.webp" alt="sito stella" width="100px"></p>
+    <p><img src="../CSS/img/breakfast.png" alt="colazzione sito"></p>
+    <p><img src="../CSS/img/church_icon.png" alt="chiesa">aaa</p>
+
+
+    <div class="primo_talent">The first div element.</div>
+    <div class="talent">The second div element.</div>
+    <div class="tesrttalent_test">The third div element.</div>
+    <div class="test_ex">The fourth div element.</div>
+
+    <div class="box">
+        Sono il div Box
+    </div>
+
+    <p class="box">
+        Sono p box
+    </p>
+
+</body>
+
+</html>

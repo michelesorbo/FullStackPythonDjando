@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formattare Form</title>
+    <style>
+
+        form{
+            margin: 10px auto 0 auto;
+            width: 400px;
+            height: auto;
+            overflow: hidden;
+        }
+
+        input{
+            width: 100%;
+            margin: 5px 0;
+            padding: 15px 10px;
+            outline: none;
+            display: inline-block;
+            box-sizing: border-box;
+        }
+
+        label{
+            font-size: 12px;
+            color: chocolate;
+        }
+
+        div{
+            margin-bottom: 15px;
+        }
+
+        input[type="text"]{
+            background-color: cadetblue;
+            color: #fff;
+            border: 2px solid red;
+            border-radius: 5px;
+        }
+
+        input[type="text"]:focus{
+            border: 2px solid yellowgreen;
+            border-radius: 5px;
+            outline: none; /*Serve a togliere il contorno blu quando si entra in una casella di input */
+        }
+
+        input[type="submit"]{
+            background-color: blue;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        input[type="submit"]:hover{
+            background-color: green;
+        }
+
+        input[type="radio"]:checked{
+            height: 50px;
+            width: 50px;
+        }
+
+    </style>
+</head>
+<body>
+
+    
+
+    <form action="#" method="get">
+        <h1>Formatto Form</h1>
+        <div>
+            <label for="nome">Inserisci il nome</label>
+            <input type="text" name="nome" placeholder="inserisci solo il nome">
+        </div>
+
+        <div>
+            <label for="cognome">Inserisci il cognome</label>
+            <input type="text" name="cognome">
+        </div>
+
+        <div>
+            <label for="pwd">Inserisci la tua password</label>
+            <input type="password" name="pwd">
+        </div>
+
+        <div>
+            <label for="primo">Scegli un primo</label>
+            <input type="radio" name="primo">Pasta<br>
+            <input type="radio" name="primo">Riso<br>
+        </div>
+
+        <div>
+            <label for="auto">Scegli Auto</label>
+            <input type="checkbox" name="auto[]">Ferrari<br>
+            <input type="checkbox" name="auto[]">Mercedes<br>
+            <input type="checkbox" name="auto[]">AUDI<br>
+        </div>
+
+        <div><input type="submit"></div>
+    </form>
+    
+</body>
+</html>
