@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gli operatori e i CAST</title>
+</head>
+<body>
+    nome: <input type="number" name="nome" id="nome"><button id="btn">Invia</button>
+    <script>
+
+        const n_in = document.querySelector("#nome")
+        const btn  =document.querySelector("#btn")
+
+        btn.addEventListener("click", ()=> {
+            console.log("Tipo di valore nella casella di input: " + typeof(n_in.value))
+        })
+
+        let n1_p = prompt("Inserisci il primo numero")
+        console.log("Tipo di valore nella casella di prompt: " + typeof(n1_p))
+
+        //Operatori di incremento e matematici
+        /*
+        + Somma Es: 2 + 2 = 4 (Da non confondere con + contatenazione)
+        - Sottrazione Es: 4 - 2 = 2
+        * Moltiplicazione Es: 5 * 5 = 25
+        / Divisione Es: 40 / 2 = 20 (Attenzione alle divisioni per 0)
+        % Modulo (o "Resto della divisione") Es: 35 % 3 = 2
+        ++ Incremento Es: i = 9; i++ > 10
+        -- Decremento Es: i = 9; i-- > 8
+        */
+
+        let n1 = 3
+        let n2 = 5
+        let n3 = "8"
+
+        //Se provo a sommare un numero con una stringa + divenata concatenazione
+        let somma = n1 + n2 //somma = contenuto della variabile n1 + contenuto della variabile n2 => 3 + 5
+        document.write("La somma è: " + somma)
+
+        console.log("La somma è: " + (n1 + n2)) //Senza passare per la variabile somma
+
+        //Sottrazione
+        let sot = n1-n2
+        document.write("<br>La sottrazione è: " + sot)
+
+        //Moltiplicazione
+        let molt = n1*n2
+        document.write("<br>La moltiplicazione è: " + molt)
+
+        //Divisione
+        let div = n1/n2 //Attenzione a non dividere per 0
+        document.write("<br>La divisione è: " + div)
+
+        //Operatore modulo, resto della divisione es 35 % 3 = 2
+        let modulo = 35%3
+        document.write("<br>Il modulo è: " + modulo)
+
+        //Operatore di incremento e decremento
+        //Incrementare di uno il valore di una variabile numerica
+        let incremento = 4
+        incremento++ //Incremento il valore di 1
+        document.write("<br>Valore incremento: " + incremento)
+        console.log(++incremento)
+
+        let decremento = 4
+        decremento--
+        document.write("<br>Valore decremento: " + decremento)
+        console.log(`incremento ${--decremento}`)
+
+        //Forme abbreviate delle operazioni
+        let somma_a = 5
+        somma_a += 4 //Di consegnuenza vale per tutte le operazioni aritmetiche
+        document.write("<br>Nuova somma a: " + somma_a)
+
+        //Come conoscere il tipo di contenuto di una variabile
+        let nome = "Michele"
+        //Per conoscere il tipo si usa la funzione typeof
+        console.log(typeof(nome))
+        nome = 5
+        console.log(typeof(nome))
+
+        let str = "testo"
+        let numero = 3
+        let bol = true
+        console.log(typeof(str))
+        console.log(typeof(numero))
+        console.log(typeof(bol))
+
+        //CAST
+        //Serve a cambiare la tipologia della variabile
+        //Prima del cast
+        let lettera = "e"
+        document.write("<br>Senza cast: " + (n1+n3) )
+        document.write("<br>Con cast: " + (n1 + Number(n3)) ) //Per fare il cast di un numero ad una String si usa String(n1)
+
+    </script>
+</body>
+</html>

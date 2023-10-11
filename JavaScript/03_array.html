@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gli Array</title>
+</head>
+<body>
+
+    <h1>Gli array sono tutti arrayList modificate</h1>
+
+    <script>
+        let nome = "Mirko"
+        let nomi = ["Mirko", "Alessio", "Evelin","Fabio", "Carlo", "Eliana", "Ludmila"] //Un array di Nomi
+        console.log(nomi)
+        document.write(nomi[0])
+
+        let misto = ["Carlo", 12, true, ["Ciao", 4], "Fine"] //Array Misto
+        document.write("<br>Tipo elemento array: " + misto[3][1])
+
+        let ar_vuoto = [] //Creo un array vuoto
+
+        //Modificare elemnti in un array
+        nomi[1] = "Fabio"
+        console.log(nomi)
+
+        //Conoscere la lunghezza di un Array, quanti elementi sono presenti nell'array. Si conta da 1
+        document.write("<br>La sono presenti " + nomi.length + " nomi nella classe")
+
+        //Come stampare sempre l'ultimo elemento di un array
+        document.write("<br>Primo elelemto di nomi = " + nomi[0] + " Ultimo elemento di nomi = " + nomi[nomi.length-1])
+
+        //Come inserire elementi in un array
+        nomi.push("Matteo", "Lorenzo", 56) //Push inseriesce uno  o più elementi alla fine dell'array
+        console.log(nomi)
+
+        nomi.unshift("Sayri", "Emanuele") //Inserisce uno o più elementi all'inizio dell'array
+        console.log(nomi)
+
+        //Come eliminare elementi in un array
+        nomi.pop() //Elimino l'utimo elemento di un array
+        nomi.shift() //Elimino il primo elemento di un array
+        console.log(nomi)
+
+        document.write("<br>" + nomi)
+
+        //Stampo i nomi in una lista
+        document.write("<ul>")
+        //Usiamo il metodo forEach dell'array
+        nomi.forEach(e =>{
+            document.write("<li>" + e + "</li>")
+        })
+        document.write("</ul>")
+
+        let numeri = [12,8,75,9]
+        //Mi stampi la somma di tutti i numeri nell'array
+
+    </script>
+    
+</body>
+</html>

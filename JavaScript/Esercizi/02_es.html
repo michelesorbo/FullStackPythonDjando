@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esercizio 2</title>
+</head>
+<body>
+    
+    <script>
+        /*
+        Chiedere due numeri all'utente tramite prompt e fare la somma dei numeri
+
+        Scrivere la somma sia nel documento sia nel consolo log
+        */
+
+        let es_n1 = prompt("Inserisci il primo numero") //Prendo il primo parametro direttamente numerico
+        let es_n2 = +prompt("Inserisci il secondo numero") //Prompt accetta solo numeri e ritorna un Number
+        //DEvo trasformare il valore testuale in valore numerico. Lo faccio con l'operazione di CAST
+        somma = Number(es_n1) + Number(es_n2) 
+        //console.log(typeof(es_n1))
+        console.log("La somma dei numeri inseriti è: " + somma)
+
+    </script>
+</body>
+</html>
