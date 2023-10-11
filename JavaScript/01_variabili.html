@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Variabili</title>
+</head>
+<body>
+    
+    <script>
+        document.write("Ciao da JS")
+        let nome = prompt("Come ti chiami?")
+        document.write("Il nome inserito è: " + nome)
+        nome = "Mirko";
+        document.write("<br>Adesso il nome è: " + nome)
+
+        console.log("Ciao da JS")
+
+        //Teoria delle variabili
+        /*
+        1) il nome delle variabili deve essere descrittivo
+        2) il nome delle variabili non possono contenere spazzi
+        3) le varibili iniziano sempre con una lettera minuscola
+        4) non usare mai lettere accentate
+        5) non usare nomi del programma es: for let var string while if else
+       */
+
+       let testo //Ho dichiarato una variabile, let o var si usano solo la prima volta che dichiaro la variabile
+       testo = 'Ciao' //Ho assegnato un valore alla variabile, se lo faccio la prima volta si chiama inizzializzazione della variabile
+
+       let cognome = "Sorbo" //è una variabile locale e JS6 chiede di utilizzare sempre let
+       var eta = 44 //è una variabile globale, visibile a livello globale
+
+       /*
+        LE COSTANTI
+        - si dichiarano con const
+        - Le costanti si scrivono sempre in MAIUSCOLO
+        - Le costanti vanno sempre dichiarate e inizializzate nello stesso momento
+        - Le costanti non possono essere modificate
+        */
+        const PGRECO = 3.14 //Dichiaro e inizializzo la costante
+        console.log(PGRECO)
+        //PGRECO = 5 //Genera errore
+
+        //Tipologie di Valori nelle variabili
+        let firstname = "Michele" //Variabile di tipo Stringa (Sono tutti i testi)
+        let frase = "L'altro giorno sono andato a casa"
+        let frase2 = 'E mi disse "Ciao come stai"'
+        let numero = 3 //Tipo Numeric (Numerico tutti i numeri)
+        let num_sci = 9007199254720n //Variabile di tipo BigInt o Numerazione scentifica
+        let boolean = true //Sono variabili che posso essere o true o false
+    
+        let testo1 = "Sono il testo e dico \"Ciao a tutti\" " //Carattere di Escape
+
+        //Come unire più testi e variabili insieme. CONCATENARE
+        console.log("Si chiama " + firstname + " ed ha " + eta )
+
+        //Invece di usa la concatenazione con + possu usare il backtic `
+
+        /*
+        metodo con Backtick shortcut on Windows is Alt + 96 , whereas the native shortcut for the tilde is Alt + 126 
+        per Mac option + 9 ` la ~ option + 5
+        */
+
+        console.log(`Si chiama ${firstname} ed ha ${eta} anni`)
+
+        //Il comando Prompt, serve a chiede informazione tramite il browser
+        let corso = prompt("Che corso segui?")
+        document.write(`<br>Hai inserito ${corso}`)
+
+    </script>
+</body>
+</html>
