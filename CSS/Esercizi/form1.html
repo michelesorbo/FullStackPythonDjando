@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form 1</title>
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Lily+Script+One);
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+            font-weight: normal;
+            background-color: cadetblue;
+            /* background: rgb(178,254,255);
+            background: linear-gradient(195deg, rgba(178,254,255,0.7931766456582633) 0%, rgba(138,95,3,0.4430147058823529) 100%); */
+        }
+
+        form {
+            -webkit-box-shadow: 7px 10px 5px -3px rgba(0, 38, 21, 1);
+            -moz-box-shadow: 7px 10px 5px -3px rgba(0, 38, 21, 1);
+            box-shadow: 7px 10px 5px -3px rgba(0, 38, 21, 1);
+            margin: 50px auto 0 auto;
+            padding: 30px;
+            width: 400px;
+            height: auto;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.282);
+            border-radius: 10px;
+        }
+
+        form label {
+            font-size: 14px;
+            color: darkgray;
+            cursor: pointer;
+        }
+
+        form input {
+            margin: 10px 0;
+            padding: 15px 10px;
+            width: 100%;
+            outline: none;
+            border: 1px solid #bbb;
+            display: inline-block;
+            box-sizing: border-box;
+            border-radius: 20px;
+        }
+
+        form label,
+        form input {
+            float: left;
+            clear: both;
+        }
+
+        form input[type="text"]:focus,
+        form input[type="password"]:focus {
+            border-color: cornflowerblue;
+        }
+
+        input[type="submit"] {
+            padding: 15px 50px;
+            width: auto;
+            background-color: #1abc9c;
+            border: none;
+            color: white;
+            cursor: pointer;
+            display: inline-block;
+            float: right;
+            clear: right;
+            transition: 0.5s;
+        }
+
+        input[type="submit"]:hover {
+            opacity: 0.8;
+        }
+
+        input[type="submit"]:active {
+            opacity: 0.4;
+        }
+
+        .forgot,
+        .register {
+            margin: 10px;
+            float: left;
+            clear: left;
+            display: inline-block;
+            color: cornflowerblue;
+            text-decoration: none;
+        }
+
+        .forgot:hover,
+        .register:hover {
+            color: darkgray;
+        }
+
+        #logo {
+            margin: 0 auto;
+            width: 200px;
+            font-family: 'Lily Script One', cursive;
+            font-size: 60px;
+            font-weight: bold;
+            text-align: center;
+            color: lightgray;
+            transition: 0.4s;
+        }
+
+        #logo:hover {
+            color: cornflowerblue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form method="post" action="">
+
+        <h3 id="logo">Log In</h3>
+
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" placeholder="Type in your username.." autocomplete="off"
+            required />
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password.." autocomplete="off"
+            required />
+
+        <a class="forgot" href="#">Forgot Password?</a>
+        <a class="register" href="#">Register</a>
+
+        <input type="submit" name="submit" value="Log In" />
+
+    </form>
+
+</body>
+
+</html>
