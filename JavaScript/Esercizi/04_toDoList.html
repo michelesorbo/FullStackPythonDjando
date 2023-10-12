@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+</head>
+<body>
+
+    <p>
+        Inserisci nuovo elemneto <input type="text" id="el"><button id="btn_ins">Inserisci</button>
+    </p>
+    <p>
+        Elimina un elemento inserendo il numero<input type="text" id="el_del"><button id="btn_del">Rimuovi</button>
+    </p>
+    <ol id="lista">
+
+    </ol>
+    
+
+    <script>
+        const lista = document.querySelector("#lista")
+        const btn_ins = document.querySelector("#btn_ins")
+        const el = document.querySelector("#el")
+        const btn_del = document.querySelector("#btn_del")
+        const el_del = document.querySelector("#el_del")
+
+        //Impostazioni iniziali
+        let toDo = ["Spesa","Chiamare casa", "Ripetere le cose viste al corso"]
+
+        toDo.forEach(el =>{
+            lista.innerHTML += "<li>"+el+"</li>"
+        })
+        //Fine impostazioni predefinite
+
+        //Inserimento nuovo elemento
+        btn_ins.addEventListener("click", ()=>{
+            toDo.push(el.value)
+
+            lista.innerHTML = "" //Cancello quello che era prevente nella lista HTML
+
+            toDo.forEach(el =>{
+               lista.innerHTML += "<li>"+el+"</li>"
+            })
+
+            el.value = "" //Inposto l'attributo value dell'input a vuoto
+
+        })
+
+
+        //Cancello elemento
+        btn_del.addEventListener("click", ()=>{
+            console.log(el_del.value.trim())
+            let indice = Number(el_del.value.trim()) - 1
+            toDo.splice(indice,1) //Cancello elemento dalla lista
+
+            //Ristampo la lista
+            lista.innerHTML = "" //Cancello quello che era prevente nella lista HTML
+
+            toDo.forEach(el =>{
+               lista.innerHTML += "<li>"+el+"</li>"
+            })
+
+            el_del.value = ""
+        })
+    </script>
+</body>
+</html>

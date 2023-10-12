@@ -8,6 +8,11 @@
 <body>
 
     <h1>Gli array sono tutti arrayList modificate</h1>
+    <ul>
+    <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array" target="_blank">Documentazione Array</a></li>
+    <li><a href="https://www.w3schools.com/js/js_arrays.asp" target="_blank" rel="noopener noreferrer">Teoria Array</a></li>
+    <li><a href="https://www.w3schools.com/js/js_array_methods.asp" target="_blank" rel="noopener noreferrer">Metodi Array</a></li>
+    </ul>
 
     <script>
         let nome = "Mirko"
@@ -47,14 +52,63 @@
         //Stampo i nomi in una lista
         document.write("<ul>")
         //Usiamo il metodo forEach dell'array
-        nomi.forEach(e =>{
-            document.write("<li>" + e + "</li>")
-        })
+        
         document.write("</ul>")
 
-        let numeri = [12,8,75,9]
-        //Mi stampi la somma di tutti i numeri nell'array
+        //Trasformare una stringa in un array
+        let testo = "1,3,45,32,9"
+        let ar_testo = testo.split(',')
+        console.log(ar_testo)
 
+        let alunni_testo = "Mirko Sayri Eliana Evelin"
+        let ar_alunni = alunni_testo.split(' ')
+        console.log(ar_alunni)
+
+        //Eliminare un elemento ad un determinato indice
+        let ar_2 = ["Mirko", "Alessio", "Eliana", "Carlo"]
+        //ar_2.splice(2,1) //Indice di partenza, numero di eleemnti da eleminare da quell'indice in poi
+        delete ar_2[2] //A differenza di splice lascia l'indice vuoto
+        console.log("CAncella------")
+        console.log(ar_2)
+
+        //Sostituire un elemento con splayce
+        let ar_3 = ["Mirko", "Alessio", "Eliana", "Carlo"]
+        ar_3.splice(1,1,"Fabio") //Si può fare anche ar_3[1] = "Fabio"
+        console.log(ar_3)
+
+        //Inserire elemento in una specifica posizione
+        let ar_4 = ["Mirko", "Alessio", "Eliana", "Carlo"]
+        ar_4.splice(1,0,"Fabio")
+        console.log(ar_4)
+
+        //Conoscere l'indice di un elemento nell'array
+        let ar_5 = ["Mirko", "Alessio", "Eliana", "Carlo", "Evelin", "Ludmila", "Sayri"]
+        document.write("<br>Indice di Eliana = " + ar_5.indexOf("Eliana"))
+        console.log(ar_5)
+
+        //Ordinare un array
+        let ar_6 = ["Mirko", "Alessio", "Eliana", "Carlo", "Evelin", "Ludmila", "Sayri"]
+        ar_6.sort() //Questo metodo cambia l'array per sempre
+        document.write("<br>Array Ordinato = " + ar_6)
+
+        //Fare il revers di un array
+        let ar_7 = [4,56,2,8,12]
+        ar_7.reverse() //Cambio l'indice dell'array per semrpe
+        document.write("<br>Array Revers = " + ar_7)
+
+        //Ordinare l'array in modo decrescente????
+        let ar_8 = ["Mirko", "Alessio", "Eliana", "Carlo", "Evelin", "Ludmila", "Sayri"]
+        ar_8.sort().reverse()
+        document.write("<br>Array ordinato in modo decrescente = " + ar_8)
+
+        //Trovare un elemento in un array. Includes è casa sensitive
+        let ar_9 = ["Mirko", "Alessio", "Eliana", "Carlo", "Evelin", "Ludmila", "Sayri"]
+        document.write("<br>Carlo è presente nell'array? = " + ar_9.includes("Carlo"))
+
+        //Convertire un array in stringa
+        let ar_10 = ["Mirko", "Alessio", "Eliana", "Carlo", "Evelin", "Ludmila", "Sayri"]
+        let ar_10_st = ar_10.toString()
+        document.write("<br>Conversione a stringa di un array = " + ar_10_st)
     </script>
     
 </body>
