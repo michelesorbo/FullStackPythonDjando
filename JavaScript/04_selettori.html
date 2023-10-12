@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I selettori</title>
+    <style>
+
+        .darkMode{
+            background-color: black;
+            color: white;
+        }
+
+       #box{
+        width: 200px;
+        height: 200px;
+        background-color: cadetblue;
+        border: 2px solid black;
+        border-radius: 5px;
+       } 
+    </style>
+</head>
+<body>
+
+    <h1 id="titolo">Titolo della pagina</h1>
+    <div id="box">Sono il div con id settato</div>
+    <p>Sono il primo paragrafo</p>
+    <h2 class="sub_title">Sono il sotto titolo</h2>
+    <p>Sono il secondo paragrafo</p>
+    <p>Sono il terzo paragrafo</p>
+    <p>Sono il quarto paragrafo</p>
+    <input type="text" id="inp"><br>
+    <input type="text" id="inp2"><br><br>
+    <button class="btn">Premi</button>
+    <button id="btn2">Dark Mode On</button><button id="btn3">Dark Mode Off</button>
+    
+    <script>
+        const titolo = document.getElementById("titolo") //Vecchio Metodo
+        const box = document.querySelector("#box") //Nuovo Metodo
+        const inp = document.querySelector("#inp")
+        const inp2 = document.querySelector("#inp2")
+        const subTitle = document.querySelector(".sub_title")
+        //const p = document.querySelector("p") //Prendo solo il primo p della pagina
+        const par = document.querySelectorAll("p")//Selezionare tutti i tag p della pagina
+        const btn = document.querySelector(".btn")
+        const btn2 = document.querySelector("#btn2")
+        const btn3 = document.querySelector("#btn3")
+        const body = document.querySelector("body");
+
+        console.log(par)
+        par[1].innerHTML = "Ciao da JS"
+
+        //Cambio il testo nel box con JS
+        box.innerHTML = "<b>Ti saluto da JS</b>" //Uso innerHTML quando i tag sono contenitori es p, div, button, h1
+        //inp.value = "Ciao da JS" //Uso il campo value per inserire o prendere il valore inserito nei campi input
+
+        //Azioni su pulsante
+        btn.addEventListener("click", ()=>{
+            alert("Hai sritto: " + inp.value)
+        })
+
+        //Eventi Key
+        inp2.addEventListener("keyup", ()=>{
+            console.log(inp2.value)
+        })
+
+        btn2.addEventListener("click", ()=>{
+            //box.style.display = "none"
+            body.className = "darkMode"
+        })
+
+        btn3.addEventListener("click", ()=>{
+            //box.style.display = ""
+            body.className = ""
+        })
+    </script>
+</body>
+</html>

@@ -18,7 +18,7 @@
         let somma = 0 //Inizializzo la variabile dove ricordo la somma con un valore neutro per la somma
 
         es1_ar.forEach(e =>{
-            somma += e
+            somma += e //somma = somma + e
         })
 
         document.write("La somma del 1° esercizio è: " + somma)
@@ -27,7 +27,12 @@
         Es2:
         Dato l'array ar[1,4,5,96,8,36] stamapre a video il doppio di ogni numero prensente nell'array
         */
+        document.write("<hr><h3>Esercizio 2</h3>")
+        let es2_ar = [1,4,5,96,8,36]
 
+        es2_ar.forEach(el => {
+            document.write("Il doppio di " + el + " è " + (el * 2) + "<br>")
+        })
 
         /*
         Es3:
@@ -35,12 +40,39 @@
         Dopo stampare la somma dei numeri utilizzando l'array e il forEach
         Ricodatevi che il prompt ritorna string, usre uno dei metodi visti prima
         */
+    //let numeri_utente = [] //Creo arry vuoto per salvare i numeri inseriti dall'utente
+        
+    //    let n = prompt("Inserisi il 1° numero")
+    //    numeri_utente.push(Number(n))
+    //    n = prompt("Inserisci il 2° numero")
+    //    numeri_utente.push(Number(n))
+    //Versione Ottimizzata
+    // numeri_utente.push(+prompt("Inserisci il 1° numro"))
+    // numeri_utente.push(+prompt("Inserisci il 2° numro"))
+    // numeri_utente.push(+prompt("Inserisci il 3° numro"))
 
+    // let somma_es2 = 0
+
+    // numeri_utente.forEach(el =>{
+    //     somma_es2 += el
+    // })
+
+    // document.write("<br>La somma dei numeriinseriti è: " + somma_es2)
         /*
         Es4:
         Chiede di inserire dei numeri divisi da uno spazio. Fare la somma dei numeri inseriti
         */
 
+        let numeri_es = prompt("inserisci dei numeri divisi da uno spazio")
+        //"12 3 4 32 24"
+        let ar_mun_es = numeri_es.split(' ') //Ora ho un array di stringhe numerico
+        let somma_es4 = 0
+        ar_mun_es.forEach(el =>{
+            somma_es4 += Number(el) //Trasformo il numero da stringa a numero per essere sommato
+        })
+
+        document.write("<br>La somma dei numeriinseriti è: " + somma_es4)
+        document.write("<br>La media dei numeriinseriti è: " + (somma_es4 / ar_mun_es.length))
     </script>
 </body>
 </html>
