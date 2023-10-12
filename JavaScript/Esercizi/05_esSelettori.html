@@ -28,6 +28,7 @@
         let alunni = ["Mirko", "Carlo", "Alessio", "Eliana"]
 
         //Stampo la lista degli alunni appena apro la pagina
+        lista.innerHTML = "" //Pulisco la lista
         alunni.forEach(el => {
             lista.innerHTML += "<li>" + el + "</li>"
         })
