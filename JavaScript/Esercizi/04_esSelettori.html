@@ -11,5 +11,21 @@
         <input type="text" id="n1"> + <input type="text" id="n2"> <button id="btn">Risultato</button>
     </div>
     <p id="ris">Mostro il risultato</p>
+
+    <script>
+        const n1 = document.querySelector("#n1")
+        const n2 = document.querySelector("#n2")
+        const btn = document.querySelector("#btn")
+        const ris = document.querySelector("#ris")
+
+        btn.addEventListener("click", ()=>{
+            console.log(typeof(Number(n1.value)))
+            ris.innerHTML = "Il risulatato è: " + (Number(n1.value) + Number(n2.value))
+            //Dopo che ho fatto stampare il risultato setto le caselle di input a vuoto
+            n1.value = ""
+            n2.value = ""
+        })
+        
+    </script>
 </body>
 </html>

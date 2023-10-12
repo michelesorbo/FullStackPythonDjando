@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Es 5</title>
+</head>
+
+<body>
+
+    <h1>Elenco alunni del corso</h1>
+    <p>
+        Nome Alunno: <input type="text" id="alunno"><button id="btn">Inserisci</button>
+    </p>
+    <p><button id="el_primo">Elimina primo alunno</button> - <button id="el_utlimo">Elimina ultimo alunno</button></p>
+    <ul id="lista">
+    </ul>
+    <p>Dopo la lista</p>
+
+    <script>
+        const lista = document.querySelector("#lista")
+        const alunno = document.querySelector("#alunno")
+        const btn = document.querySelector("#btn")
+        const el_primo = document.querySelector("#el_primo")
+        const el_utlimo = document.querySelector("#el_utlimo")
+        //Dato un array di nomi stampare i nomi dell'array nella lista nella pagina HTML
+        let alunni = ["Mirko", "Carlo", "Alessio", "Eliana"]
+
+        //Stampo la lista degli alunni appena apro la pagina
+        alunni.forEach(el => {
+            lista.innerHTML += "<li>" + el + "</li>"
+        })
+
+        //Stampo la lista appena viene inserito un nuovo nome
+        btn.addEventListener("click", () => {
+            //1° Aggiugno quello che viene scritto nel comapo input all'array
+            alunni.push(alunno.value)
+
+            //2° Stampo a video il nuovo array di alunni
+            lista.innerHTML = "" //Pulisco la vecchia lista
+            alunni.forEach(el => {
+                lista.innerHTML += "<li>" + el + "</li>"
+            })
+        })
+
+        el_primo.addEventListener("click", ()=>{
+            alunni.shift() //Elimino il primo elemento
+
+            lista.innerHTML = "" //Pulisco la vecchia lista
+            alunni.forEach(el => {
+                lista.innerHTML += "<li>" + el + "</li>"
+            })
+        })
+
+        el_utlimo.addEventListener("click", ()=>{
+            alunni.pop() //Elimino l'ultimo elemento
+
+            lista.innerHTML = "" //Pulisco la vecchia lista
+            alunni.forEach(el => {
+                lista.innerHTML += "<li>" + el + "</li>"
+            })
+        })
+    </script>
+</body>
+
+</html>
