@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esercizio 8</title>
+</head>
+<body>
+    <p>Inserisci il voto espresso in 100 e lo ocnverto in lettere</p>
+    <p>Voto: <input type="text" id="voto"><button id="btn">Converti</button></p>
+    <p id="ris"></p>
+
+    <script>
+        const voto = document.querySelector("#voto")
+        const btn = document.querySelector("#btn")
+        const ris = document.querySelector("#ris")
+
+        //Fare degli if a cascata
+        btn.addEventListener("click",()=>{
+            if(voto.value < 70){
+                ris.innerHTML = "Livello D"
+            }
+            if(voto.value >= 70){
+                ris.innerHTML = "Livello C"
+            }
+            if(voto.value >= 80){
+                ris.innerHTML = "Livello B"
+            }
+            if(voto.value >= 90){
+                ris.innerHTML = "Livello A"
+            }
+        })
+    </script>
+</body>
+</html>

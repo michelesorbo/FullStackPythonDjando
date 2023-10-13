@@ -1,11 +1,11 @@
-Es1
+Es7
 Creare una pagina html con un acasella di input dove inserire un numero.
 Quando si preme il pulsante verifica:
 - Verificare se il valore inserito è un numero
 - se è un numero stamapre nel documento  se il numero è pari o dispari
 ps. per verificare se un numero è paro o dispari vedere il resto della divisione per 2
 
-Es2
+Es8
 Scrivi un programma che prenda il punteggio di uno studente in input e stampi 
 sulla pagina il suo livello (A, B, C, D).
  A se prende 90 punti in poi, 
@@ -13,15 +13,15 @@ sulla pagina il suo livello (A, B, C, D).
  C 70 punti.
  D se prende meno di 70
 
-Es3:
+Es9:
 Scrivi un programma che prenda un numero da una casella di input 
 e stampi nella pagina se è positivo, negativo o zero.
 
-Es4:
+Es10:
 Scrivi un programma che prenda l'età di una persona e stampi sulla pagina se può guidare.
 
 
-Es5
+Es11
 Creare un form con nome, cognome, età e nazionalita. Pulire tutti i campi rendeno sia il nome che il cognome
 che la nazionalità scrittti con la prima lettare maiusocla e il resto minusoclo.
 Se la nazionalità è diversa da italiana chiedere il paese di origien tramite prompt e stamapre

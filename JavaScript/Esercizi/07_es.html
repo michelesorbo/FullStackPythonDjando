@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esercizio 07</title>
+</head>
+<body>
+    <p>
+        Inserisci un numero: <input type="text" id="num"><button id="btn">Verifica</button>
+    </p>
+    <p id="ris"></p>
+
+    <script>
+        const num = document.querySelector("#num")
+        const btn = document.querySelector("#btn")
+        const ris = document.querySelector("#ris")
+
+        btn.addEventListener("click", ()=>{
+            //1° Verifico se nella casella di input viene inserito un numero
+            if(!isNaN(num.value)){
+                ris.style.color = ""
+                if(num.value%2 == 0){
+                    ris.innerHTML = "<b>Il numero inserito è pari</b>"
+                }else{
+                    ris.innerHTML = "<b>Il numero inserito è dispari</b>"
+                }
+            }else{
+                ris.style.color = "red"
+                ris.innerHTML = "<b>Attenzione puoi inseirire solo numeri</b>"
+            }
+
+            //Dopo che ha verificato tutto
+            num.value = ""
+        })
+    </script>
+    
+</body>
+</html>
