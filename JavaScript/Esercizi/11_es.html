@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Es 11</title>
+
+    <style>
+        #ris{
+            display: none;
+            margin-top: 20px;
+            padding: 10px;
+            width: 200px;
+            height: 200px;
+            color: white;
+            background-color: rgb(0, 64, 0);
+            border: 2px solid black;
+            border-radius: 8px;
+        }
+
+        #ris > span {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <h1>Compila i campi</h1>
+        <p><sup>*</sup>I campi sono tutti obbligatori e devo avere almeno 3 caratteri tranne per età</p>
+
+        <div>
+            <label for="nome">Inserisci il nome</label>
+            <input type="text" id="nome">
+        </div>
+
+        <div>
+            <label for="cognome">Inserisci il cognome</label>
+            <input type="text" id="cognome">
+        </div>
+
+        <div>
+            <label for="eta">Inserisci la tua età</label>
+            <input type="text" id="eta">
+        </div>
+
+        <div>
+            <label for="nazionalita">Inserisci la nazionalità</label>
+            <input type="text" id="nazionalita">
+        </div>
+        <div>
+            <button id="btn">Invia</button>
+        </div>
+    </div>
+
+    <div id="ris">
+       
+    </div>
+
+    <script>
+        const nome = document.querySelector("#nome")
+        const cognome = document.querySelector("#cognome")
+        const eta = document.querySelector("#eta")
+        const nazionalita = document.querySelector("#nazionalita")
+        const btn = document.querySelector("#btn")
+        const ris = document.querySelector("#ris")
+
+        btn.addEventListener("click", ()=>{
+            if(nazionalita.value.trim().toLowerCase() != "italia"){
+                var residenza = prompt("Inserisci la tua Residenza")
+            }
+
+            //Controllare se il valore inserito in età è un numero. in caso di errore colorare la casella di input
+            //Con un bordo rosso
+            //1° rendo visibile in div
+            ris.style.display = "block"
+            //Pulisto e visulizzo il campo nome
+            ris.innerHTML = "<span>Nome:</span> " + nome.value.charAt(0).toUpperCase() + nome.value.slice(1).toLowerCase() + "<br>"
+            ris.innerHTML += "<span>Cognome:</span> " + cognome.value.charAt(0).toUpperCase() + cognome.value.slice(1).toLowerCase() + "<br>"
+            ris.innerHTML += "<span>Età:</span> " + eta.value + "<br>"
+            ris.innerHTML += "<span>Nazionalità:</span> " + nazionalita.value.charAt(0).toUpperCase() + nazionalita.value.slice(1).toLowerCase() + "<br>"
+            ris.innerHTML += "<span>Residenza:</span> " + residenza.value.charAt(0).toUpperCase() + residenza.value.slice(1).toLowerCase() + "<br>"
+            
+
+        })
+        
+
+    </script>
+    
+</body>
+</html>

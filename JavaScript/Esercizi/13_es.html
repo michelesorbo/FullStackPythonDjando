@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Esercizio 2</h3>
+<p>Scrivere un programma DomandaRisposta che chiede all’utente di inserire una stringa, ricava l’ultimo carattere di tale stringa e: 
+    <ul>
+        <li>se tale carattere è un punto interrogativo (?) stampa: Non saprei...</li>
+        <li>se tale carattere è un punto esclamativo (!) stampa: Hai proprio ragione!</li>
+        <li>altrimenti stampa Mmmm, non mi convince...</li>
+    </ul>
+</p>
+<hr>
+<p>
+    Frase: <input type="text" id="frase"><button id="btn">Verifica</button>
+</p>
+<p id="ris"></p>
+
+<script>
+    const btn = document.querySelector("#btn")
+    const frase = document.querySelector("#frase")
+    const ris = document.querySelector("#ris")
+
+    btn.addEventListener("click", ()=>{
+        let ultimo = frase.value.trim().charAt(frase.value.trim().length-1)
+        if(ultimo == "?"){
+            ris.innerHTML = "Non saprei..."
+        }else if(ultimo == "!"){
+            ris.innerHTML = "Hai proprio ragione!"
+        }else{
+            ris.innerHTML = "Mmmm, non mi convince..."
+        }
+    })
+
+</script>
+</body>
+</html>

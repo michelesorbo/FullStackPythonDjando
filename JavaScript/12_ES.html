@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esercizio 12</title>
+</head>
+
+<body>
+    <h1>Scegli il tuo scelta</h1>
+    <p>
+    <ol>
+        <li>Tiramisù</li>
+        <li>Torta della nonna</li>
+        <li>Cheesecake alla nutella</li>
+        <li>Macedonia</li>
+    </ol>
+    </p>
+    <p>Inserisci scelta <input type="text" id="scelta"><button id="btn">Ordina</button></p>
+    <p id="ris"></p>
+
+    <script>
+        const scelta = document.querySelector("#scelta")
+        const btn = document.querySelector("#btn")
+        const ris = document.querySelector("#ris")
+
+        btn.addEventListener("click", () => {
+            
+            if (scelta.value == 1) {
+                //alert("Hai scelto Tiramisù")
+                ris.innerHTML = "Hai scelto Tiramisù"
+            } else if (scelta.value == 2) {
+                ris.innerHTML = "Hai scelto Torta della nonna"
+            } else if (scelta.value == 3) {
+                ris.innerHTML = "Hai scelto Cheesecake alla nutella"
+            } else if (scelta.value == 4) {
+                ris.innerHTML = "Hai scelto Macedonia"
+            } else {
+                ris.innerHTML = "Scelta non disponibile"
+            }
+        })
+    </script>
+</body>
+
+</html>

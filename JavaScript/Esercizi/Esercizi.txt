@@ -22,8 +22,9 @@ Scrivi un programma che prenda l'età di una persona e stampi sulla pagina se pu
 
 
 Es11
-Creare un form con nome, cognome, età e nazionalita. Pulire tutti i campi rendeno sia il nome che il cognome
+Creare un div che contine i seguenti campi di input con nome, cognome, 
+età e nazionalita. Pulire tutti i campi rendeno sia il nome che il cognome
 che la nazionalità scrittti con la prima lettare maiusocla e il resto minusoclo.
 Se la nazionalità è diversa da italiana chiedere il paese di origien tramite prompt e stamapre
-tutti ii dati in un div di colore verde scuro con i campi nome cognome età nazionalità e la possibile residenza 
-in bianco. I campi inserito dall'utente in rosso
+tutti ii dati in un div di colore verde scuro con i campi nome cognome età nazionalità e la 
+possibile residenza in bianco. I campi inserito dall'utente in rosso

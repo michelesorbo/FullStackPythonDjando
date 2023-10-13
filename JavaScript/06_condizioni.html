@@ -94,6 +94,70 @@
             console.log("Il numero è minore di 3")
         }
 
+        //Costrutto if else devo chiudere per forna con un else
+
+        let user = "Carlo"
+
+        //Carlo = Grafico; Mirko = Amministratore; Alessio = Utente
+
+        if(user == "Carlo"){
+            document.write("<br>Ciao Grafico")
+        }else if(user == "Mirko"){
+            document.write("<br>Ciao Amministratore")
+        }else if(user == "Alessio"){
+            document.write("<br>Ciao Utente")
+        }else{
+            document.write("Non sei un utente abilitato")
+        }
+
+        //Per creare una nuova riga sul prompt inserire \n
+
+        /****************  Menu dei dolci ****************************
+         Scrivi un programma che dato il seguente menu (da stampare):
+            MENU:
+            1. Tiramisù
+            2. Torta della nonna
+            3. Cheesecake alla nutella
+            4. Macedonia
+        Prenda in input un valore numerico che rappresenti la scelta e restituisca:
+            - se la scelta non è tra quelle elencate la scritta 'Dolce non disponibile',
+            - altrimenti la scelta effettuata 'Hai scelto il dolce X'.
+        Esempi:
+            Input: scelta = 4
+            Output: Hai scelto il dolce Macedonia
+            Input: scelta = 7
+            Output: Dolce non disponibile
+        ***********************************************************/
+
+        let dolce = prompt("MENU:\n1. Tiramisù\n2. Torta della Nonna\n3. Cheescake alla Nutella\n4. Macedonia")
+
+        if (dolce == 1) {
+            //alert("Hai scelto Tiramisù")
+            console.log("Hai scelto Tiramisù")
+        } else if (dolce == 2) {
+            console.log("Hai scelto Torta della nonna")
+        } else if (dolce == 3) {
+            console.log("Hai scelto Cheesecake alla nutella")
+        } else if (dolce == 4) {
+            console.log("Hai scelto Macedonia")
+        } else {
+            console.log("Scelta non disponibile")
+        }
+
+        //Operatore Ternario
+
+        nome = "Carlo";
+        cognome = nome == "Michele" ? "Sorbo" : "Non lo so" //Condizione ? caso vero : caso falso
+        console.log(cognome)
+        // if(nome == "Michele"){
+        //     cognome = "Sorbo"
+        // }else{
+        //     cognome = "Non lo so"
+        // }
+
+        let x = -3
+        let modulo_x = x > 0 ? x : -x
+
     </script>
 </body>
 </html>
