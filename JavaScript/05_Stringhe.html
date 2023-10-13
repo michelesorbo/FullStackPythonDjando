@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Stringhe</title>
+</head>
+<body>
+    <a href="https://www.w3schools.com/js/js_strings.asp" target="_blank" rel="noopener noreferrer">W3Scool</a>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank" rel="noopener noreferrer">Mozilla</a>
+
+    <script>
+        //Ogni stringa è vista come un array di caratteri
+       let str = "Ciao dal corso di JavaScript e dal team di TalentForm e dal team di FormaTemp"
+       document.write(`<br>La stringa è lunga ${str.length} caratteri`)
+
+       document.write(`<br>Il primo carattere della stringa è ${str[0]} e l'ultimo carattere è ${str[str.length-1]}`) //Va bene ma è la notazione per gli array
+       document.write("<br>Il primo carattere della stringa è " + str.charAt(0) + " e l'ultimo carattere è " + str.charAt(str.length-1)) //Metodo Giusto
+
+       //Trovare l'indice di partenza di una parola o frase, trova sempre la prima occorrenza o l'ultima occorrenza. In caso di errore (parola non trovata) ritorna -1
+       document.write("<br>L'indice di partenza della parola dal è: " + str.indexOf("Carlo"))
+       document.write("<br>Ultimo indice della parola dal è: " + str.lastIndexOf("dal"))
+
+       //Divedere una stringa. Si usa slice.
+       document.write("<br>Divido la stringa: " + str.slice(5,12)) //slice(indice_inzio, inidce_fine_escluso). Se ometto l'indice di fine terminerà alla fine della stringa
+
+       //Es creo una sottostringa che parte da JavaScript e termina con TalentForm escluso
+    //    let inizio = str.indexOf("JavaScript") 
+    //    let fine = str.indexOf("TalentForm")
+    //    let str_sub = str.slice(inizio,fine)
+    let str_sub = str.slice(str.indexOf("JavaScript"), str.indexOf("TalentForm"))
+    document.write("<br>La sotto stringa è: " + str_sub)
+
+    //Cancellare gli spazzi vuoti ad inizio e fine stringa
+    let str2 = "      Ciao Mondo     "
+    console.log(str2.length)
+    document.write("<br>Stampo la str2 = " + str2)
+    console.log(str2)
+    //Per togliere gli spazzi vuoti sia ad inizio che fine stringa uso trim
+    console.log(str2.trim())
+    console.log(str2.trimStart())//Elimina gli spazzi solo all'inizio
+    console.log(str2.trimEnd())//Elimina gli spazzi solo alla fine
+
+    //Cercare una parola o frase in una stringa. Includes ritorna un booleano
+    document.write("<br>JavaScript è presente nella stringa? " + str.includes("JavaScript"))
+
+    //Per conoscere il numri di occorrenze di una parola o frase nella stringa si usa matchAll
+    let iterator = str.matchAll("al")
+    console.log(iterator)
+    document.write("<br>Numero di occorrenze della parola dal nella tringa = " + Array.from(iterator).length)
+
+    //Formattazione del testo
+    let str3 = "Ciao MOndo"
+    document.write("<br>Stampo la stringa tutto in minuscolo = " + str3.toLocaleLowerCase()) //Trasformo i caratteri tutti in minuscolo
+    document.write("<br>Stampo la stringa tutto in MAIUSCOLO = " + str3.toLocaleUpperCase()) //Trasformo i caratteri tutti in MAIUSCOLO
+
+    //Es: Data la frase "ciAo da TalentFORM" far in modo che solo il primo carattere sia maiusoclo 
+    //e il resto sia minuscolo
+
+    </script>
+</body>
+</html>
