@@ -11,7 +11,7 @@
 
     <script>
         //Ogni stringa è vista come un array di caratteri
-       let str = "Ciao dal corso di JavaScript e dal team di TalentForm e dal team di FormaTemp"
+       let str = "Ciao dal corso di JavaScript e dal team di TalentForm e dal team di FormaTemp. JavaScript è un linguaggio innovativo."
        document.write(`<br>La stringa è lunga ${str.length} caratteri`)
 
        document.write(`<br>Il primo carattere della stringa è ${str[0]} e l'ultimo carattere è ${str[str.length-1]}`) //Va bene ma è la notazione per gli array
@@ -56,6 +56,43 @@
 
     //Es: Data la frase "ciAo da TalentFORM" far in modo che solo il primo carattere sia maiusoclo 
     //e il resto sia minuscolo
+    let str_es1 = "ciAo da TalentFORM"
+    document.write("<br>Stampo la stringa modificata come da esempio: " + str_es1.charAt(0).toLocaleUpperCase() + str_es1.slice(1).toLocaleLowerCase())
+
+    //Concatenare due o più stringhe
+    let str4_a = "Ciao"
+    let str4_b = "Mondo"
+    let str4 = str4_a.concat(" ", str4_b)
+    let str4_c = str4_a + " " + str4_b //è la stessa cosa di concat
+    document.write("<br>Stringa concatenata = " +str4)
+
+
+    //Modificare elementi nella stringa
+    let str_python = str.replace("JavaScript", "Python") //replace(parola_da_cercare,valore_da_sostituire)
+    document.write("<br>Cambio valore di JavaScript: " + str_python )
+    let str_python_all = str.replaceAll("JavaScript", "Python")
+    document.write("<br>Cambio valore di JavaScript: " + str_python_all )
+
+    //Il medoto Pad. Attenzione pad funziona solo sulle lettere. Se ho un numero devo prima convertirlo in Stringa
+    let str5 = "5" 
+    document.write("<br>Aggiungo 4 0 all'inizio della stringa con PadStart: " + str5.padStart(4, "0"))
+    document.write("<br>Aggiungo 4 * alla fine della stringa con PadStart: " + str5.padEnd(4, "*"))
+
+    //Es utilizzo pad in un sito
+    let cardNumber = "2034399002125581"
+    let last4Digits = cardNumber.slice(-4) //con - parto dalla fine
+    let cardMasked = last4Digits.padStart(cardNumber.length, "*")
+    document.write("<br>Carta per il pagamento: " + cardMasked)
+
+    //Mascherare un Nome
+    let nome = "Alessio"
+    let inizio = nome.charAt(0)
+    let nomeMask = inizio.padEnd(nome.length-1,"*")
+    document.write("<br>Proprietario: " + nomeMask)
+
+    //Verificare se una stringa è di tipo numerico
+    let str_number = "12as45"
+    console.log(isNaN(str_number)) //isNaN serve a vedere se il contenuto di una stringa è numerico o no
 
     </script>
 </body>
