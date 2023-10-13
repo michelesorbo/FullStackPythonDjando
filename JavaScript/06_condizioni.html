@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le condizioni</title>
+</head>
+<body>
+    
+    <script>
+        //Istruzione IF (in italiano significa se)
+        //Esegue un blocco di codice se la condizione è verificata. La condizione deve tornare true
+        //if(condizione){eseguo se vera} else{ esguo se falsa}
+        //Non è necessario mettere else dopo un if
+
+        //Operatori di comparazione
+        /*
+        < Minore Es: 20 < 10 (FALSE)
+        > Maggiore Es: 20 > 10 (TRUE)
+        <= Minore Uguale 20 <= 20 (TRUE)
+        >= Maggiore Ugulae
+        == Equivalente (Da non confondere con = che sta per assegnazione) Es: 8 == 10 (FALSE)
+        === Identico, stesso tipo e stesso valore
+        != Non Equivalente
+        !== Non Idedentico
+        ! negazione
+        */
+
+        let n1 = 4
+        let n2 = 4
+
+        if(n1 < n2){
+            document.write("n1 è minore di n2")
+        }else{
+            document.write("n1 non è minore di n2")
+        }
+
+        if(n1 >= n2){
+            document.write("<br>n1 è maggiore o uguale di n2")
+        }else{
+            document.write("<br>n1 non è maggiore o uguale di n2")
+        }
+
+        //Differenza tra equivalente e identico
+        n1 = 5 //Number
+        n2 = "5" //String
+
+        //Uguaglianza vede solo il contenuto senza vedere il tipo
+        if(n1 == n2){
+            document.write("<br>n1 è uguale a n2")
+        }else{
+            document.write("<br>n1 non è uguale a n2")
+        }
+
+        //Identico deve essere uguale sia nel contenuto che nel tipo
+        if(n1 === n2){
+            document.write("<br>n1 è identico a n2")
+        }else{
+            document.write("<br>n1 non è identico a n2")
+        }
+
+        //Le negazione dell'affermazione uguale
+        if(n1 != n2){
+            document.write("<br>n1 è diverso a n2")
+        }else{
+            document.write("<br>n1 non è diverso a n2")
+        }
+
+        //La negoazione di Identico
+        if(n1 !== n2){
+            document.write("<br>n1 non è identico a n2")
+        }else{
+            document.write("<br>n1 è identico a n2")
+        }
+
+        let nomi = "Carlo Alessio Sayri"
+
+        if(!nomi.includes("Carlo")){
+            document.write("<br>Carlo non è nella lista")
+        }else{
+            document.write("<br>Carlo è nella lista")
+        }
+
+        //Conbtrollo se un numero è maggiore di 3 ed è dispari
+        let es_n = 5
+        
+        if(es_n >3){
+            if(es_n%2 == 1){
+                console.log("Il numero è maggiore di 3 ed è dispari")
+            }else{
+                console.log("il numero è maggiore di 3 ma è pari")
+            }
+        }else{
+            console.log("Il numero è minore di 3")
+        }
+
+    </script>
+</body>
+</html>
