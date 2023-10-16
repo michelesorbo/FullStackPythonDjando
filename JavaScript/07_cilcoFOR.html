@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ciclo FOR</title>
+</head>
+<body>
+
+    <p>
+        <select name="anno" id="anno">
+            <!--Genero tramite JS-->
+        </select>
+    </p>
+    
+    <p id="ris2"></p>
+
+    <h2>La tabellina del 2</h2>
+    <p id="ris1"></p>
+
+    <script>
+
+        const anno = document.querySelector("#anno")
+        const ris1 = document.querySelector("#ris1")
+        const ris2 = document.querySelector("#ris2")
+        //Il ciclo FOR serve a ripetere un determiato blocco di codice per un numero finito di volte
+
+        //Scrivere i primi 10 numeri a video
+        // document.write("1<br>")
+        // document.write("2<br>")
+        // document.write("3<br>")
+        // document.write("4<br>")
+
+        //Condizione inizio; condizione uscita; tipo incremento
+        for(let i = 1; i <=10; i++){
+            //Scrivo il codice che deve essere ripetuto
+            document.write(i + "<br>")
+
+            //Alla fine del codice viene incrementato l'indice e mandato al controllo
+        }
+
+        //Genere le option dal 1920 al 2023
+        for(let i = 1920; i <= 2023; i++){
+            anno.innerHTML += "<option value=" + i + ">"+ i + "</option>"
+        }
+
+        /*Stampare in ris 1 la tabellina del 2
+        2 x 1 = 2
+        2 x 2 = 4
+        ....
+        2 X 100 = 20
+        */
+
+        //"2 x " + i + " = " + (2*i)  
+
+        for(let i = 1; i <= 100; i++){
+            ris1.innerHTML += "2 x " + i + " = " + (2*i) + "<br>"
+        }
+
+        //Come leggere un array
+        let ar_nomi = ["Mirko", "Fatima", "Alessio", "Carlo"]
+
+        ar_nomi.forEach(el =>{
+            console.log(el)
+        })
+
+        //Alternativa con FOR
+        // console.log(ar_nomi[0])
+        // console.log(ar_nomi[1])
+        // console.log(ar_nomi[2])
+        // console.log(ar_nomi[3])
+
+        for(let i = 0; i < ar_nomi.length; i++){
+            console.log(ar_nomi[i])
+        }
+
+        //Es: Popolare un array con 5 numeri casuali compresi tra 1 e 50
+
+        //Come generare un numero casuale (random)
+        console.log("Random: " + Math.floor((Math.random() * 5) + 1))
+
+        /*
+        1° creare l'arry vuoto dove contenere i numeri
+        2° cilcare 5 volte sull'array (FOR)
+        3° inserire nell'array un numero random
+        4° Stampo a video l'array con i numeri generati
+        */
+
+        //1° Passo
+        let ar_random = [] //Array vuoto
+
+        //2° Faccio ciclare 5 volte per generare 5 numeri casuali e inserirli nell'array
+        for(let i = 1; i <=5; i++){
+            ar_random.push(Math.floor((Math.random() * 50) + 1)) //Inseirsco il numero casuale generato nell'array
+        }
+
+        //Finito l'inserimento stampo il contenuto dell'array
+        ris2.innerHTML = "Es1 array generato: " + ar_random
+
+        /*
+        Creare un array di 5 numeri casuali compresi tra 1 e 5, ma non posso acere numeri ripetuti
+        */
+
+        let ar_random2 = [] //Array vuoto
+
+        //2° Faccio ciclare 5 volte per generare 5 numeri casuali e inserirli nell'array
+        for(let i = 1; i <=5; i++){
+            //Genero il numero da inserire
+            let n_random = Math.floor((Math.random() * 5) + 1)
+
+            //Controllo se il numero generato è già presente nell'array
+            if(ar_random2.includes(n_random)){
+                //Caso vero
+                i-- //Porto l'indice indietro di uno così non conta l'operazione
+            }else{
+                //caso falso
+                ar_random2.push(n_random)
+            }
+            
+        }
+
+        //Finito l'inserimento stampo il contenuto dell'array
+        ris2.innerHTML += "<br>Es 2 array generato: " + ar_random2
+
+        
+    </script>
+    
+</body>
+</html>
