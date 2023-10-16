@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lotto</title>
+</head>
+<body>
+
+    <h2>Tenta la fortuna</h2>
+    <p>
+        Fai inserire fino a 5 numeri all'utente e dopo aver generato l'estrazione di una ruota controllare 
+        quanti numeri ha indovinato.<br>
+        Se ha indovinato 2 numeri scrivere hai fatto anbo<br>
+        Se ha indovinato 3 numeri scrivere hai fatto terno<br>
+        Se ha indovinato 4 numeri scrivere hai fatto quaterna<br>
+        Se ha indovinato 5 numeri scrivere hai fatto cinquina<br>
+    </p>
+
+    <input type="text" id="numeri_ins" placeholder="Inserisci fino a 5 numeri divisi da uno spazio">
+    <button id="btn">Controlla se hai vinto</button>
+
+    <script>
+        const numeri_ins = document.getElementById("numeri_ins") //Riferimento alla casella di input
+        const btn = document.getElementById("btn") //Riferimento al pulsante
+
+        //Genero i numeri della ruota 
+        let ar_random = [] //Array vuoto
+
+        //2° Faccio ciclare 5 volte per generare 5 numeri casuali e inserirli nell'array
+        for(let i = 1; i <=10; i++){
+            ar_random.push(Math.floor((Math.random() * 90) + 1)) //Inseirsco il numero casuale generato nell'array
+        }
+
+        //Solo per testare stampo i numri estratti
+        console.log(ar_random)
+
+        //Quando premo il pulsante
+        btn.addEventListener("click", () => {
+            console.log(typeof(numeri_ins.value)) //.value serve a prendere il contenuto della casella di input
+            let ar_ins = numeri_ins.value.split(" ")
+            console.log(ar_ins)
+        })
+
+
+    </script>
+    
+</body>
+</html>
