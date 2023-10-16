@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        //Es 16
+        let n1 = 15
+        let n2 = 9
+        let n3 = 27
+
+        //Algoritmo del confronto
+        if(n1>n2 && n1>n3){
+            document.write(n1 + " è il numero maggiore")
+        }else if(n2>n1 && n2>n3){
+            document.write(n2 + " è il numero maggiore")
+        }else{
+            document.write(n3 + " è il numero maggiore")
+        }
+
+        //es 17
+        let ar_n = [12,4,5,34,2,67,8,-5,9,752,-9,1,85]
+
+        //Algotmo con appoggio o di swap
+        let max = ar_n[0] //Suppongo che il valore nella prima posizione dell'array è il più grande
+        let min = ar_n[0]
+
+        for(let i = 1; i<ar_n.length; i++){
+            if(ar_n[i]>max){ //se l'emento all'iesima posizione è maggiore del contenuto di max, eseguo lo scambio
+                max = ar_n[i]
+            }
+
+            if(ar_n[i] < min){
+                min = ar_n[i]
+            }
+        }
+
+        document.write("<br>L'elemento maggiore è: " + max)
+        document.write("<br>L'elemento minore è: " + min)
+    </script>
+
+</body>
+</html>

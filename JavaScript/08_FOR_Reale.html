@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrello</title>
+    <!--CSS BootStrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!--CSS Mio-->
+</head>
+<body>
+
+
+
+<div class="container">
+    <h1>Carrello</h1>
+    <table class="table table-hover">
+        <tr>
+            <th>Prodotto</th>
+            <th>Q.tà</th>
+            <th>Prezzo unitario</th>
+            <th>Prezzo Totale</th>
+        </tr>
+        <tr>
+            <td id="nome_p">MacBook Pro</td>
+            <td id="qta_p">2</td>
+            <td id="prezzo_p">3500€</td>
+            <td id="prezzo_tp"></td>
+        </tr>
+        <tr>
+            <td id="nome_p">Mouse Logitech</td>
+            <td id="qta_p">3</td>
+            <td id="prezzo_p">50€</td>
+            <td id="prezzo_tp"></td>
+        </tr>
+        <tr>
+            <td id="nome_p">Ipad Pro</td>
+            <td id="qta_p">2</td>
+            <td id="prezzo_p">800€</td>
+            <td id="prezzo_tp"></td>
+        </tr>
+        <tr>
+            <td id="nome_p">Ipad Pro</td>
+            <td id="qta_p">2</td>
+            <td id="prezzo_p">800€</td>
+            <td id="prezzo_tp"></td>
+        </tr>
+        <tr>
+            <td id="nome_p">Ipad Pro</td>
+            <td id="qta_p">2</td>
+            <td id="prezzo_p">800€</td>
+            <td id="prezzo_tp"></td>
+        </tr>
+    
+        <tr>
+            <td colspan="3">Totale Carrello</td>
+            <td id="totlaCarrello"></td>
+        </tr>
+    </table>
+</div>
+
+    <!-- JS BootStrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <!--JS Mio-->
+
+    <script>
+        //1° Stampare nella consol tutti i prezzi dei prodotti
+        const prezzo_p = document.querySelectorAll("#prezzo_p")
+        const qta_p = document.querySelectorAll("#qta_p")
+        const prezzo_tp = document.querySelectorAll("#prezzo_tp")
+        const totlaCarrello = document.querySelector("#totlaCarrello")
+
+        let totale_carrello = 0
+
+        for(let i = 0; i<prezzo_p.length;i++){
+
+            console.log("Indice: "+ i + " Valore: " + prezzo_p[i].innerHTML.slice(0,prezzo_p[i].innerHTML.length-1))
+            //1 tolgo il simbolo € e converto in Number
+            let prezzo = Number(prezzo_p[i].innerHTML.slice(0,prezzo_p[i].innerHTML.length-1))
+            //Stampo il prezzo totale nella cella
+            prezzo_tp[i].innerHTML = (Number(qta_p[i].innerHTML) * prezzo) + "€"
+            totale_carrello += Number(qta_p[i].innerHTML) * prezzo
+
+        }
+
+        //Dopo che abbiamo aggiornato i totali per proddo calcoliamo il totale del carrello
+        totlaCarrello.innerHTML = totale_carrello + "€"
+
+       
+    </script>
+</body>
+</html>

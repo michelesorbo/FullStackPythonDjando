@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+Creare una pagina con una casella di input e un pulsante.
+Far inserire quanti numeri si vogliono l'importante è che siano divisi da una virgola.
+Prende il contenuto della casella di testo e trasformarlo in un array numerico facendo attenzione
+che tutti i valori inseriti siano numerici e agli spazzi generati.
+Fare la somma di tutti i numeri e stampare la quantità di numeri inseriti
+Fare la somma dei numeri pari e dispari e dire quanti numeri sono pari e quanti sono dispari
+    </p>
+
+    <p>
+        Inserisci i numeri divisi da una virgola<br>
+        <input type="text" id="numeri"><button id="btn">Calcola</button>
+    </p>
+
+    <p id="ris"></p>
+
+    <script>
+        const numeri = document.querySelector("#numeri")
+        const btn = document.querySelector("#btn")
+        const ris = document.querySelector("#ris")
+
+        //Occorrente per risolvere l'esercizio
+        let ar_pari = []
+        let ar_dispari = []
+        let somma_p = 0
+        let somma_d = 0
+
+        //Vado a prendere i numeri dalla casella di testo e li trasformo in array
+        btn.addEventListener("click",()=>{
+            let ar_inp = numeri.value.split(",")
+            console.log(ar_inp)
+
+            ar_inp.forEach(el => {
+                //1° Controllo se il contunuto è numerico con isNaN
+                if(!isNaN(el)){
+                    //Faccio il cast a Number e verifico se è pari o dispari
+                    if(Number(el)%2 == 0){
+                        ar_pari.push(Number(el))
+                        somma_p += Number(el)
+                    }else{
+                        ar_dispari.push(Number(el))
+                        somma_d += Number(el)
+                    }
+                }else{
+                    ris.innerHTML = "Puoi inserire solo numeri"
+                }
+
+                //Dopo l'if
+                ris.innerHTML = "La somma totale dei numeri inseriti è: " + (somma_d + somma_p) + " e i numri inseriti sono: " + (ar_dispari.length + ar_pari.length)
+                ris.innerHTML += "<br>La somma dei numeri pari è: " + somma_p + " i valori pari inseriti sono "+ ar_pari.length
+                ris.innerHTML += "<br>La somma dei numeri dispari è: " + somma_d + " i valori pari inseriti sono "+ ar_dispari.length
+            });
+
+        })
+        
+
+    </script>
+    
+</body>
+</html>

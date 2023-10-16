@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        Creare un array di 10 posizioni e riempirlo con numeri Random compresi tra 1 e 100.
+        Fare la somma dei numeri inseriti nell'array.
+    </p>
+
+    <script>
+        let ar_random = [] //Creo array vuoti
+        let somma = 0;
+
+        //Vado a popolare l'array
+        for (let i = 1; i <= 100; i++) {
+            let n_random = Math.floor(Math.random() * 100) + 1
+            somma += n_random //Aggiorno la somma
+            ar_random.push(n_random) //Ricordo il numero estratto
+        }
+
+        //document.write("<p>I numeri inseriti sono: " + ar_random + "</p>")
+        //Per stamapre i numeri a gruppi di 10
+        for(let i = 1; i < ar_random.length;i++){
+            document.write(ar_random[i] + " ")
+            
+            if(i%10 == 0){
+                document.write("<br>")
+            }
+        }
+
+        document.write("<br>La somma dei numeri estratti è: " + somma)
+
+        //Alternativa
+        // somma = 0
+        // ar_random.forEach(el =>{
+        //     somma += el
+        // })
+
+    </script>
+</body>
+</html>

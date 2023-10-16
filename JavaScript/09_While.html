@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>While</title>
+</head>
+<body>
+    <h1>Il ciclo While</h1>
+
+    <script>
+        //for(indice inizio: condizione di fine; incremnto indice)
+        //Stampare i primi 10 numri
+        
+        for(let i = 1; i <= 10; i++){
+            document.write(i + "<br>")
+        }
+
+        document.write("<h3>Stessa cosa con while</h3>")
+        //Stessa cosa con while
+
+        let y = 1; //indice inizio
+
+        while(y <= 10){
+            document.write(y + "<br>")
+            y++ //Incremento indice
+        }
+
+        //Faccio la somma dei numeri finchè non inserisci 0
+        // let num = +prompt("Inserisci un numero da sommare, 0 per terminare")
+        // let somma = 0
+
+        // while(num != 0){
+        //     somma += num
+        //     //Come incremento, dato che la condizione è sulla variabile num, devo richiedere il nuovo valore di num
+        //     num = +prompt("Inserisci un numero da sommare, 0 per terminare")
+        // }
+
+        // //Quando inserisco 0 esco dal ciclo While e posso stampare la somma
+        // document.write("<p>La somma dei numeriinseriti è: " + somma)
+
+
+            //Do WHILE, serve quando devo eseguire almeno la prima volta il blocco dentro il while
+
+            // let num;
+            // let somma = 0
+
+            // do{
+            //     //Viene eseguito almeno una volte e poi va a controlla la condizione di uscita
+            //     num = +prompt("Inserisci un numero da sommare, 0 per terminare")
+            //     somma += num
+            // }while(num != 0)
+
+            // document.write("<p>La somma dei numeriinseriti è: " + somma)
+
+            //Inserisci in un array alunni i nomi degli alunni passati da prompt. 
+            //Terminare quando si inserisce fine
+            //Stampare gli alunni inseriti in una lista ordinata
+
+            let nome;
+            let ar_alunni = []
+
+            //Metodo Ludmila
+
+            // do{
+            //     nome = prompt("Inserisci un nome, fine per terminare")
+            //     ar_alunni.push(nome)
+            // }while(nome.toLocaleLowerCase() != "fine")
+
+            // document.write("<ol>")
+
+            // console.log(ar_alunni)
+            // for(let i = 0; i < ar_alunni.length-1; i++){
+            //     document.write("<li>" + ar_alunni[i] + "</li>")
+            // }
+            
+            // document.write("</ol>")
+
+
+            //Metodo Alessio
+
+            do{
+                nome = prompt("Inserisci un nome, fine per terminare")
+                //Controlla se è stato inserito fine
+                if(nome.toLocaleLowerCase() != "fine"){
+                    ar_alunni.push(nome)
+                }
+            }while(nome.toLocaleLowerCase() != "fine")
+
+            document.write("<ol>")
+
+            console.log(ar_alunni)
+            ar_alunni.forEach(el =>{
+                document.write("<li>" + el + "</li>")
+            })
+            
+            document.write("</ol>")
+            
+            
+
+    </script>
+</body>
+</html>

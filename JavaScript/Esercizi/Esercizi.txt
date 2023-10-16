@@ -44,7 +44,7 @@ Fare la somma di tutti i numeri e stampare la quantità di numeri inseriti
 Fare la somma dei numeri pari e dispari e dire quanti numeri sono pari e quanti sono dispari
 
 ES: 1,3,2,4
-Sonmma 10 numeriinseriti 4
+Sonmma 10 numeri inseriti 4
 Somma numeri dispari 4 numeri dispari inseriti 2
 Somma numeri pari 6 numeri pari inseriti 2
 
@@ -52,6 +52,7 @@ Es 16
 Chiedere di inserire 3 numeri (Anche con casella di input) e restituire il numero maggiore inserito
 Es: 5,9,6 
 Il numero maggiore dei tre è 9
+
 
 Es 17
 Creare una pagina con una casella di input e un pulsante.
