@@ -41,12 +41,18 @@
                 return (importo * (100 - p_sconto)) / 100
             }
 
-            
+            importo.addEventListener("keyup", ()=>{
+                importo.value = soloNumeri(importo.value)
+            })
+
+            sconto.addEventListener("keyup", ()=>{
+                sconto.value = soloNumeri(sconto.value)
+            })
             //Creo la funzione per impedire la scritture dei numeri
         function soloNumeri(txt){
             console.log(txt)
-            if(!isNaN(txt.charAt(txt.length-1))){
-                alert("Puoi inserire solo lettere")
+            if(isNaN(txt.charAt(txt.length-1))){
+                alert("Puoi inserire solo numeri")
                 txt = txt.substring(0,txt.length-1)
                 console.log(txt)
                 return txt

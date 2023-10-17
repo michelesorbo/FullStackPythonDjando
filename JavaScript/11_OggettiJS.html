@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oggetti JS</title>
+</head>
+<body>
+    
+    <script>
+
+        let ar_persona = ["Mario", "Rossi", 52, "Milano", "09873", ["Nuoto","calcio","Camminare"], "Via Roma", 112]
+        console.log(ar_persona)
+
+        //Alternativa in JAVA o C++ sono i dizionari o array associativi
+        let persona = {
+            //Inserisco sempre key : value
+            nome: "Mario",
+            cognome: "Rossi",
+            eta: 52,
+            citta: "Milano",
+            cap: "09873",
+            interessi: ["Nuoto","Calcio","Camminare"], //Posso inserire un array dentro l'oggetto
+            indirzzo: {
+                via: "via Roma",
+                civico: "112",
+                inerno: "3/A",
+            },
+            saluta: function(){
+                return "Ciao da " + persona.nome
+            },
+            mieiInteressi: function(){
+                //stampo l'elenco dei miei interessi presi da interri: ....
+                document.write("<ul>")
+                persona.interessi.forEach(el=>{
+                    document.write("<li>"+el+"</li>")
+                })
+                document.write("</ul>")
+            }
+        }
+
+        let persona2 = {
+            nome: "Luca",
+            cognome: "Verdi",
+            chiave:"asadasdasds"
+        }
+
+        let chiave = "nome"
+
+        console.log(persona2[chiave])
+
+        let ar_persone = [persona, persona2]
+
+        console.log(persona)
+        console.log("Nome della persona: " + persona.nome)
+        document.write("Nome: " + persona.nome + " Cognome: " + persona.cognome + " Interessi: " + persona.interessi[1])
+        document.write("<br>Via: " + persona.indirzzo.via + " civico: " + persona.indirzzo.civico)
+        document.write("<br>" + persona.saluta())
+
+        console.log(ar_persone)
+        document.write("<br>" + ar_persone[0].saluta())
+
+       document.write("<br>Nome dot: " + persona.nome) //dot notation
+       document.write("<br>Nome bracket: " + persona["nome"]) //bracket notation
+
+       //Leggere le key di un oggetto con il for...in
+       for(let key in persona){
+        document.write("<br>" + key + " : " +persona[key])
+       }
+
+       //Stampo interessi persona 1
+       persona.mieiInteressi()
+
+    </script>
+</body>
+</html>
