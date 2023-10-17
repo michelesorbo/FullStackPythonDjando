@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="eng">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weater App</title>
 </head>
+
 <body>
     <h1>Previsioni Meteo</h1>
     <p>
@@ -14,17 +16,22 @@
 
     <script>
 
+        const btn = document.querySelector("#btn")
+        const localita = document.querySelector("#localita")
         const ris = document.querySelector("#ris")
 
-        let url = "http://api.weatherapi.com/v1/current.json?key=28d82a89cfc543caa48135704231710&q=london"
+        btn.addEventListener("click", () => {
+            let url = `http://api.weatherapi.com/v1/current.json?key=28d82a89cfc543caa48135704231710&q=${localita.value.trim().toLocaleLowerCase()}`
+            fetch(url)
+                .then((res) => res.json())
+                .then((data) => {
+                    console.log(data)
+                    ris.innerHTML = data.current.condition.text
+                })
+        })
 
-        fetch(url)
-            .then((res) => res.json())
-            .then((data) =>{
-                console.log(data)
-                ris.innerHTML = data.current.condition.text
-            })
     </script>
 
 </body>
+
 </html>
