@@ -12,7 +12,16 @@
     <p>
         Località: <input type="text" id="localita"><button id="btn">Cerca</button>
     </p>
-    <p id="ris"></p>
+    <p id="ris">
+        Tempo: Sunny
+        Gradi: 22°
+        Città: Napoli
+        Regione: Campania
+        Nazione: Italia
+        Lat:
+        Lon:
+        Ora Previsione: time
+    </p>
 
     <script>
 
@@ -21,12 +30,13 @@
         const ris = document.querySelector("#ris")
 
         btn.addEventListener("click", () => {
-            let url = `http://api.weatherapi.com/v1/current.json?key=28d82a89cfc543caa48135704231710&q=${localita.value.trim().toLocaleLowerCase()}`
+            let url = `http://api.weatherapi.com/v1/current.json?key=28d82a89cfc543caa48135704231710&q=${localita.value.trim().toLocaleLowerCase()}&day=7`
             fetch(url)
                 .then((res) => res.json())
                 .then((data) => {
                     console.log(data)
-                    ris.innerHTML = data.current.condition.text
+                    ris.innerHTML = data.current.condition.text 
+                    ris.innerHTML += ` <img src="${data.current.condition.icon.replace("//cdn.weatherapi.com", "img/")}">`
                 })
         })
 
