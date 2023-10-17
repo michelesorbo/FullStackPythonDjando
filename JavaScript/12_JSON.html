@@ -25,16 +25,28 @@
     <script>
         const box_card = document.querySelector("#box_card")
         //Come leggere un url 
-        let url = "http://www.formatlearning.com/wp-json/wp/v2/posts/1959" //Salvo l'url della pagina con json
+        let url = "http://www.formatlearning.com/wp-json/wp/v2/posts/" //Salvo l'url della pagina con json
 
         //La funzione che legge e converte i dati JSON ad Oggetto JavaScript
         fetch(url) //Funzione che mi collega alla pagina API
             .then((response) => response.json())
             .then((data) => {
                 //Scrivo tutto quello che voglio fare con i dati JSON
-                console.log(data.length)
+                console.log(data)
+
+                data.forEach(el => {
+                    box_card.innerHTML += '<div class="card" style="width: 18rem;">'
+                box_card.innerHTML += '<img src="' + el.yoast_head_json.og_image[0].url + '" class="card-img-top" alt="...">'
+                box_card.innerHTML += '<div class="card-body">'
+                box_card.innerHTML += '<h5 class="card-title">'+ el.title.rendered +'</h5>'
+                box_card.innerHTML += ' <p class="card-text">'+ el.excerpt.rendered +'</p>'
+                box_card.innerHTML += '<a href="' + el.link + '" class="btn btn-primary" target="_blank">Continua a leggere</a>'
+                box_card.innerHTML += '</div></div>'
+                });
+
                 // document.write("Titolo Articolo: <b>" + data.title.rendered + "</b>")
                 // document.write("<br>" + data.content.rendered)
+                /*
                 box_card.innerHTML += '<div class="card" style="width: 18rem;">'
                 box_card.innerHTML += '<img src="' + data.yoast_head_json.og_image[0].url + '" class="card-img-top" alt="...">'
                 box_card.innerHTML += '<div class="card-body">'
@@ -42,6 +54,7 @@
                 box_card.innerHTML += ' <p class="card-text">'+ data.excerpt.rendered +'</p>'
                 box_card.innerHTML += '<a href="' + data.link + '" class="btn btn-primary" target="_blank">Continua a leggere</a>'
                 box_card.innerHTML += '</div></div>'
+                */
 
 
             })

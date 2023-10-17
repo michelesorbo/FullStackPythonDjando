@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weater App</title>
+</head>
+<body>
+    <h1>Previsioni Meteo</h1>
+    <p>
+        Località: <input type="text" id="localita"><button id="btn">Cerca</button>
+    </p>
+    <p id="ris"></p>
+
+    <script>
+
+        const ris = document.querySelector("#ris")
+
+        let url = "http://api.weatherapi.com/v1/current.json?key=28d82a89cfc543caa48135704231710&q=london"
+
+        fetch(url)
+            .then((res) => res.json())
+            .then((data) =>{
+                console.log(data)
+                ris.innerHTML = data.current.condition.text
+            })
+    </script>
+
+</body>
+</html>
