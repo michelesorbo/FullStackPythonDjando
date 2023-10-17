@@ -12,10 +12,18 @@
     Nome:<input type="text" id="nome"><br>
     <button id="btn">Saluta</button> <button id="btn2">Saluta 2</button><br>
 
+    <h2>Solo lettere</h2>
+    Testo 1: <input type="text" id="txt1">
+    Testo 2: <input type="text" id="txt2">
+    Testo 3: <input type="text" id="txt3">
+
     <script>
         const btn = document.querySelector("#btn")
         const btn2 = document.querySelector("#btn2")
         const nome = document.querySelector("#nome")
+        const txt1 = document.querySelector("#txt1")
+        const txt2 = document.querySelector("#txt2")
+        const txt3 = document.querySelector("#txt3")
 
         btn.addEventListener("click", saluta)
 
@@ -84,6 +92,35 @@
 
         function salutaSoloNome(nome){
             console.log("Ciao da " + nome)
+        }
+
+        /*
+        Es: Creazione della funzione che consente solo di inserire lettere in una casella di testo
+        */
+
+        txt1.addEventListener("keyup", ()=>{
+            txt1.value = soloLettere(txt1.value)
+        })
+
+        txt2.addEventListener("keyup", ()=>{
+            txt2.value = soloLettere(txt2.value)
+        })
+
+        txt3.addEventListener("keyup", ()=>{
+            txt3.value = soloLettere(txt3.value)
+        })
+
+        //Creo la funzione per impedire la scritture dei numeri
+        function soloLettere(txt){
+            console.log(txt)
+            if(!isNaN(txt.charAt(txt.length-1))){
+                alert("Puoi inserire solo lettere")
+                txt = txt.substring(0,txt.length-1)
+                console.log(txt)
+                return txt
+            }else{
+                return txt
+            }
         }
 
     </script>

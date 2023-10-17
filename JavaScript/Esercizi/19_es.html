@@ -27,17 +27,33 @@
 
         <script>
 
+            const importo = document.querySelector("#importo")
+            const sconto = document.querySelector("#sconto")
             const btn = document.querySelector("#btn")
             const p_sconto = document.querySelector("#p_sconto")
 
             btn.addEventListener("click", ()=>{
-                p_sconto.innerHTML = "<b>" + sconto(1000,5) + "€</b>"
+
+                p_sconto.innerHTML = "<b>" + scontoAp(Number(importo.value),Number(sconto.value)) + "€</b>"
             })
 
-            function sconto(importo, p_sconto){
+            function scontoAp(importo, p_sconto){
                 return (importo * (100 - p_sconto)) / 100
             }
 
+            
+            //Creo la funzione per impedire la scritture dei numeri
+        function soloNumeri(txt){
+            console.log(txt)
+            if(!isNaN(txt.charAt(txt.length-1))){
+                alert("Puoi inserire solo lettere")
+                txt = txt.substring(0,txt.length-1)
+                console.log(txt)
+                return txt
+            }else{
+                return txt
+            }
+        }
         </script>
 </table>
 </body>
