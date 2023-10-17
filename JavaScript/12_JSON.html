@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Elenco articoli</h1>
+        <div id="box_card">
+
+            <!--Creo le card-->
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script>
+        const box_card = document.querySelector("#box_card")
+        //Come leggere un url 
+        let url = "http://www.formatlearning.com/wp-json/wp/v2/posts/1959" //Salvo l'url della pagina con json
+
+        //La funzione che legge e converte i dati JSON ad Oggetto JavaScript
+        fetch(url) //Funzione che mi collega alla pagina API
+            .then((response) => response.json())
+            .then((data) => {
+                //Scrivo tutto quello che voglio fare con i dati JSON
+                console.log(data.length)
+                // document.write("Titolo Articolo: <b>" + data.title.rendered + "</b>")
+                // document.write("<br>" + data.content.rendered)
+                box_card.innerHTML += '<div class="card" style="width: 18rem;">'
+                box_card.innerHTML += '<img src="..." class="card-img-top" alt="...">'
+                box_card.innerHTML += '<div class="card-body">'
+                box_card.innerHTML += '<h5 class="card-title">'+ data.title.rendered +'</h5>'
+                box_card.innerHTML += ' <p class="card-text">'+ data.excerpt.rendered +'</p>'
+                box_card.innerHTML += '<a href="' + data.link + '" class="btn btn-primary" target="_blank">Continua a leggere</a>'
+                box_card.innerHTML += '</div></div>'
+
+
+            })
+    </script>
+</body>
+
+</html>
