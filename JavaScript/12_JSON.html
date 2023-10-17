@@ -36,7 +36,7 @@
                 // document.write("Titolo Articolo: <b>" + data.title.rendered + "</b>")
                 // document.write("<br>" + data.content.rendered)
                 box_card.innerHTML += '<div class="card" style="width: 18rem;">'
-                box_card.innerHTML += '<img src="..." class="card-img-top" alt="...">'
+                box_card.innerHTML += '<img src="' + data.yoast_head_json.og_image[0].url + '" class="card-img-top" alt="...">'
                 box_card.innerHTML += '<div class="card-body">'
                 box_card.innerHTML += '<h5 class="card-title">'+ data.title.rendered +'</h5>'
                 box_card.innerHTML += ' <p class="card-text">'+ data.excerpt.rendered +'</p>'
