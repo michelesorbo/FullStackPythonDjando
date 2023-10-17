@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Funzioni</title>
+</head>
+<body>
+
+    <h1>Le funzioni</h1>
+    
+    Nome:<input type="text" id="nome"><br>
+    <button id="btn">Saluta</button> <button id="btn2">Saluta 2</button><br>
+
+    <script>
+        const btn = document.querySelector("#btn")
+        const btn2 = document.querySelector("#btn2")
+        const nome = document.querySelector("#nome")
+
+        btn.addEventListener("click", saluta)
+
+        btn2.addEventListener("click", ()=>{
+            salutaSoloNome(nome.value)
+        })
+
+        //Per creare una funzione si deve mettere la parola "function nome_funzione(eventuali parametri)"
+        function saluta(){
+            alert("Ciao Mondo!!!")
+        }
+
+        //Una funzione per essere visualizzata o eseguita deve essere "INVOCATA"
+        //saluta() //Ho invocato la funzione saluta
+
+        //Funzioni con parametri. Sono funzioni che prendono delle variabili in ingresso
+        function salutaNome(nome, cognome){
+            document.write("Ciao <b>"+nome+" " + cognome +"</b><br>")
+        }
+
+        salutaNome("Carlo", "Rizzo") // salutaNome(nome = "Carlo")
+        salutaNome("Alessio", "Grieco")
+        let nome2 = "Evelin"
+        salutaNome(nome2, "Carretta")
+        
+
+        //Funzione con ritorno e con parametri
+        function dividi(a,b){
+            if(b == 0){
+                return "Non posso dividere per 0"
+            }else{
+                return a/b
+            }
+        }
+
+        let ris1 = dividi(4,2)
+        document.write("<br>" + ris1)
+        let ris2 = dividi(3,0)
+        document.write("<br>" + ris2)
+
+        //Se provo a invocare una funzione con return non succede nulla
+        dividi(5,2)
+        //Posso usare le funzioni con return o per valorizzare una variabile o devo usarle un una funzione
+        //di stampa es console.log o docuemnt.write
+        document.write("<br>" + dividi(20,4))
+
+
+        let lista = ["uno", 3, true,"testo"]
+        let alunni = ["carlo", "Alessio", "Mirko", "Fatima"]
+        let ar_n = [12,4,56,7]
+
+        //Funzione per stampare in una lista non ordinata un array
+        function stampaAR(ar){
+            document.write("<ul>")
+            
+                ar.forEach(el => {
+                    document.write("<li>" + el + "</li>")
+                });
+            document.write("</ul>")
+        }
+
+
+        stampaAR(lista)
+        stampaAR(alunni)
+        stampaAR(ar_n)
+
+        function salutaSoloNome(nome){
+            console.log("Ciao da " + nome)
+        }
+
+    </script>
+</body>
+</html>

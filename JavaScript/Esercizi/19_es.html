@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Es 19</title>
+</head>
+<body>
+    <p>Calcola lo sconto</p>
+
+    <table>
+        <tr>
+            <td>Importo</td>
+            <td><input type="text" id="importo">€</td>
+        </tr>
+        <tr>
+            <td>Sconto</td>
+            <td><input type="text" id="sconto">%</td>
+        </tr>
+        <tr>
+            <td>Prezzo Scontato</td>
+            <td id="p_sconto"></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center"><button id="btn">Calcola Sconto</button></td>
+        </tr>
+
+        <script>
+
+            const btn = document.querySelector("#btn")
+            const p_sconto = document.querySelector("#p_sconto")
+
+            btn.addEventListener("click", ()=>{
+                p_sconto.innerHTML = "<b>" + sconto(1000,5) + "€</b>"
+            })
+
+            function sconto(importo, p_sconto){
+                return (importo * (100 - p_sconto)) / 100
+            }
+
+        </script>
+</table>
+</body>
+</html>
