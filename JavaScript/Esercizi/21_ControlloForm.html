@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espressioni Regolari</title>
+    <style>
+        input {
+            border-radius: 5px;
+            padding: 5px;
+        }
+
+        .esatto {
+            border: 2px solid green;
+        }
+
+        .errato {
+            border: 2px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="#" method="get" onsubmit="return validateForm()">
+        <table>
+            <tr>
+                <td>Nome:</td>
+                <td><input type="text" id="nome"><span></span></td>
+            </tr>
+            <tr>
+                <td>Password:</td>
+                <td><input type="password" id="pwd"><span></span></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="text" id="email"><span></span></td>
+            </tr>
+            <tr>
+                <td>C.A.P.</td>
+                <td><input type="text" id="cap"><span></span></td>
+            </tr>
+            <tr>
+                <td>C.F.</td>
+                <td><input type="text" id="cf"><span></span></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button id="btn">Verifica</button></td>
+            </tr>
+        </table>
+    </form>
+
+    <script>
+        const nome = document.querySelector("#nome")
+        const pwd = document.querySelector("#pwd")
+        const email = document.querySelector("#email")
+        const cap = document.querySelector("#cap")
+        const cf = document.querySelector("#cf")
+        const btn = document.querySelector("#btn")
+        const span = document.querySelectorAll("span")
+
+        console.log(span)
+
+        let rx_cap = /^[0-9]{5}$/ //Regola per il CAP
+        let rx_cf = /^[A-Z]{6}[0-9]{2}[A-Z]{1}[0-9]{2}[A-Z]{1}[0-9]{3}[A-Z]{1}$/ //AAABBB12C21D345E
+        let rx_nome = /^\D[^@#*.,-_]{2,20}$/ //Nome solo caratteri minimo 3 massimo 20
+        let rx_mail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/ //Per validare la mail
+
+        /*
+       Pattern per password
+       ^                                            Match the beginning of the string
+       (?=.*[0-9])                                  Require that at least one digit appear anywhere in the string
+       (?=.*[a-z])                                  Require that at least one lowercase letter appear anywhere in the string
+       (?=.*[A-Z])                                  Require that at least one uppercase letter appear anywhere in the string
+       (?=.*[*.!@$%^&(){}[]:;<>,.?/~_+-=|\])        Require that at least one special character appear anywhere in the string
+       .{8,32}                                      The password must be at least 8 characters long, but no more than 32
+       $                                            Match the end of the string.
+       */
+
+
+        //Compresa tra 8 e 15 caratteri, deve contenere almeno un carattere minuscolo un carattere maiuscolo, un numero e un carattere speciale
+        let rx_pwd = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/
+
+        //Valido il Form
+        function validateForm() {
+            if (rx_nome.test(nome.value)) {
+                nome.className = "esatto"
+                span[0].innerHTML = "OK"
+            } else {
+                nome.className = "errato"
+                span[0].innerHTML = "Controlla il nome"
+            }
+
+            //Regola Password
+            if (rx_pwd.test(pwd.value)) {
+                pwd.className = "esatto"
+                span[1].innerHTML = "OK"
+            } else {
+                pwd.className = "errato"
+                span[1].innerHTML = "Controlla la password"
+            }
+
+            //Regola Email
+            if (rx_mail.test(email.value)) {
+                email.className = "esatto"
+                span[2].innerHTML = "OK"
+            } else {
+                email.className = "errato"
+                span[2].innerHTML = "Controlla la mail"
+            }
+
+            //Regola CAP
+            if (rx_cap.test(cap.value)) {
+                //console.log("CAP OK")
+                cap.className = "esatto"
+                span[3].innerHTML = "OK"
+            } else {
+                console.log("CAP Fallito")
+                cap.className = "errato"
+                span[3].innerHTML = "Controlla il CAP"
+            }
+
+            //Regola CF
+            if (rx_cf.test(cf.value)) {
+                cf.className = "esatto"
+                span[4].innerHTML = "OK"
+            } else {
+                cf.className = "errato"
+                span[4].innerHTML = "Controlla CF"
+            }
+            
+            if(rx_nome.test(nome.value) && rx_pwd.test(pwd.value) && rx_mail.test(email.value) && rx_cap.test(cap.value) && rx_cf.test(cf.value)){
+                alert("ok")
+                return true
+            }else{
+                alert("Controlla il form e compila i campi richiesti");
+                return false;
+            }
+
+        }
+
+    </script>
+
+
+
+</body>
+
+</html>
