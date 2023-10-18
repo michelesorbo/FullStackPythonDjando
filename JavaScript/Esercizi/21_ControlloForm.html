@@ -128,7 +128,8 @@
                 cf.className = "errato"
                 span[4].innerHTML = "Controlla CF"
             }
-            
+           
+            //Controllo la validità di tutti i campi per inviare il form
             if(rx_nome.test(nome.value) && rx_pwd.test(pwd.value) && rx_mail.test(email.value) && rx_cap.test(cap.value) && rx_cf.test(cf.value)){
                 alert("ok")
                 return true
