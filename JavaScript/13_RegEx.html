@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espressioni Regolari</title>
+</head>
+<body>
+    <h1>Le espressioni regolari</h1>
+
+    <p>W3School <a href="https://www.w3schools.com/jsref/jsref_obj_regexp.asp">Link</a></p>
+    <p>RegEx101<a href="https://regex101.com/">Link</a></p>
+
+    <p>Per poter applicare le regole di validazione del form, devo aggiungere la funzione al onsubmit del form</p>
+    <form action="" method="get" onsubmit="return FormValidate()">
+    <table>
+        <tr>
+            <td>Email</td>
+            <td><input type="email" id="email"></td>
+        </tr>
+
+        <tr>
+            <td>Nome</td>
+            <td><input type="text" id="nome"></td>
+        </tr>
+
+        <tr>
+            <td colspan="2"><input type="submit"></td>
+        </tr>
+    </table>
+    </form>
+
+    <script>
+        const email = document.querySelector("#email")
+        const nome = document.querySelector("#nome")
+        /*
+        REGOLE PER CREARE RegEx
+
+        ^ deve iniziare con ...
+        [] serve a creare un gruppo di caratteri o una serie di caratteri. Es: [AcD] - [a-z] (Tutte le lettere minuscole)
+        [^] Serve a negare il contenuto delle parentesi quadre
+        i Posta alla fine dopo / rende la regola case insensitive
+        $ Posto prima della / (Es $/) indica che dopo non deve esserci più nulla
+        {} Serve a creare i range. {2,5} accetto un minimo di 2 e un massimo di 5 occorrenze. {5} accetto solo 5 occorrenze
+
+        //Regole per la password
+        Pattern per password
+        ^                                            Match the beginning of the string
+        (?=.*[0-9])                                  Require that at least one digit appear anywhere in the string
+        (?=.*[a-z])                                  Require that at least one lowercase letter appear anywhere in the string
+        (?=.*[A-Z])                                  Require that at least one uppercase letter appear anywhere in the string
+        (?=.*[*.!@$%^&(){}[]:;<>,.?/~_+-=|\])        Require that at least one special character appear anywhere in the string
+        .{8,32}                                      The password must be at least 8 characters long, but no more than 32
+        $                                            Match the end of the string.
+
+        */
+
+        //Voglio testare se un campo CAP è scritto in modo corretto. Voglio sono 5 numeri
+         //Scrivo regola per verificare il campo CAP
+         let rx_cap = /^[0-9]{4,5}$/
+
+         //Regola Codice Fiscale CCC CCC 11 C 11 C 111 C
+         let rx_cf = /^[A-Z]{6}[0-9]{2}[A-Z]{1}[0-9]{2}[A-Z]{1}[0-9]{3}[A-Z]{1}$/
+         let rx_es = /^[MCA]/i //La stringa è valida solo se inizia con M o C o A
+         let rx_mail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/ //Per validare la mail
+         let rx_lettere = /^[A-Z][^0-9][^@#*-.,_]{2,20}$/ig //Solo caratteri senza caratteri speciali, minimo 2 massimo 20 
+         
+         //Compresa tra 8 e 15 caratteri, deve contenere almeno un carattere minuscolo un carattere maiuscolo, un numero e un carattere speciale
+        let rx_pwd = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/
+
+         
+
+         let str = "michele sorbo"
+
+         //Per testra la regola uso il metodo test
+        //  if(rx_noSp.test(str)){
+        //     document.write("<br>Regola OK")
+        //  }else{
+        //     document.write("<br>Regola KO")
+        //  }
+
+         function FormValidate(){
+            if(rx_mail.test(email.value) && rx_lettere.test(nome.value)){
+                alert("Form ok, posso inviare")
+                return true //Invia il form
+            }else{
+                alert("Form non corretto, rivedi i campi")
+                return false //Blocca l'invio del form
+            }
+         }
+
+
+    </script>
+</body>
+</html>
