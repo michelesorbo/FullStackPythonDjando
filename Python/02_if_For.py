@@ -66,4 +66,3 @@ for el in numeri:
     print(el)
 
 print(f"La somma dei numeri è: {somma}") #tipo backtic
-
