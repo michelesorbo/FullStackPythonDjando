@@ -35,3 +35,17 @@ Python permette di aggirare in modo facile l'ostacolo delle performance pure: è
 """
 
 print(testo)
+
+while True:
+    trova = input("Inserisci la parola o frase da cercare: ")
+    if trova == "0":
+        break
+    else:  
+        if testo.lower().count(trova.lower()) > 0:
+            print(f"Ci sono {testo.lower().count(trova.lower())} occorrenze nel testo.")
+            c_inizio = testo.lower().index(trova.lower())
+            print(f"Primi 50 caratteri dopo la prima occorrenza: {testo[c_inizio:c_inizio+50]}")
+        else:
+            print("Parola non trovata")
+
+print("Grazie il programma è terminato")
