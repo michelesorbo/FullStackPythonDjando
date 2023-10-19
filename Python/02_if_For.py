@@ -66,3 +66,19 @@ for el in numeri:
     print(el)
 
 print(f"La somma dei numeri è: {somma}") #tipo backtic
+
+#Le parole chiave breack e continue
+
+for n in range(1,11):
+    if n == 5: #Quando n = 5 ferma il ciclo ed esci
+        break #Preferibilmente non usare
+    print(n)
+print("Sono dopo il cilco")
+
+print("Continue----")
+
+for n in range(1,11):
+    if n == 5: #Quando n = 5 salto solo questa iterazione
+        continue
+    print(n)
+print("Sono dopo il ciclo")
