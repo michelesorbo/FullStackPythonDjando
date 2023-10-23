@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduzione alle Calssi</title>
+</head>
+<body>
+
+    <h1>Classi in JavaScript</h1>
+    
+    <script>
+        class Studente{
+            ore_settimanali = 36
+            //Creo il costruttore della classe
+            constructor(nome,cognome,classe,matricola){
+                //In JS si usa this al posto di self
+                this.nome = nome
+                this.cognome = cognome
+                this.classe = classe
+                this.matricola = matricola
+            }
+
+            //I metodo non hanno biogno della key function
+            presentaStudente() {
+                return "Ciao dallo studente " + this.nome + " " + this.cognome + ". La mia classe è: " + this.classe + " e la mia matricola è: " + this.matricola + " ore settimanali di lezione: " + this.ore_settimanali
+            }
+
+            //toString è il metodo __str__
+            toString(){
+                return "Sono  lo studnete " + this.nome + " " + this.cognome
+            }
+        }
+
+        //Creo istanzo della classe studente
+        let s1 = new Studente("Luca","Rossi","3A","MT001")
+        let s2 = new Studente("Mario","Verdi","4A","MT002")
+
+        document.write(s1.toString())
+        document.write("<br>" + s2.presentaStudente())
+    </script>
+</body>
+</html>
