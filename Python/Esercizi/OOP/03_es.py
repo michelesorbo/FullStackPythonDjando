@@ -26,3 +26,75 @@ Creo Prodotto PalloneCalcio = "Adidas plus", 15, 10
 se applico il metodo Sconto del 50% il nuovo prezzo sarà 7,5
 
 """
+class Prodotto:
+    def __init__(self, nome, prezzo,scorta):
+        self.nome = nome
+        self.prezzo = prezzo
+        self.scorta = scorta
+
+    def __str__(self):
+        return f"Prodotto: {self.nome}, prezzo: {self.prezzo}€, quantità in magazzino {self.scorta}"
+    
+    def applicaSconto(self,sconto):
+        self.prezzo = (self.prezzo * (100-sconto))/100
+    
+    def aumentaScorta(self, qta):
+        self.scorta += qta
+
+    def diminuisciScorta(self, qta):
+        self.scorta -= qta
+
+#Soluzione con Dizionario  
+# class GestoreMagazzino:
+#     def __init__(self, costo_magazzino):
+#         self.prodotti = {}
+#         self.costo_magazzino = costo_magazzino
+
+#     def aggiungi_prodotto(self, prodotto):
+#         self.prodotti[prodotto.nome] = prodotto
+
+#     def rimuovi_prodotto(self, nome_prodotto):
+#         self.prodotti.pop(nome_prodotto)
+
+#     def calcola_costi_magazzino(self):
+#         costi = 0
+#         for nome,prodotto in self.prodotti.items():
+#             costi += prodotto.scorta * self.costo_magazzino
+#         return costi
+            
+#Soluzione con le liste
+class GestoreMagazzino:
+    def __init__(self, costo_magazzino):
+        self.prodotti = [] #Array vuoto per ricordare i prodotti inseriti nel magazzino
+        self.costo_magazzino = costo_magazzino
+
+    def aggiungi_prodotto(self, prodotto):
+        self.prodotti.append(prodotto)
+
+    def prodotti_in_magazzino(self):
+        prodotti_m = ""
+        
+        for prodotto in self.prodotti:
+            prodotti_m += f"\n{prodotto}"
+        
+        return prodotti_m
+
+    def rimuovi_prodotto(self, nome_prodotto):
+        self.prodotti.remove(nome_prodotto)
+
+    def calcola_costi_magazzino(self):
+        costi = 0
+        for prodotto in self.prodotti:
+            costi += prodotto.scorta * self.costo_magazzino
+        return costi
+
+p1 = Prodotto("Telefono",500,10)
+p2 = Prodotto("MacBook Pro M2", 4000, 5)
+p3 = Prodotto("Monitor",120,50)
+
+mz1 = GestoreMagazzino(15)
+
+mz1.aggiungi_prodotto(p1)
+mz1.aggiungi_prodotto(p2)
+mz1.aggiungi_prodotto(p3)
+print(f"Il magazziono ha un costo di {mz1.calcola_costi_magazzino()}€ e ci sono {mz1.prodotti_in_magazzino()} prodotti")
