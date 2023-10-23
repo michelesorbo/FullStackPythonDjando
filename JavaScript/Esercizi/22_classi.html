@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esercizio 22</title>
+</head>
+<body>
+    <h1>Esercizio 22</h1>
+    <p>Esercizio 1
+        Creare una classe Animale che abbia gli attributi “nome” e “specie”. 
+        Aggiungi un metodo “emetti_suono” che stampi un suono specifico per ogni specie. 
+        Ad esempio, se l’animale è un gatto dovrebbe stampare “Miao!”, se è un cane “Bau!”.
+        Creare sempre il metodo per stampare la classe come stringa
+    </p>
+    <script>
+        class Animale{
+            constructor(nome, specie){
+                this.nome = nome
+                this.specie = specie
+            }
+
+            toString(){
+                return "Sono " + this.nome + " e sono un " + this.specie
+            }
+
+            emettiSuono(){
+                if(this.specie == "gatto"){
+                    return "Sono un " + this.specie + " e il mio veros è: 'Miao!'"
+                }else if(this.specie == "cane"){
+                    return "Sono un " + this.specie + " e il mio veros è: 'Bau!'"
+                }else{
+                    return "Non conosco la tua specie"
+                }
+            }
+        }
+
+        //Testiamo la classe
+        let cane = new Animale("Fido","cane")
+        let gatto = new Animale("Fuffy","gatto")
+        let leone = new Animale("Simba","leone")
+
+        document.write("<br>" + cane + "<br>" + cane.emettiSuono())
+        document.write("<br>" + gatto + "<br>" + gatto.emettiSuono())
+        document.write("<br>" + leone + "<br>" + leone.emettiSuono())
+    </script>
+</body>
+</html>
