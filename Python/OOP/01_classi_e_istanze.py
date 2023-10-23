@@ -23,6 +23,10 @@ class Studente:
         self.classe = classe
         self.matricola = matricola
     
+    #per evitare di far stampare la posizione della memoria quando si stamapa solo l'istanza, creo il motodo toString che stampa la classe come stringa
+    def __str__(self):
+        return f"Sono lo studnete {self.nome} {self.cognome}"
+    
     #Dichiaro il metodo presentaStudente.
     def presentaStudente(self):
         if self.classe == "3A":
@@ -37,7 +41,7 @@ s1 = Studente("Luca","Rossi","3A","MT001") #Creo un istanza della classe student
 s2 = Studente("Mario","Verdi","4A","MT002")
 
 print(f"{s1.nome} {s1.classe}")
-print(s2.nome)
+print(s2)
 print(s1.presentaStudente())
 print(s2.presentaStudente())
 
