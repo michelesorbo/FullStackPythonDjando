@@ -14,7 +14,8 @@ class Persona:
         #Gli attributi della classe sono visibili pubblicamente di default
         #Per rendere privato l'attibuto (la variabile self.<nome_variabile>) dopo il self inizio il nome della variabile con _ o __
         self.nome = nome #Pubblic
-        self.__cap = cap #Private, cioè lo posso utilizzare solo nella classe
+        #self.__cap = cap #Private, cioè lo posso utilizzare solo nella classe
+        self.setCAP(cap) #Anche nel costruttore utilizzo il metodo per settare il CAP
 
     def __str__(self) -> str:
         return f"Nome: {self.nome} CAP: {self.__cap}"
@@ -25,14 +26,14 @@ class Persona:
     #Per settare un nuovo valore di CAP
     def setCAP(self, nuovo_cap):
         if nuovo_cap.isalpha():
-            print("Errore solo numeri")
+            self.__cap = "Errore solo numeri"
         else:
             self.__cap = nuovo_cap
     
 
-p1 = Persona("Mario","00100")
+p1 = Persona("Mario","CAP")
 
 print(f"Il nome è: {p1.nome}")
 print(f"Il cap è: {p1.getCAP()}")
-p1.setCAP("Test")
+#p1.setCAP("Test")
 print(f"Il nuovo CAP è: {p1.getCAP()}")

@@ -5,7 +5,7 @@ informativo di un operatore di telefonia cellulare.
 Si devono quindi rappresentare i dati relativi ad una carta SIM ed in particolare:
 - il numero di telefono
 - il credito disponibile in euro
-- la lista delle telefonate effettuate
+- la lista delle telefonate effettuate (da conservare in un file .txt nominato <numero_sim>.txt)
 
 Per ciascuna telefonata deve essere rappresentata la durata in minuti
 
@@ -21,4 +21,14 @@ la lista delle telefonate vuota
 
 - una procedura per la stampa dei dati della SIM e l'elenco delle telefonate.
 
+ES:
+s1 = SIM("3372345654", 15.84)
+dopo vado a leggere se è presente altrimento lo creo il file 3372345654.txt
+
+Il file txt per singolo numero sarà organizzato 
+
+<numero chiamato> <tempo in secondi della telefonato>
+3358969785 125
+3358969785 45
+55899669 32
 """
