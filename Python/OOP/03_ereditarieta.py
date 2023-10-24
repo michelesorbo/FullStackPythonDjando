@@ -35,9 +35,33 @@ class Studente(Persona):
     #OverLoad di un metodo. Sovrascivo un metodo ereditato da mio padre
     def sauta(self):
         return f"Ciao sono lo studente {self.nome} {self.cognome}"
+    
+
+class Insegnante(Persona):
+    def __init__(self, nome, cognome, eta, materia) -> None:
+        super().__init__(nome, cognome, eta)
+        self.materia = materia
+    
+    def sauta(self):
+        return f"Buongiorno sono l'insegnante {self.nome} {self.cognome}"
+    
+    def getMateria(self):
+        return self.materia
+    
+class Segreteria(Persona):
+    def __init__(self, nome, cognome, eta, ruolo) -> None:
+        super().__init__(nome, cognome, eta)
+        self.ruolo = ruolo
+
+    def salutoMio(self):
+        return f"Mio saluto + Persona {super().sauta()}"
 
 p1 = Persona("Luca","Verdi",25)
+ins1 = Insegnante("Giovanni", "Marrone",46,"Matematica","Fisica")
+ins2 = Insegnante("Veronica","De Rossi", 43,"Italiano","Storia","Geografia")
 s1 = Studente("Mario","Rossi",15, "3A")
+sg1 = Segreteria("Luisa","Bianchi",54,"Applicato")
 
 print(s1.sauta())
 print(p1.sauta())
+print(sg1.salutoMio())
