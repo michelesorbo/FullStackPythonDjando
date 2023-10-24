@@ -38,15 +38,20 @@ class Studente(Persona):
     
 
 class Insegnante(Persona):
-    def __init__(self, nome, cognome, eta, materia) -> None:
+    def __init__(self, nome, cognome, eta, *materie):
         super().__init__(nome, cognome, eta)
-        self.materia = materia
+        self.materie = materie #Materie è un array quindi self.materie è a sua volta un array
     
     def sauta(self):
         return f"Buongiorno sono l'insegnante {self.nome} {self.cognome}"
     
-    def getMateria(self):
-        return self.materia
+    def getMaterie(self):
+        materie = "Materie inegnate: "
+        
+        for m in self.materie:
+            materie += f"{m}, "
+
+        return materie
     
 class Segreteria(Persona):
     def __init__(self, nome, cognome, eta, ruolo) -> None:
@@ -62,6 +67,5 @@ ins2 = Insegnante("Veronica","De Rossi", 43,"Italiano","Storia","Geografia")
 s1 = Studente("Mario","Rossi",15, "3A")
 sg1 = Segreteria("Luisa","Bianchi",54,"Applicato")
 
-print(s1.sauta())
-print(p1.sauta())
-print(sg1.salutoMio())
+print(f"{ins1} Materie: {ins1.getMaterie()}")
+print(f"{ins2} Materie: {ins2.getMaterie()}")
