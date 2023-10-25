@@ -19,7 +19,13 @@ Per fermare il server CTRL+C
 
 Per creare una App 
 ->python manage.py startapp <nome_app>
+Dopo aver creato l'app, aprire il file setting e aggiungere l'app all'elenco delle app installate
 
 Per aggiungere una Path, creare il percorso della path in urls.py e nella view dell'App
 creare il metodo che verrà chiamato dal path nell urls.py. Ricordati di includere il file view 
 nel file urls.py es: import <nome_app>.views
+
+
+Cose Consigliate in Django
+1) Gestire le url dell'app nella cartella dell'app stessa. Vedi in metodo include di Django
+2) Usare il template engine
