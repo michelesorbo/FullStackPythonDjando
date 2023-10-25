@@ -10,10 +10,27 @@ def index(request):
     #         <a href='/'>Home</a> - <a href='/michele/'>Michele</a> 
     #         </nav>Ciao Mondo sono una pagina Python
     #                     """)
-    return render(request,'index.html')
+    msg = "Ciao sono il messagigo di view"
+    autore = "Carlo"
+    articoli = [
+        "Sono il primo articolo",
+        "Sono il secondo articolo",
+        "Sono il terzo articolo"
+        ]
+    
+    dati = {
+        'titolo':"Titolo 1",
+        'data': "27/10/2012",
+        'corpo': "Sono il contenuto del dato"
+    }
+    return render(request,'index.html', {'messaggio': msg, 'autore': autore, 'articoli':articoli, 'dati':dati})
 
 def about(request):
-    return render(request, 'about.html')
+    autore = request.GET.get("autore") or ""
+    return render(request, 'about.html', {'autore':autore})
+
+def contatti(request):
+    return render(request,'contatti.html')
 
 def michele(request):
     return HttpResponse("""\

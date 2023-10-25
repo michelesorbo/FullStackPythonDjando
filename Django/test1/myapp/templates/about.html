@@ -3,4 +3,8 @@
 {% block contenuto %}
 <h1>Benvenuto nella pagina About del mio sito</h1>
 <p>Ciao dal paragrafo</p>
+<p>Autore: {{ autore }}</p>
+{% if autore == 'Carlo' %}
+<h1>Ciao Carlo</h1>
+{% endif %}
 {% endblock contenuto %}

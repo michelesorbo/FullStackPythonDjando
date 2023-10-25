@@ -2,4 +2,18 @@
 {% block titolo_pagina %}Titolo Index{% endblock titolo_pagina %}
 {% block contenuto %}
 <h1>Benvenuto nel mio sito</h1>
+<p>{{ messaggio }}</p>
+<p>Autore degli articoli: {{ autore}}</p>
+{% for art in articoli  %}
+<p>{{ art }}</p>
+{% endfor %}
+
+<hr>
+<h2>Leggo dati</h2>
+<p>
+    Titolo: {{dati.titolo}}<br>
+    Data: {{ dati.data}}<br>
+    Corpo: {{ dati.corpo }}
+</p>
+
 {% endblock contenuto %}
