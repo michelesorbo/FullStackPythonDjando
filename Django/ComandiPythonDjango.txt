@@ -15,6 +15,11 @@ Per creare un progetto Django
 
 Per far partire il server del progetto
 andare nella cartella del progetto e scrivere -> python manage.py runserver
+Per fermare il server CTRL+C
 
 Per creare una App 
 ->python manage.py startapp <nome_app>
+
+Per aggiungere una Path, creare il percorso della path in urls.py e nella view dell'App
+creare il metodo che verrà chiamato dal path nell urls.py. Ricordati di includere il file view 
+nel file urls.py es: import <nome_app>.views

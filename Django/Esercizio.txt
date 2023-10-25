@@ -1,0 +1,7 @@
+Creare un nuovo progetto chiamati sito1.
+Creare una nuova app chiamata pagine
+Creare 3 pagina.
+La pagina Home con la scritta benvenuto sil mio sito
+La pagina Chi siamo dove verrà mostrato una descrizione scritta a piacere
+La pagian contatti che dovà avere un form con un campo oggetto e una text area per il messaggio
+Tutte la pagine avranno un menu per andare da una pagina all'altra

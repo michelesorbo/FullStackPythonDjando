@@ -21,5 +21,6 @@ import myapp.views #Importo tutti i metodi view prensenti in myapp->view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', myapp.views.index)
+    path('', myapp.views.index),
+    path('michele/', myapp.views.michele)
 ]
