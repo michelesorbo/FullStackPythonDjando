@@ -1,0 +1,20 @@
+Per craeare una virtualenvairoment
+->python3 -m venv <nome_della_cartella> (in windows: python -m venv <nome_della_cartella>)
+
+Per Attivare una virtualenvairoment
+->source <nome_della_cartella>\bin\activate
+Windows CMD -> <nome_della_cartella>\Scripts\activate.bat
+
+Per disattivare la virtualenvairoment ->deactivate
+
+Per installare Django
+->pip install django
+
+Per creare un progetto Django
+->django-admin startproject <nome del progetto>
+
+Per far partire il server del progetto
+andare nella cartella del progetto e scrivere -> python manage.py runserver
+
+Per creare una App 
+->python manage.py startapp <nome_app>
