@@ -32,6 +32,37 @@ def about(request):
 def contatti(request):
     return render(request,'contatti.html')
 
+def davide(request):
+
+    titolo = request.GET.get('titolo') or 'nessun titolo'
+
+    articolo4 = {
+        'data': '15/12/2023',
+        'titolo': 'Corso Python Avanzato',
+        'corpo': 'Benvenuti alla prima lezione del corso di Python avanzato'
+    }
+
+    articolo3 = {
+        'data': '15/12/2022',
+        'titolo': 'Corso C++',
+        'corpo': 'Benvenuti alla prima lezione del corso di C++'
+    }
+
+    articolo2 = {
+        'data': '22/12/2022',
+        'titolo': 'Corso JAVA',
+        'corpo': 'Benvenuti alla prima lezione del corso di JAVA'
+    }
+
+    articolo1 = {
+        'data': '22/11/2022',
+        'titolo': 'Corso Python',
+        'corpo': 'Benvenuti alla prima lezione del corso di Python'
+    }
+
+    articoli = [articolo1,articolo2,articolo3, articolo4]
+    return render(request,'davide.html', {'autore': 'Davide', 'articoli': articoli, 'ricerca':titolo})
+
 def michele(request):
     return HttpResponse("""\
             <nav>

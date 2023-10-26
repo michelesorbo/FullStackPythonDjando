@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block titolo_pagina %}Davide{% endblock titolo_pagina %}
+{% block contenuto %}
+<h1>Ciao da Davide</h1>
+<p>Autore: {{ autore }}</p>
+<hr>
+<p>Articolo cercato: {{ ricerca}}</p>
+{% for articolo in articoli  %}
+<p>
+    <h2>{{ articolo.titolo }}</h2>
+    <p><i>Data: {{ articolo.data }}</i></p>
+    <p>{{ articolo.corpo }}</p>
+</p>
+{% endfor %}
+{% endblock contenuto %}
