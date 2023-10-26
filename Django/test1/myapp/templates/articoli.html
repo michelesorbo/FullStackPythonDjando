@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block titolo_pagina %}Articoli del sito{% endblock titolo_pagina %}
+{% block contenuto %}
+<h1>Articoli del sito</h1>
+{% for articolo in articoli  %}
+<div>
+    <h2>{{ articolo.titolo }}</h2>
+    <p>{{ articolo.descrizione }}</p>
+    <p>Data: {{ articolo.data_creazione }}</p>
+</div>
+{% endfor %}
+{% endblock contenuto %}
