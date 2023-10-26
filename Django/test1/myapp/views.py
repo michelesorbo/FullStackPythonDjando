@@ -1,5 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse #Mi serve per inviare una risposta HTML
+
+#Importo i models da visualizzare nel frontend
+from .models import Post
 # Create your views here.
 
 #Creo il metodo per la pagina HOME del sito. Siccome siamo in ambiente WEB
@@ -24,6 +27,11 @@ def index(request):
         'corpo': "Sono il contenuto del dato"
     }
     return render(request,'index.html', {'messaggio': msg, 'autore': autore, 'articoli':articoli, 'dati':dati})
+
+#Pagine Post
+def posts(require):
+    posts = Post.objects.all() #Serve per estrarre tutti i dati della tabella post nel db e salvarla nella variabile posts
+    return render(require,'posts.html', {'posts': posts})
 
 def about(request):
     autore = request.GET.get("autore") or ""

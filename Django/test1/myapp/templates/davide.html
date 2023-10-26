@@ -6,10 +6,13 @@
 <hr>
 <p>Articolo cercato: {{ ricerca}}</p>
 {% for articolo in articoli  %}
+<!--Cerco la corrispondenza nel titolo. Se esiste stampo l'articolo-->
+{% if ricerca in articolo.titolo  %}
 <p>
     <h2>{{ articolo.titolo }}</h2>
     <p><i>Data: {{ articolo.data }}</i></p>
     <p>{{ articolo.corpo }}</p>
 </p>
+{% endif %}
 {% endfor %}
 {% endblock contenuto %}

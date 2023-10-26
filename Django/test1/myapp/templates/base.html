@@ -9,8 +9,12 @@
 </head>
 <body>
     <nav>
-        <a href="{% url "index" %}">Home</a> - <a href="/michele/">Michele</a> - <a href="{% url "about" %}">About</a> - 
-        <a href="{% url "contatti" %}">Contatti</a> - <a href="{% url "davide" %}">Davide</a>
+        <a href="{% url "index" %}">Home</a> - 
+        <a href="/michele/">Michele</a> - 
+        <a href="{% url "about" %}">About</a> - 
+        <a href="{% url "contatti" %}">Contatti</a> - 
+        <a href="{% url "davide" %}">Davide</a> - 
+        <a href="{% url "posts" %}">Posts</a>
     </nav>
     <div class="container">
         {% block contenuto %}

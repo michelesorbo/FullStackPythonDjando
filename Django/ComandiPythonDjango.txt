@@ -1,23 +1,24 @@
-Per craeare una virtualenvairoment
+***** Per craeare una virtualenvairoment *****
 ->python3 -m venv <nome_della_cartella> (in windows: python -m venv <nome_della_cartella>)
 
-Per Attivare una virtualenvairoment
+***** Per Attivare una virtualenvairoment *****
 ->source <nome_della_cartella>\bin\activate
 Windows CMD -> <nome_della_cartella>\Scripts\activate.bat
 
-Per disattivare la virtualenvairoment ->deactivate
+***** Per disattivare la virtualenvairoment *****
+->deactivate
 
-Per installare Django
+***** Per installare Django *****
 ->pip install django
 
-Per creare un progetto Django
+***** Per creare un progetto Django *****
 ->django-admin startproject <nome del progetto>
 
-Per far partire il server del progetto
+***** Per far partire il server del progetto *****
 andare nella cartella del progetto e scrivere -> python manage.py runserver
 Per fermare il server CTRL+C
 
-Per creare una App 
+***** Per creare una App *****
 ->python manage.py startapp <nome_app>
 Dopo aver creato l'app, aprire il file setting e aggiungere l'app all'elenco delle app installate
 
@@ -26,6 +27,21 @@ creare il metodo che verrà chiamato dal path nell urls.py. Ricordati di include
 nel file urls.py es: import <nome_app>.views
 
 
-Cose Consigliate in Django
+***** Cose Consigliate in Django *****
 1) Gestire le url dell'app nella cartella dell'app stessa. Vedi in metodo include di Django
 2) Usare il template engine
+
+***** Dopo aver create il progetto fare le migrazioni di base *****
+->python manage.py migrate
+
+***** Come Creare il Super Amministratore *****
+->python manage.py createsuperuser
+->Username: <username>
+->Email address: <email dell'amminisratore>
+->Password: *****
+->Password (again): *****
+
+***** Creare una tabella con Django *****
+Creare la classe nel file models.py
+->python manage.py makemigration (crea il file per l'inserimento nel db)
+->python manage.py migrate (effettua la modifica sul db)
