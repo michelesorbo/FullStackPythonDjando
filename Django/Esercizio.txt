@@ -1,7 +1,15 @@
-Creare un nuovo progetto chiamati sito1.
-Creare una nuova app chiamata pagine
-Creare 3 pagina.
-La pagina Home con la scritta benvenuto sil mio sito
-La pagina Chi siamo dove verrà mostrato una descrizione scritta a piacere
-La pagian contatti che dovà avere un form con un campo oggetto e una text area per il messaggio
-Tutte la pagine avranno un menu per andare da una pagina all'altra
+Esercizio 1 Un’università vuole raccogliere ed organizzare in un database le informazioni sui propri 
+studenti in relazione ai corsi che essi frequentano ed agli esami che essi sostengono. 
+1. Individuare, motivando le scelte effettuate
+ Le entità
+ Gli attributi
+ Le associazioni
+
+2. Disegnare il modello E/R 
+3. Verificare lo schema con le regole di lettura 
+Soluzione Analisi 
+A livello concettuale non è prevista la trattazione delle tematiche inerenti la parte procedurale (funzioni). 
+In effetti già nel testo del problema non compare alcun riferimento a “cosa fare” sul database. 
+E’ richiesto semplicemente uno studio concettuale sull’organizzazione dei dati. 
+Di conseguenza la fase di analisi è limitata ad una breve analisi descrittiva per comprendere la realtà cui il problema si riferisce, 
+ de all’analisi dei dati.
