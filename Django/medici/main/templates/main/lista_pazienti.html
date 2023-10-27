@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block titolo_pagina %}Pazienti medico - ASL Todi{% endblock titolo_pagina %}
+
+
+{% block contenuto %}
+<h2>Paziendi del medico {{medico.cognome}} {{medico.nome}}</h2>
+<table class="table table-hover">
+<thead>
+    <tr>
+        <th>Cognome</th>
+        <th>Nome</th>
+        <th>Luogo di Nascita</th>
+        <th>Data di Nascita</th>
+        <th>Residenza</th>
+        <th>Indirizzo</th>
+    </tr>
+</thead>
+<tbody>
+{% for p in pazienit  %}
+<tr>
+    <td>{{p.cognome}}</td>
+    <td>{{p.nome}}</td> 
+    <td>{{p.luogo_nascita}}</td>
+    <td>{{p.data_nascita}}</td>
+    <td>{{p.residenza}}</td>
+    <td>{{p.indirizzo}}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+{% endblock contenuto %}

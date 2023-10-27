@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block titolo_pagina %}Dati medido {{ medico.cognome }} - ASL Todi{% endblock titolo_pagina %}
+
+
+
+{% block contenuto %}
+<table class="table table-hover">
+<tr>
+    <td><b>Nome</b></td>
+    <td>{{medico.nome}}</td>
+</tr>
+<tr>
+    <td><b>Cognome</b></td>
+    <td>{{medico.cognome}}</td>
+</tr>
+<tr>
+    <td><b>Luogo di Nascita</b></td>
+    <td>{{medico.lugo_nascita}}</td>
+</tr>
+<tr>
+    <td><b>Data di Nascita</b></td>
+    <td>{{medico.data_nascita}}</td>
+</tr>
+<tr>
+    <td><b>Data di inserimento</b></td>
+    <td>{{medico.data_inserimento}}</td>
+</tr>
+</table>
+{% endblock contenuto %}

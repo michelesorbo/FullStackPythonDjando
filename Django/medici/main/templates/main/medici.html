@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block titolo_pagina %}Elenco medidi ASL Todi{% endblock titolo_pagina %}
+
+{% block style_link %}
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+{% endblock style_link %}
+
+{% block css_pagina %}
+
+.material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24
+}
+
+{% endblock css_pagina %}
+
+{% block contenuto %}
+<table class="table table-hover">
+<thead>
+    <tr>
+        <th>Cognome</th>
+        <th>Nome</th>
+        <th>Azioni</th>
+    </tr>
+</thead>
+<tbody>
+{% for medico in medici  %}
+<tr>
+    <td>{{medico.cognome}}</td>
+    <td>{{medico.nome}}</td>
+    <td>
+        <a href="{% url "medico" medico.pk %}"><span class="material-symbols-outlined">psychology_alt</span></a>
+        <a href="{% url "lista_pazienti" medico.pk %}"><span class="material-symbols-outlined">receipt_long</span></a>
+    </td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+{% endblock contenuto %}
