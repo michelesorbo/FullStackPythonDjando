@@ -6,6 +6,7 @@ class Post(models.Model):
     titolo = models.CharField(max_length=200) #Creo il campo titolo nel DB di lunghezza 200
     data = models.DateTimeField(default=timezone.now)#Voglio inserire la data in modo automatico
     corpo = models.TextField() #Serve per ricordare testi di grandi dimensioni
+    descrizione = models.CharField(max_length=255, null=True, default=None)
 
     def __str__(self):
         return f"Scrivo quello che voglio: {self.titolo}"

@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block titolo_pagina %}{{ blog.titolo }}{% endblock titolo_pagina %}
+{% block contenuto %}
+<h1>{{blog.titolo}}</h1>
+<p>{{ blog.data}}</p>
+<p>{{ blog.corpo}}</p>
+<p>{{ blog.categoria}}</p>
+{% endblock contenuto %}
