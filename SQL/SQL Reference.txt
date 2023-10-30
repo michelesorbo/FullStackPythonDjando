@@ -70,3 +70,68 @@ DROP TABLE <nome_tabella>
 *** Per eliminare una colonna da una tabella e il relativo contenuto ***
 ALTER TABLE <nome_tabella>
 DROP COLUMS <nome_tabella>
+
+
+*** Contare numero di occorrenze nelle query *** 
+link: https://www.w3schools.com/sql/sql_count.asp
+Si usa il COUNT. Per conoscere quante volte nella colonna compare un determinato elemento basta racchiudere l'elemento nel COUNT
+SELECT COUNT(marca)
+FROM smartphone
+WHERE marca = 'Samsung'
+
+
+*** Sommare gli elementi di una colonna ***
+link: https://www.w3schools.com/sql/sql_sum.asp
+SUM ritorna il risultato della somma degli elementi numerici.
+SELECT sum(prezzo)
+FROM smartphone
+WHERE marca = 'Apple'
+
+AVG Serve per trovare il valore medio
+AS serve a dare un nuovo nome alla colonna
+
+
+*********************************************+
+*** Selezionare dati su più tabelle ***
+*********************************************+
+Le JOIN.
+link: https://www.w3schools.com/sql/sql_join.asp
+
+SELECT <campi_tabella1> campi_tabella2,
+FROM tabella_principale
+INNER JOIN tabella2 ON tabella_principale.id_tabella2 = tabella2.id
+
+
+/* Visualizzare solo le marche ripetute una volta */
+SELECT DISTINCT marca
+FROM smartphone
+
+Trovare il prezzo minore con MIN()
+SELECT min(prezzo), marca, modello
+FROM smartphone
+
+Trovare il prezzo maggiore con MAX()
+SELECT max(prezzo), marca, modello
+FROM smartphone
+
+Trovare un range di prezzo
+SELECT marca, modello, prezzo
+FROM smartphone
+WHERE prezzo BETWEEN 650 AND  900
+
+Solo modelli compresi in una lista
+SELECT marca, modello, prezzo
+FROM smartphone
+WHERE modello IN ('S22 Ultra', 'IPhone 15')
+
+*** Raggruppare per caratteristica ***
+GROUP BY 
+/*Contare quanti cellulari ci sono per marca*/
+SELECT marca, count(marca)
+FROM smartphone
+GROUP BY marca
+
+NEGAZIONE DI UNA CONDIZIONE CON NOT
+SELECT *
+FROM smartphone
+WHERE NOT marca = 'Apple'

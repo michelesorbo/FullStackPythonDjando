@@ -1,10 +1,25 @@
-Esercizio 1:
+Esercizio 1: Numeri telefonici - Persone - Smartphone
 Creare il seguente Data Base per la gestione di Smartphone.
 Tablelle: (Da mostrare i comandi SQL)
 persone (id_persona, nome, cognome, data_nascita) ->data_nascita non richiesta.
+numeri_telefonici (id_numero, numero, compagnia_telefonica, id_persona*)
+
 smartphone (id_smartphone, marca, modello, colore)
+smartphone_posseduti (id_smartphone, id_persona, data_acquisto)
 
 Inserire almeno 5 persone e 3 smartphone
+
+NUOVE QUERY:
+1)Marca e modello degli smartphone. Evitare che lo stesso modello di una marca compaia più volte a schermo nel risultato della query.
+
+2)Le informazioni delle persone che hanno almeno un numero telefonico. Evitare i duplicati in output.
+
+3)Indicare i colori dello smartphone Samsung S20 che sono registrati nel db.
+
+4)Elenco degli smartphone di marca Samsung posseduti da Gianluca Bianchi.
+
+5)Elenco delle persone che hanno almeno un numero telefonico con la compagnia "TIM".
+
 
 Query SQL da scrivere ed eseguire
 1) Stampare la marca e il modello degli smartphone presenti nel DB
@@ -16,3 +31,132 @@ Query SQL da scrivere ed eseguire
 Popolare il database con gli opportuni dati.
 1)Creare le query di inserimento sia degli samrtphone che degli utenti.
 2)Per il cliente Mario Rossi modificare la data di nascita con una nuova data e mostrare la query.
+
+Esercizio 2: Film-Attori-Generi
+Dato il seguente schema relazionale di un database:
+attori (id_attore, nome, cognome, data_nascita)
+film (id_film, nome, trama, durata, data_uscita, id_genere*)
+generi (id_genere, nome, descrizione)
+recitare (id_attore, id_film, ruolo)
+
+Rispondere in SQL alle seguenti query:
+
+Tutte le informazioni degli attori nati dopo il 1970.
+
+Nome, durata e data di uscita dei film che hanno una durata superiore a 2 ore o che sono usciti prima del 1991.
+
+Trama, durata e data di uscita del film "Interstellar".
+
+Elenco dei film che non hanno un genere assegnato.
+
+Nome, data di uscita e durata dei film di genere "Romantico".
+
+Nome e cognome degli attori che hanno avuto un ruolo da "Non protagonista" in almeno un film. Se un attore è stato non protagonista per più di un film deve comunque apparire una sola volta nel risultato della query.
+
+Nome, cognome e data di nascita degli attori che hanno recitato nel film "Titanic" uscito il 16 gennaio 1998.
+
+Nome e cognome degli attori nati dopo il 1970 che hanno recitato con ruolo da "Protagonista" in un film "Romantico" di durata maggiore di un’ora e trenta minuti e uscito a partire dal 1990.
+
+
+
+Esercizio 3: Sanremo
+
+Dato il seguente schema relazionale di un database:
+artisti (id_artista, nome, numero_album, citta)
+brani (id_brano, nome)
+esibizioni (id_artista, id_brano, data)
+
+
+Rispondere in SQL alle seguenti query:
+
+Numero degli artisti nati a Milano o a Roma.
+
+Media degli album realizzati dagli artisti nati a Milano.
+
+Numero minimo e numero massimo di album realizzati dagli artisti.
+
+Nome e numero di album degli artisti nati a Roma. Ordinare le righe della tabella in ordine decrescente sulla base del numero di album, 
+ed a parità di album ordinare in base al nome dell'artista in ordine alfabetico.
+
+Nome del brano con cui si è esibito l'artista "Marco Mengoni" il giorno 7/02/2023.
+
+Nome degli artisti e nome del brano con cui si sono esibiti gli artisti il 7/02/2023.
+
+Nome degli artisti che non hanno fatto alcuna esibizione.
+
+
+
+Esercizio 4: canzoni - playlist - utente
+
+Dato il seguente schema relazionale di un database:
+canzoni (id_canzone, titolo, durata, genere, data_uscita, num_ascolti)
+canzoni_playlist (id_canzone, cod_playlist)
+playlist (cod_playlist, nome, id_utente*)
+utenti (id_utente, nome, cognome)
+
+Rispondere in SQL alle seguenti query:
+
+Il numero di ascolti maggiore, quello minore e quello medio ricevuto dalle canzoni presenti nel database.
+
+Il numero di canzoni  con genere pop e durata maggiore di 3 minuti.
+
+Titolo, durata e numero di ascolti delle canzoni uscite dal 2022 in poi. 
+
+Elenco delle canzoni presenti nella playlist "Mattia04".
+
+Elenco delle canzoni presenti nella playlist dell'utente Mara Sattei.
+
+Elenco delle canzoni ordinate sulla base della data di uscita (dalla più recente alla meno recente) e a parità di data di uscita ordinarle sulla base del titolo in ordine alfabetico.
+
+Nome e cognome degli utenti che hanno creato playlist al cui interno è presente la canzone "Sorriso grande".
+
+Elenco degli utenti che non hanno creato una playlist.
+
+Elenco delle canzoni che non si trovano in una playlist.
+
+Elenco delle playlist che non hanno una canzone.
+
+
+Esercizio 5: tutorial - social - categorie
+
+Dato il seguente schema relazionale di un database:
+categorie (id_categoria, nome, descrizione)
+social_network (id_social_network, nome)
+tutorial (id_tutorial, titolo, descrizione, livello, durata, link, id_categoria*)
+tutorial_social_network (id_tutorial, id_social_network)
+
+Rispondere in SQL alle seguenti query:
+
+Titolo, descrizione e livello dei tutorial il cui titolo inizia con la lettera 'I'.
+
+Elenco dei tutorial che appartengono alle seguenti categorie: Programmazione, Musica e Sport.
+
+Elenco dei tutorial la cui durata è compresa tra 5 minuti e 15 minuti.
+
+Per ogni livello indicare quanti tutorial sono presenti nel database.
+
+Nomi dei social network in cui sono stati pubblicati almeno 5 tutorial.
+
+Elenco dei tutorial che hanno durata pari alla durata massima dei tutorial presenti nel database.
+
+Indicare quanti tutorial sono stati pubblicati nel social network 'Facebook'.
+
+Elenco dei tutorial di categoria 'Programmazione' presenti nel social network 'Instagram'. 
+
+Per ogni social network indicare quanti tutorial di categoria 'Business' sono stati pubblicati.
+
+Elenco dei social dove non sono stati pubblicati alcun tutorial.
+
+Elenco dei tutorial il cui titolo contiene la parola 'Java'.
+
+Per ogni social network indicare la durata media dei tutorial che sono pubblicati in esso.
+
+Il titolo dei tutorial che sono di livello di Intermedio e che hanno una durata più lunga della durata media tra tutti i tutorial di livello Intermedio. 
+
+Per ogni categoria si vuole conoscere il numero di tutorial presenti nel social network 'Instagram'.
+
+ Elenco dei tutorial ordinati da quello più breve a quello più lungo e a parità di durata ordinarli in base al titolo in ordine alfabetico.
+
+Per ogni tutorial presente nel database indicare: il nome del tutorial, il livello, la durata, il nome della categoria, ed il nome del social network in cui è pubblicato. Se un tutorial è stato pubblicato in più social network, nella tabella risultante si avranno più righe per quel tutorial.
+
+Elenco dei tutorial che hanno un livello "Principiante" o "Intermedio" e sono di categoria "Programmazione" o "Design".
