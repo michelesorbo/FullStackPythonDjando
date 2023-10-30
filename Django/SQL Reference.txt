@@ -41,3 +41,32 @@ VALUES (val1,val2,val3...)
 link: https://www.w3schools.com/sql/sql_ref_delete.asp
 DELETE FROM <nome_tabella>
 WHERE <condizione> (IMPORTANTE MAI DIMENTICARE LA CONDIZIONE)
+
+
+*** Creare una nuova tabella nel BD ***
+In Django questa operazione si fa creando una nuova classe nel file models.py e indicando i campi.
+In SQL il comando è CREATE <nome_tabella>{ vari campi}
+
+CREATE TABLE libri (
+	"id" INTEGER,
+	"titolo" varchar(150) NOT NULL,
+	"descrizione" varchar(250),
+	"anno_pubblicazione" date,
+	PRIMARY KEY ("id" AUTOINCREMENT)
+);
+
+in Django:
+(ID non necessario perchè generato da Django)
+
+class libri(models.Model):
+    titolo = models.CharField(max_length = 150)
+    descrizione = models.CharField(max_length = 250, default = None)
+    anno_pubblicazione = models.DATE()
+
+
+*** Cancellare una tabella con tutto il suo contenuto ***
+DROP TABLE <nome_tabella>
+
+*** Per eliminare una colonna da una tabella e il relativo contenuto ***
+ALTER TABLE <nome_tabella>
+DROP COLUMS <nome_tabella>
