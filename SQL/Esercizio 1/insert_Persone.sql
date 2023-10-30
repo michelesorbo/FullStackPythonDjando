@@ -1,0 +1,2 @@
+INSERT INTO persone
+VALUES (NULL, 'Luca','VERDI','2000_11_21')
