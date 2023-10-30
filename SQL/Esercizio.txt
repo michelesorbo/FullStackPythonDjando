@@ -1,0 +1,18 @@
+Esercizio 1:
+Creare il seguente Data Base per la gestione di Smartphone.
+Tablelle: (Da mostrare i comandi SQL)
+persone (id_persona, nome, cognome, data_nascita) ->data_nascita non richiesta.
+smartphone (id_smartphone, marca, modello, colore)
+
+Inserire almeno 5 persone e 3 smartphone
+
+Query SQL da scrivere ed eseguire
+1) Stampare la marca e il modello degli smartphone presenti nel DB
+2) Stampare il nome e il cognome delle persone nate dopo il 01/10/2000, 
+   visualizzare il risultato ordinando le persone per nome in modo decrescente
+3) Stampare tutti gli utenti che hanno un cognome che inizia con R
+4) Stampare tutti gli smartphone che hanno un colore rosso e una marca che inizia con S
+
+Popolare il database con gli opportuni dati.
+1) Creare le query di inserimento sia degli samrtphone che degli utenti.
+2)Pe ril cliente Mario Rossi modificare la data di nascita con una nuova data e mostrare la query.
