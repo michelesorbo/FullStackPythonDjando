@@ -14,5 +14,5 @@ Query SQL da scrivere ed eseguire
 4) Stampare tutti gli smartphone che hanno un colore rosso e una marca che inizia con S
 
 Popolare il database con gli opportuni dati.
-1) Creare le query di inserimento sia degli samrtphone che degli utenti.
-2)Pe ril cliente Mario Rossi modificare la data di nascita con una nuova data e mostrare la query.
+1)Creare le query di inserimento sia degli samrtphone che degli utenti.
+2)Per il cliente Mario Rossi modificare la data di nascita con una nuova data e mostrare la query.
