@@ -1,0 +1,43 @@
+*** Selezionare i dati da una tabella in SQL ***
+link: https://www.w3schools.com/sql/sql_ref_select.asp
+
+1) Per selezionare i dati usiamo il comando SELECT (per convenzione i comandi SQL si scrivono in MAIUSCOLO). 
+SELECT (in questo campo mettiamo il nome delle colonne che voglio visualizzare divise da una virgola(,). Se le voglio visualizzare tutte metto *)
+FROM (in questo campo inserisco il nome della tabella da dove estrarre le informazioni)
+->In Django ORM il comando SELECT * FROM <tabella> è il comando <CLASSE DELLA TABELLA>.object.all()
+
+2)Selezionare i dati con una condizione. Usiamo la key WHERE (link: https://www.w3schools.com/sql/sql_ref_where.asp)
+SELECT <campi>
+FROM <Tabella>
+WHERE <condizione> and/or <condizione
+->In Django ORM il comando SELECT * FROM <tabella> WHERE <condizione> è il comando <CLASSE DELLA TABELLA>.object.all().filter()
+
+*** Filtri in SQL ***
+1) '=' Serve a trovare l'occorrenza uguale
+2) 'like' serve a trovare l'inzio, il contenuto o la fine di una stringa in un campo. 
+    Il  carattere che usa like per determinare la ricerca è %. (link: https://www.w3schools.com/sql/sql_like.asp)
+3) 'ORDER BY' serve a restituire i dati ordinato in base alla colonna indicata. 
+
+
+
+
+*** Modificare campi in una tabella SQL ***
+link: https://www.w3schools.com/sql/sql_ref_update.asp
+Il comando UPDATE serve a modificare i valori all'interno delle tabelle
+UPDATE <nome_tabella>
+SET colonna2=valore, colonna2 = valore....
+WHERE condizione (IMPORTANTE MAI DIMENTICARE LA CONDIZIONE)
+
+
+
+*** Inserire nuove righe ad una tabella ***
+link: https://www.w3schools.com/sql/sql_ref_insert_into.asp
+Per inserire nuove informazioni ad una tabella, quindi creare una nuova riga della tabella si usa il comando INSERT
+INSERT INTO <nome_tabella> (Campi della tabella) ->Sono opzionali se ricordiamo l'ordine dei campi e inseriamo tutti i valori
+VALUES (val1,val2,val3...)
+
+
+*** Come eliminare una riga da una colonna ***
+link: https://www.w3schools.com/sql/sql_ref_delete.asp
+DELETE FROM <nome_tabella>
+WHERE <condizione> (IMPORTANTE MAI DIMENTICARE LA CONDIZIONE)
