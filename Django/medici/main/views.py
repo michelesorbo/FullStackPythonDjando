@@ -1,10 +1,11 @@
 from django.shortcuts import render, redirect
 from django.http import Http404
+from django.core.mail import send_mail
 #Vado a prendere il modello dalla pagina models
 from .models import Blog, Medici, Pazienti
 
 #Importo la classe dove ho i forms
-from .forms import BlogForm
+from .forms import BlogForm, MediciForm, PazientiForm, EmailMedicoForm
 
 # Create your views here.
 def index(request):
@@ -34,7 +35,11 @@ def medico(request, medico_id):
 def pazientiMedico(request, medico_id):
     pazienti = Pazienti.objects.filter(medico=medico_id).order_by('cognome') #Seleziono solo i pazienit che hanno id uguale al medico_id passato
     medico = Medici.objects.get(pk=medico_id)
-    return render(request,'main/lista_pazienti.html', {'pazienit': pazienti, 'medico':medico})
+    return render(request,'main/lista_pazienti.html', {'pazienti': pazienti, 'medico':medico})
+
+def pazienti(request):
+    pazienti = Pazienti.objects.all()
+    return render(request, 'main/pazienti.html', {'pazienti':pazienti})
 
 #Creo la view per creare un nuovo blog nel Front End
 def newBlog(request):
@@ -46,3 +51,41 @@ def newBlog(request):
     else: #Se non arriva la richiesta POST creo il form vuoto
         form = BlogForm()
     return render(request, 'blog/newblog.html', {'form': form})
+
+def newMedico(request):
+    if request.method == 'POST': #Se ricevo una richiesta di tipo POST (significa che ho compilato e inviato il form)
+        form = MediciForm(request.POST) #Salva tutti i campi del form inizializzati con i valori messi nelle input del form
+        if form.is_valid(): #Verifico se i dati sono validi
+            medico = form.save() #Salvo i dati nel DB e ricordo nella variabile blog l'id appena asseganto al blog
+            return redirect('medico', medico.id) #Richiamo la pagina 'bsingolo' (è il nome che diamo al path nel file urls) e gli passo l'id del blog appena creato
+    else: #Se non arriva la richiesta POST creo il form vuoto
+        form = MediciForm()
+    return render(request, 'main/newMedico.html', {'form': form})
+
+def newPaziente(request):
+    if request.method == 'POST': #Se ricevo una richiesta di tipo POST (significa che ho compilato e inviato il form)
+        form = PazientiForm(request.POST) #Salva tutti i campi del form inizializzati con i valori messi nelle input del form
+        if form.is_valid(): #Verifico se i dati sono validi
+            paziente = form.save() #Salvo i dati nel DB e ricordo nella variabile blog l'id appena asseganto al blog
+            return redirect('medici') #Richiamo la pagina 'bsingolo' (è il nome che diamo al path nel file urls) e gli passo l'id del blog appena creato
+    else: #Se non arriva la richiesta POST creo il form vuoto
+        form = PazientiForm()
+    return render(request, 'main/newPaziente.html', {'form': form})
+
+def EmailMedico(request, medico_id):
+    form = EmailMedicoForm()
+    medico = Medici.objects.get(pk=medico_id)
+    send = False
+
+    form = EmailMedicoForm(request.POST)
+
+    if form.is_valid():
+        cd = form.clean_data #Prendo i dati puliti che hanno passato la validazione
+        subject = f"{cd['nome']} ti raccomanda di leggere il messaggio con titolo: {cd['oggetto']}"
+        message = cd['corpo']
+        sender = cd['email']
+        send_mail(subject, message,sender,'reciver@exemple.com')
+        send = True
+    else:
+        form = EmailMedicoForm()
+    return render(request, 'main/emailMedico.html', {'form':form, 'medico':medico, 'send':send})

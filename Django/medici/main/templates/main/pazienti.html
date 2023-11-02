@@ -1,9 +1,8 @@
 {% extends "base.html" %}
-{% block titolo_pagina %}Pazienti medico - ASL Todi{% endblock titolo_pagina %}
+{% block titolo_pagina %}Pazienti - ASL Todi{% endblock titolo_pagina %}
 
 
 {% block contenuto %}
-<h2>Paziendi del medico {{medico.cognome}} {{medico.nome}}</h2>
 <table class="table table-hover">
 <thead>
     <tr>
@@ -13,6 +12,8 @@
         <th>Data di Nascita</th>
         <th>Residenza</th>
         <th>Indirizzo</th>
+        <th>Medico Curante</th>
+        <th>Data Nascita Medico</th>
     </tr>
 </thead>
 <tbody>
@@ -24,6 +25,8 @@
     <td>{{p.data_nascita}}</td>
     <td>{{p.residenza}}</td>
     <td>{{p.indirizzo}}</td>
+    <td><a href="{% url "lista_pazienti" p.medico.pk %}">{{p.medico}}</a></td>
+    <td>{{p.medico.data_nascita}}</td>
 </tr>
 {% endfor %}
 </tbody>

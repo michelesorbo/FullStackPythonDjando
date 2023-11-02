@@ -34,6 +34,7 @@
     <td>
         <a href="{% url "medico" medico.pk %}"><span class="material-symbols-outlined">psychology_alt</span></a>
         <a href="{% url "lista_pazienti" medico.pk %}"><span class="material-symbols-outlined">receipt_long</span></a>
+        <a href="{% url "emailMmedico" medico.pk %}"><span class="material-symbols-outlined">mail</span></a>
     </td>
 </tr>
 {% endfor %}

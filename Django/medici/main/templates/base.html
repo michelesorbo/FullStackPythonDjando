@@ -37,8 +37,10 @@
                         </a>
                         <ul class="dropdown-menu">
                           <li><a class="nav-link" href="{% url "medici" %}">Lista Medici</a></li>
-                          <li><a class="nav-link" href="#">Nuovo Medico</a></li>
-                          <li><a class="nav-link" href="#">Nuovo Paziente</a></li>
+                          <li><a class="nav-link" href="{% url "newMedico" %}">Nuovo Medico</a></li>
+                          <li><hr class="dropdown-divider"></li>
+                          <li><a class="nav-link" href="{% url "pazienti" %}">Lista Pazienti</a></li>
+                          <li><a class="nav-link" href="{% url "newPaziente" %}">Nuovo Paziente</a></li>
                         </ul>
                       </li>
                                    
