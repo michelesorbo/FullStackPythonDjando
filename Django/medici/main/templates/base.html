@@ -30,15 +30,28 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{% url "index" %}">Home</a>
                     </li>
-                    
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url "medici" %}">Medici</a>
-                    </li>
-                    
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url "blog" %}">Blog</a>
-                    </li>
-                    
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Medici
+                        </a>
+                        <ul class="dropdown-menu">
+                          <li><a class="nav-link" href="{% url "medici" %}">Lista Medici</a></li>
+                          <li><a class="nav-link" href="#">Nuovo Medico</a></li>
+                          <li><a class="nav-link" href="#">Nuovo Paziente</a></li>
+                        </ul>
+                      </li>
+                                   
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Blog
+                        </a>
+                        <ul class="dropdown-menu">
+                          <li><a class="nav-link" href="{% url "blog" %}">Lista Blog</a></li>
+                          <li><a class="nav-link" href="{% url "newBlog" %}">Nuovo Blog</a></li>
+                        </ul>
+                      </li>
+
                 </ul>
             </div>
         </div>

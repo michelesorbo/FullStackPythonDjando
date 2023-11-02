@@ -1,0 +1,5 @@
+Query 1:
+
+SELECT * 
+FROM dj;
+
