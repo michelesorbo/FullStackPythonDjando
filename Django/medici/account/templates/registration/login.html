@@ -1,0 +1,19 @@
+{% extends "base_aut.html" %}
+{% block titolo %}LogIn{% endblock titolo %}
+{% block content %}
+    <h1>Login</h1>
+    {% if form.errors %}
+    <p>Usernamo o Password non esatte. Riprova</p>
+    {% else %}
+    <p>Usa il form per loggarti</p>
+    {% endif %}
+
+    <div class="login-form">
+        <form method="post" action={% url "login" %}>
+            {{ form.as_p }}
+            {% csrf_token %}
+            <input type="hidden" name="next" value={{ next }}>
+            <p><input type="submit" value="LogIn"></p>
+    </div>
+
+{% endblock content %}

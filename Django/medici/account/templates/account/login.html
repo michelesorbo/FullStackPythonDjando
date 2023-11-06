@@ -1,0 +1,11 @@
+{% extends "base_aut.html" %}
+{% block titolo %}LogIn{% endblock titolo %}
+{% block content %}
+<h1>LogIn</h1>
+<p>Usa il form per loggarti</p>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p}}
+    <p><input type="submit" value="LogIn"></p>
+</form>
+{% endblock content %}

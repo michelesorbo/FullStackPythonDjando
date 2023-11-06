@@ -1,6 +1,41 @@
 {% extends "base.html" %}
 {% block titolo_pagina %}Dati medido {{ medico.cognome }} - ASL Todi{% endblock titolo_pagina %}
 
+{% block css_pagina %}
+@import url(https://fonts.googleapis.com/css?family=Lily+Script+One);
+
+form > h1{
+    font-family: 'Lily Script One', cursive;
+    font-size: 60px;
+}
+
+form{
+    margin: 10px auto 0 auto;
+    width: 400px;
+    height: auto;
+    overflow: hidden;
+}
+
+input{
+    width: 100%;
+    margin: 5px 0;
+    padding: 15px 10px;
+    outline: none;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+label{
+    font-size: 12px;
+    color: chocolate;
+}
+
+div{
+    margin-bottom: 15px;
+}
+
+
+{% endblock css_pagina %}
 
 
 {% block contenuto %}
@@ -22,8 +57,26 @@
     <td>{{medico.data_nascita}}</td>
 </tr>
 <tr>
+    <td><b>Immagine del profilo</b></td>
+    <td><img src="{{medico.img_medico.url}}" width="150"></td>
+</tr>
+<tr>
     <td><b>Data di inserimento</b></td>
     <td>{{medico.data_inserimento}}</td>
 </tr>
 </table>
+
+<h1>Scrivi una mail al medico {{ medico }}</h1>
+
+{% if send %}
+<div class="alert alert-success" role="alert">
+    Messaggio inviato
+</div>
+{% endif %}
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_div }}
+    <input type="submit">
+</form>
 {% endblock contenuto %}

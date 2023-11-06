@@ -10,13 +10,14 @@ class BlogForm(forms.ModelForm):
     class Meta:
         model = Blog
         #fields = '__all__' #Dico di inserire tutti i campi della tabella nel form
-        fields = ['titolo','descrizione', 'corpo', 'categoria'] #Dico di inserire solo i campi titolo e descrizione
+        #fields = ['titolo','descrizione', 'corpo', 'categoria'] #Dico di inserire solo i campi titolo e descrizione
+        exclude = ['data']
 
 class MediciForm(forms.ModelForm):
     
     class Meta:
         model = Medici
-        fields = ("nome","cognome","lugo_nascita","data_nascita")
+        fields = ("nome","cognome","lugo_nascita","data_nascita","img_medico")
 
 class PazientiForm(forms.ModelForm):
     

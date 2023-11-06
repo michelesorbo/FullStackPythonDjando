@@ -83,21 +83,21 @@
 
     {% for blog in blogs  %}
     <div class="col">
-        <div class="card shadow-sm">
-          <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>{{ blog.titolo }}</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">{{ blog.titolo }}</text></svg>
-          <div class="card-body">
-            <p class="card-text">{{ blog.descrizione }}</p>
-            <div class="d-flex justify-content-between align-items-center">
-              <div class="btn-group">
-                <a href="{% url "bsingolo" blog.pk %}" class="btn btn-sm btn-outline-secondary">Continua...</a>
-              </div>
-              <small class="text-body-secondary">{{ blog.data }}</small>
-            </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">Categoria: <a href="#" class="card-link">{{ blog.categoria }}</a></li>
-              </ul>
-          </div>
+
+      <div class="card shadow-sm" style="width: 25rem;">
+        <img src="{{ blog.img_blog.url}}" class="card-img-top" alt="{{ blog.titolo }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ blog.titolo }}</h5>
+          <p class="card-text">{{ blog.descrizione }}</p>
+          <a href="{% url "bsingolo" blog.pk %}" class="btn btn-primary">Leggi</a>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Categoria: {{ blog.categoria }}</li>
+            <li class="list-group-item">Data: {{ blog.data }}</li>
+            <li class="list-group-item">Autore: {{ blog.autore }}</li>
+          </ul>
         </div>
+      </div>
+
       </div>
 
     {% endfor %}

@@ -37,6 +37,13 @@ div{
 {% endblock css_pagina %}
 {% block contenuto %}
 <h1>Scrivi una mail al medico {{ medico }}</h1>
+
+{% if send %}
+<div class="alert alert-success" role="alert">
+    Messaggio inviato
+  </div>
+{% endif %}
+
 <form method="post">
     {% csrf_token %}
     {{ form.as_div }}

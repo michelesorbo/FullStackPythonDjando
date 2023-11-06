@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -38,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main', #Innesto la mia App tra quelle installate
+    'account',#App per la gestione dell'account
 ]
 
 MIDDLEWARE = [
@@ -129,3 +131,12 @@ EMAIL_HOST_USER = 'db5c47b1bc987d'
 EMAIL_HOST_PASSWORD = '01d01522414638'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+
+#DEFINIAMO LA CARTELLA PER I MEDIA (Tutti i file, sia immagini che documenti, ce vengono inseriti tramite upload)
+MEDIA_URL = "/media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+#GESTIONE LOGIN LOGOUT
+LOGIN_REDIRECT_URL = 'dashboard' #La pagina visibile dopo il login
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'

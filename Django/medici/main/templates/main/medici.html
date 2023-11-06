@@ -21,6 +21,7 @@
 <table class="table table-hover">
 <thead>
     <tr>
+        <th>Immagine di Profilo</th>
         <th>Cognome</th>
         <th>Nome</th>
         <th>Azioni</th>
@@ -29,6 +30,7 @@
 <tbody>
 {% for medico in medici  %}
 <tr>
+    <td><img src="{{medico.img_medico.url}}" width="50" /></td>
     <td>{{medico.cognome}}</td>
     <td>{{medico.nome}}</td>
     <td>
