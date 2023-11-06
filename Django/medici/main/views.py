@@ -4,6 +4,9 @@ from django.core.mail import send_mail
 #Vado a prendere il modello dalla pagina models
 from .models import Blog, Medici, Pazienti
 
+#Regole per la paginazione
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
 from django.contrib.auth.decorators import login_required
 
 #Importo la classe dove ho i forms
@@ -14,12 +17,23 @@ def index(request):
     return render(request,'main/index.html')
 
 def blog(request):
-    blogs = Blog.objects.all() #Vado a prendere tutti i blog presenti nella tabella del DB blog
+    blogs_list = Blog.objects.all() #Vado a prendere tutti i blog presenti nella tabella del DB blog
+    #Vado a configurare la paginazione
+    paginator = Paginator(blogs_list, 3)#Vado a dire quanti blog per pagina devono essere visibili
+    page_number = request.GET.get('page',1)
+
+    try:
+        blogs = paginator.page(page_number)
+    except PageNotAnInteger:
+        blogs = paginator.page(1)
+    except EmptyPage:
+        blogs = paginator.page(paginator.num_pages)
+
     return render(request,'blog/index.html', {'blogs':blogs})
 
-def blogSingolo(request,year, month, day, blog):
+def blogSingolo(request,year, month, day, blog, categoria):
     try:
-        blog = get_object_or_404(Blog, slug=blog, data__year=year, data__month=month, data__day=day) #Mi estrai solo il blog con id = blogs_id
+        blog = get_object_or_404(Blog, categoria__slug=categoria, slug=blog, data__year=year, data__month=month, data__day=day) #Mi estrai solo il blog con id = blogs_id
     except Blog.DoesNotExist:
         raise Http404("Blog not find")
     
@@ -27,11 +41,23 @@ def blogSingolo(request,year, month, day, blog):
 
 #Gestione Pagine Medico Paziente
 def medici(request):
-    medici = Medici.objects.all().order_by('cognome')
+    medici_list = Medici.objects.all().order_by('cognome')
+
+    paginator = Paginator(medici_list, 3)#Vado a dire quanti blog per pagina devono essere visibili
+    page_number = request.GET.get('page',1)
+
+    try:
+        medici = paginator.page(page_number)
+    except PageNotAnInteger:
+        medici = paginator.page(1)
+    except EmptyPage:
+        medici = paginator.page(paginator.num_pages)
+
     return render(request,'main/medici.html', {'medici':medici})
 
-def medico(request, medico_id):
-    medico = Medici.objects.get(pk=medico_id)
+def medico(request, medico_id, medico):
+    #medico = Medici.objects.get(pk=medico_id)
+    medico = get_object_or_404(Medici, id=medico_id, slug=medico)
     send = False
 
     form = EmailMedicoForm(request.POST)
@@ -55,7 +81,17 @@ def pazientiMedico(request, medico_id):
     return render(request,'main/lista_pazienti.html', {'pazienti': pazienti, 'medico':medico})
 
 def pazienti(request):
-    pazienti = Pazienti.objects.all()
+    pazienti_list = Pazienti.objects.all()
+    
+    paginator = Paginator(pazienti_list, 3)#Vado a dire quanti blog per pagina devono essere visibili
+    page_number = request.GET.get('page',1)
+
+    try:
+        pazienti = paginator.page(page_number)
+    except PageNotAnInteger:
+        pazienti = paginator.page(1)
+    except EmptyPage:
+        pazienti = paginator.page(paginator.num_pages)
     return render(request, 'main/pazienti.html', {'pazienti':pazienti})
 
 #Creo la view per creare un nuovo blog nel Front End

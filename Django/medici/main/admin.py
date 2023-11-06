@@ -8,6 +8,7 @@ class MediciAdmin(admin.ModelAdmin):
     search_fields = ['cognome', 'nome', 'data_nascita']
     list_filter = ['data_inserimento', 'lugo_nascita']
     readonly_fields = ['img_preview']
+    prepopulated_fields = {'slug':('nome','cognome',)}
 admin.site.register(Medici, MediciAdmin)
 
 #Registro i Pazienit
@@ -20,6 +21,7 @@ class PazientiAdmin(admin.ModelAdmin):
 class catBlog(admin.ModelAdmin):
     list_display = ['titolo','descrizione']
     search_fields = ['titolo','descrizione']
+    prepopulated_fields = {'slug':('titolo',)} #Serve a popolare un campo in base ad un'altro campo del form
 admin.site.register(categorieBlog, catBlog)
 
 #Prima di registrare il modulo blog in admin, gli applico delle personalizzazioni alla visualizzazione della tabelle

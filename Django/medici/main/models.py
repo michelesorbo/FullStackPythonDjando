@@ -11,6 +11,7 @@ from django.utils.html import mark_safe
 # Create your models here.
 class Medici(models.Model):
     #Come codice userò l'id generato dal DB
+    slug = models.SlugField(max_length=200, default="")
     nome = models.CharField(max_length=150)
     cognome = models.CharField(max_length=150)
     lugo_nascita = models.CharField('Luogo di Nascita',max_length=150)
@@ -22,6 +23,10 @@ class Medici(models.Model):
     def __str__(self):
         return f"{self.cognome} {self.nome}"
     
+    def get_absolute_url(self):
+        return reverse("medico", args=[self.id, self.slug])
+    
+    
     def img_preview(self):
         return mark_safe(f'<img src="{self.img_medico.url}" width="150" />')
     
@@ -30,6 +35,7 @@ class Medici(models.Model):
 
 #Vado a creare la tabella paziente
 class Pazienti(models.Model):
+    slug = models.SlugField(max_length=200, default="")
     nome = models.CharField(max_length=150)
     cognome = models.CharField(max_length=150)
     luogo_nascita = models.CharField('Luogo di Nascita',max_length=150)
@@ -49,6 +55,7 @@ class Pazienti(models.Model):
 #Vado a gestire le tabelle del BLOG
 class categorieBlog(models.Model):
     titolo = models.CharField(max_length=200)
+    slug = models.SlugField(max_length=200, default="")
     descrizione = models.CharField(max_length=150, default="")
 
     def __str__(self) -> str:
@@ -70,7 +77,7 @@ class Blog(models.Model):
     
     #Riscrivo la url
     def get_absolute_url(self):
-        return reverse("bsingolo", args=[self.data.year, self.data.month, self.data.day, self.slug])
+        return reverse("bsingolo", args=[self.categoria.slug, self.data.year, self.data.month, self.data.day, self.slug])
     
 
     #Per visualizzare immagine in Admin

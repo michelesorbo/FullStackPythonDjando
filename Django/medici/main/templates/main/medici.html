@@ -34,7 +34,7 @@
     <td>{{medico.cognome}}</td>
     <td>{{medico.nome}}</td>
     <td>
-        <a href="{% url "medico" medico.pk %}"><span class="material-symbols-outlined">psychology_alt</span></a>
+        <a href="{{ medico.get_absolute_url }}"><span class="material-symbols-outlined">psychology_alt</span></a>
         <a href="{% url "lista_pazienti" medico.pk %}"><span class="material-symbols-outlined">receipt_long</span></a>
         <a href="{% url "emailMmedico" medico.pk %}"><span class="material-symbols-outlined">mail</span></a>
     </td>
@@ -42,4 +42,5 @@
 {% endfor %}
 </tbody>
 </table>
+{% include "pagination.html" with page=medici %}
 {% endblock contenuto %}
