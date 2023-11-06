@@ -19,11 +19,19 @@ from django.urls import path, include
 #IMPORTO LE LIBRERIE PER I FILE STATICI E GLI UPLOAD
 from django.conf import settings 
 from django.conf.urls.static import static
+#PER CREAZIONE SITEMAP
+from django.contrib.sitemaps.views import sitemap
+from main.sitemaps import BlogSitemap
+
+sitemaps = { #Serve a creare l'oggetto sidemap con tutte le sidemap delle vai app che compongono la web application
+    'blog':BlogSitemap,
+}
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('main.urls')),
     path('account/', include('account.urls')),
+    path('sitemap.xml', sitemap, {'sitemaps':sitemaps}, name='django.contrib.sitemaps.view.sitemap'),
 ]
 
 #Incorporo i file statici alle path solo se sono in DEBUG

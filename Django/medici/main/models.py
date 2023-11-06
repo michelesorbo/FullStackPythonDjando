@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.urls import reverse #Serve per riscrivere un url
 
 #Vado a prendere il modello standard di Django per la gestione degli utenti
 from django.contrib.auth.models import User
@@ -55,6 +56,7 @@ class categorieBlog(models.Model):
     
 class Blog(models.Model):
     titolo = models.CharField(max_length=150)
+    slug = models.SlugField(max_length=150, unique_for_date='data')
     descrizione = models.CharField(max_length=255)
     corpo = models.TextField()
     categoria = models.ForeignKey(categorieBlog, on_delete=models.CASCADE, default=None)#Vado a prendere la chiave della tabella categoriaBlog e imposti di default nessuna categoria
@@ -65,6 +67,12 @@ class Blog(models.Model):
 
     def __str__(self) -> str:
         return self.titolo
+    
+    #Riscrivo la url
+    def get_absolute_url(self):
+        return reverse("bsingolo", args=[self.data.year, self.data.month, self.data.day, self.slug])
+    
+
     #Per visualizzare immagine in Admin
     def img_preview(self):
         return mark_safe(f'<img src="{self.img_blog.url}" width="150" />')

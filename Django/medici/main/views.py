@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import Http404
 from django.core.mail import send_mail
 #Vado a prendere il modello dalla pagina models
@@ -17,9 +17,9 @@ def blog(request):
     blogs = Blog.objects.all() #Vado a prendere tutti i blog presenti nella tabella del DB blog
     return render(request,'blog/index.html', {'blogs':blogs})
 
-def blogSingolo(request,blogs_id):
+def blogSingolo(request,year, month, day, blog):
     try:
-        blog = Blog.objects.get(pk=blogs_id) #Mi estrai solo il blog con id = blogs_id
+        blog = get_object_or_404(Blog, slug=blog, data__year=year, data__month=month, data__day=day) #Mi estrai solo il blog con id = blogs_id
     except Blog.DoesNotExist:
         raise Http404("Blog not find")
     

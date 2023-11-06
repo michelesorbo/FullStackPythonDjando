@@ -89,7 +89,7 @@
         <div class="card-body">
           <h5 class="card-title">{{ blog.titolo }}</h5>
           <p class="card-text">{{ blog.descrizione }}</p>
-          <a href="{% url "bsingolo" blog.pk %}" class="btn btn-primary">Leggi</a>
+          <a href="{{ blog.get_absolute_url }}" class="btn btn-primary">Leggi</a>
           <ul class="list-group list-group-flush">
             <li class="list-group-item">Categoria: {{ blog.categoria }}</li>
             <li class="list-group-item">Data: {{ blog.data }}</li>

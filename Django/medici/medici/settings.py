@@ -28,6 +28,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+SITE_ID = 1 #Serve per generare la sitemap
 
 # Application definition
 
@@ -40,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main', #Innesto la mia App tra quelle installate
     'account',#App per la gestione dell'account
+    'django.contrib.sites', #Serve a leggere le url del sito
+    'django.contrib.sitemaps' #Serve a generare la site map in automatico
 ]
 
 MIDDLEWARE = [

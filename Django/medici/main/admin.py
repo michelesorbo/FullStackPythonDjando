@@ -26,9 +26,10 @@ admin.site.register(categorieBlog, catBlog)
 #Lo faccio creando una classe
 #@admin.register(Blog) #Alternativa con Decoratore
 class BlogAdmin(admin.ModelAdmin):
-    list_display = ['titolo','descrizione','categoria','autore','data', 'img_preview'] #Crea le colonne nella visualizzazione del blog
+    list_display = ['titolo','slug','descrizione','categoria','autore','data', 'img_preview'] #Crea le colonne nella visualizzazione del blog
     search_fields = ['titolo','descrizione'] #Creo una barra di ricerca e specifico su quali campi della tabella deve cercare
     list_filter = ['categoria','autore','data'] #Menù laterale con il filtro dei campi desiderati
     readonly_fields = ['img_preview'] #Per visualizzare immagine in Admin
+    prepopulated_fields = {'slug':('titolo',)} #Serve a popolare un campo in base ad un'altro campo del form
 #Dopo aver creato la classe la applico al modulo
 admin.site.register(Blog, BlogAdmin)
