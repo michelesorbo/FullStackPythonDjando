@@ -13,3 +13,20 @@ In effetti già nel testo del problema non compare alcun riferimento a “cosa f
 E’ richiesto semplicemente uno studio concettuale sull’organizzazione dei dati. 
 Di conseguenza la fase di analisi è limitata ad una breve analisi descrittiva per comprendere la realtà cui il problema si riferisce, 
  de all’analisi dei dati.
+
+
+ Esercizio Creazione BLOG
+
+ Creare una Web Application per getire un blog di una rivista online.
+
+ La rivista può avere più redagttori e quando si pubblica un nuovo articolo oltra la categoria bisogna
+ inserire anche l'autore dell'articolo.
+
+ Creare una pagina dove poter visualizzare tutti gli articoli e poi vedere il dettoglio degli articoli.
+
+ Rendere cliccabile sia la tegoria che l'autore e mostrare tutti gli articoli per categoria o per autore.
+
+ Ottimizzare il sito per la SEO. (creazione di sitemap e url canonici)
+
+Gli articoli devono essere scritti dal FronEnd e l'opzione di inserimento dell'articolo deve
+essere vista solo da chi è loggato
