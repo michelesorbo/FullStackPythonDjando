@@ -14,6 +14,10 @@
             {% csrf_token %}
             <input type="hidden" name="next" value={{ next }}>
             <p><input type="submit" value="LogIn"></p>
+        <form>
+        <p>
+            <a href="{% url "password_reset" %}">Password Dimenticata</a>
+        </p>
     </div>
 
 {% endblock content %}

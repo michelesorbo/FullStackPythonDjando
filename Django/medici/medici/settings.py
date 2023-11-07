@@ -33,6 +33,7 @@ SITE_ID = 1 #Serve per generare la sitemap
 # Application definition
 
 INSTALLED_APPS = [
+    'account',#App per la gestione dell'account
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -40,7 +41,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main', #Innesto la mia App tra quelle installate
-    'account',#App per la gestione dell'account
     'django.contrib.sites', #Serve a leggere le url del sito
     'django.contrib.sitemaps' #Serve a generare la site map in automatico
 ]
