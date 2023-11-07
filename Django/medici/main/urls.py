@@ -4,6 +4,8 @@ from django.urls import path
 #Importo le view dell'app
 from . import views
 
+#app_name = 'blog'
+
 urlpatterns = [
     path('',views.index, name='index'),
     path('lista-articoli/', views.blog, name='blog'),

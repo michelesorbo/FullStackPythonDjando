@@ -1,0 +1,12 @@
+{% extends "base_aut.html" %}
+{% block titolo %}Registrati{% endblock titolo %}
+{% block content %}
+<h1>Crea un nuovo utente</h1>
+<p>Compila il form per registrarti</p>
+<form method="post">
+    {% csrf_token %}
+    {{ user_form.as_p}}
+    <p><input type="submit" value="Crea Account"></p>
+</form>
+<p>Se sei già registrato vai a <a href="{% url "login" %}">LogIn</a></p>
+{% endblock content %}

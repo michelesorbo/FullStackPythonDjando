@@ -10,4 +10,7 @@ urlpatterns = [
 
     #Pagine di Amministrazione
     path('', views.dashboard, name='dashboard'),
+
+    #Pagine di Registrazione
+    path('register/', views.register, name='register'),
 ]

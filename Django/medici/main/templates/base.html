@@ -54,6 +54,17 @@
                         </ul>
                       </li>
 
+                      <!--Mostro login non sei loggato altrimenti ti mostro il logout-->
+                      {% if request.user.is_authenticated %}
+                      <li class="nav-item">
+                        Ciao {{ request.user.username }} - <a class="nav-link active" aria-current="page" href="{% url "logout" %}">LogOut</a>
+                      </li>
+                      {% else %}
+                      <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url "login" %}">Login</a>/<a class="nav-link active" aria-current="page" href="{% url "register" %}">Registrati</a>
+                    </li>
+                      {% endif %}
+
                 </ul>
             </div>
         </div>

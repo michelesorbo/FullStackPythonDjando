@@ -1,0 +1,8 @@
+{% extends "base_aut.html" %}
+{% block titolo %}Benvenuto{% endblock titolo %}
+
+{% block content %}
+<h1>Benvenuto {{ new_user.firs_name }}!</h1>
+<p>Il tuo account è stato creato correttamente.<br>
+    Ora puoi fare il <a href="{% url "login" %}">LogIn</a></p>
+{% endblock content %}
