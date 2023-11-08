@@ -1,5 +1,6 @@
 from django.shortcuts import render
-
+from .models import Carousel
 # Create your views here.
 def index(request):
-    return render(request, 'account/home.html')
+    slides = Carousel.objects.all()
+    return render(request, 'account/home.html', {'slides':slides})
