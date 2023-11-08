@@ -1,0 +1,12 @@
+{% extends "base_aut.html" %}
+{% block titolo %}Modifica Account{% endblock titolo %}
+{% block content %}
+<h1>Modifica il tuo profilo</h1>
+<p>Modifica il tuo profilo usando il form</p>
+<form method="post" enctype="multipart/from-data">
+    {% csrf_token %}
+    {{ user_form.as_p }}
+    {{ profilo_form.as_p }}
+    <p><input type="submit" value="Salva le modifiche"></p>
+</form>
+{% endblock content %}

@@ -23,4 +23,5 @@ urlpatterns = [
 
     #Pagine di Registrazione
     path('register/', views.register, name='register'),
+    path('user-edit/', views.editUser, name='edit_user'),
 ]

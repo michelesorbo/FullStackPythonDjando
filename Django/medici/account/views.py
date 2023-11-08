@@ -3,7 +3,9 @@ from django.http import HttpResponse
 from django.contrib.auth import authenticate, login
 #Richiamo il decoratore per impedire l'accesso alle pagine se non si è loggati
 from django.contrib.auth.decorators import login_required
-from .forms import LoginForm, UserRegistrationForm
+from .forms import LoginForm, UserRegistrationForm, UserEditForm, ProfiloEditForm
+from .models import Profilo
+from django.contrib import messages
 # Create your views here.
 
 # def user_login(request):
@@ -36,11 +38,31 @@ def register(request):
             new_user.set_password(user_form.cleaned_data['password']) #Django codifica la password in SHA256
             #Ora posso salvare in nuovo utente
             new_user.save()
+            #Dopo aver salvato il nuvo utente posso prendere l'id a creare una nuova riga nella tabella profilo con l'id utente appena creato
+            Profilo.objects.create(user=new_user)
             return render(request, 'account/register_done.html', {'new_user':new_user})
     else:
         user_form = UserRegistrationForm()
     return render(request,'account/register.html', {'user_form':user_form})
 
+
+@login_required
+def editUser(request):
+    if request.method == 'POST':
+        user_form = UserEditForm(instance=request.user,data=request.POST)
+        profilo_form = ProfiloEditForm(instance=request.user.profilo, data=request.POST,files=request.FILES)
+
+        if user_form.is_valid() and profilo_form.is_valid():
+            user_form.save()
+            profilo_form.save()
+            messages.success(request, 'Profilo aggiornato con successo')
+        else:
+            messages.error(request, 'Errore profilo non aggiornato')
+    else:
+        user_form = UserEditForm(instance=request.user)
+        profilo_form = ProfiloEditForm(instance=request.user.profilo)
+    
+    return render(request, 'account/editUser.html', {'user_form':user_form, 'profilo_form':profilo_form})
 
 @login_required
 def dashboard(request):

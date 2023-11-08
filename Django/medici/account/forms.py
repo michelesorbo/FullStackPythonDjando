@@ -1,5 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
+from .models import Profilo
 
 class LoginForm(forms.Form):
     username = forms.CharField()
@@ -19,3 +20,29 @@ class UserRegistrationForm(forms.ModelForm):
             if cd['password'] != cd['password2']:
                 raise forms.ValidationError('Le password non coincidono')
             return cd['password2']
+        
+        #Verifico se la mail è già presente nel DB
+        def clean_email(self):
+            data = self.cleaned_data['email']
+            if User.objects.filter(email=data).exists(): #Controllo se l'email inserita è già presente nel DB
+                raise forms.ValidationError('Email già presente')
+            return data
+        
+class UserEditForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ['first_name', 'last_name', 'email']
+
+     #Verifico se la mail è già presente nel DB
+    def clean_email(self):
+        data = self.cleaned_data['email']
+        qs = User.objects.exclude(id=self.instance.id).filter(email=data) #Faccio la ricerca nel DB escludendo la mail corrente
+
+        if qs.exists():
+            raise forms.ValidationError('Email già presente')
+        return data
+
+class ProfiloEditForm(forms.ModelForm):
+    class Meta:
+        model = Profilo
+        fields = ['data_nascita', 'img']

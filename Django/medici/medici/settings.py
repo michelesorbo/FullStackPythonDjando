@@ -52,6 +52,11 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+#     success(): Success messages to display when an action was successful
+#     info(): Informational messages
+#     warning(): A failure has not yet occurred but it may be imminent
+#     error(): An action was not successful or a failure occurred
+#     debug(): Debug messages that will be removed or ignored in a production environment
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
@@ -141,5 +146,12 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 #GESTIONE LOGIN LOGOUT
 LOGIN_REDIRECT_URL = 'index' #La pagina visibile dopo il login
+LOGOUT_REDIRECT_URL = 'index' #La pagina visibile dopo il logout
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
+
+#Regole di autenticazione nel BackEnd
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'account.authentication.EmailAuthBackend',
+]
