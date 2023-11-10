@@ -33,6 +33,10 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'account', #Gestione dell'account e delle pagine statiche
+    'imagekit', #Gestione delle immagini lnk: https://pypi.org/project/django-imagekit/
+    'django_cleanup.apps.CleanupConfig', #Cancello i file multimediali relativi agli oggetti link: https://pypi.org/project/django-cleanup/
+    'ckeditor', #Serve per editor avanzato nelle TextArea link: https://pypi.org/project/django-ckeditor/
+    'ckeditor_uploader', #Per utilizzare l'editor di testo con il caricamento delle immagini
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -132,3 +136,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #DEFINIAMO LA CARTELLA PER I MEDIA (Tutti i file, sia immagini che documenti, ce vengono inseriti tramite upload)
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+#CONFIG CK EITOR-------------
+CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
+CKEDITOR_UPLOAD_PATH = "ckEditor" #Decidiamo dove salvare le immagini caricate nell'editor nella cartella MEDIA
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+    },
+}

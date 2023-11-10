@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block title %}About Us{% endblock title %}About Us
+
+{% block slide %}
+<!-- Start Banner Hero -->
+<div id="template-mo-zay-hero-carousel" class="carousel slide" data-bs-ride="carousel">
+    <ol class="carousel-indicators">
+        {% for slide in slides  %}
+        {% if forloop.counter0 == 0 %}
+            <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="{{ forloop.counter0 }}" class="active"></li>
+        {% else %}
+            <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="{{ forloop.counter0 }}"></li>
+        {% endif %}
+        {% endfor %}
+        {% comment %} <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="0" class="active"></li>
+        <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="1"></li>
+        <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="2"></li>
+        <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="3"></li> {% endcomment %}
+    </ol>
+    <div class="carousel-inner">
+        {% for slide in slides  %}
+        {% comment %} {{ forloop.counter }} è il contatore degli elementi del for {% endcomment %}
+        {% comment %} Verifico quale elemnto è il primo e deve essere attivo {% endcomment %}
+        {% if forloop.counter == 1 %}
+            <div class="carousel-item active">
+        {% else %}
+            <div class="carousel-item">
+        {% endif %}
+            <div class="container">
+                <div class="row p-5">
+                    <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                        <img class="img-fluid" src="{{ slide.img_resize.url }}" alt="{{ slide.titolo }}">
+                    </div>
+                    <div class="col-lg-6 mb-0 d-flex align-items-center">
+                        <div class="text-align-left align-self-center">
+                            <h1 class="h1 text-success">{{ slide.titolo }}</h1>
+                            <h3 class="h2">{{ slide.sottotitolo }}</h3>
+                            <p>{{ slide.corpo|safe }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+    
+    <a class="carousel-control-prev text-decoration-none w-auto ps-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="prev">
+        <i class="fas fa-chevron-left"></i>
+    </a>
+    <a class="carousel-control-next text-decoration-none w-auto pe-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="next">
+        <i class="fas fa-chevron-right"></i>
+    </a>
+</div>
+<!-- End Banner Hero -->
+{% endblock slide %} 
+
+{% block content %}
+
+<h1 class="h1">About Us</h1>
+<p>Siamo una società fondata nel ...</p>
+{% endblock content %}
