@@ -1,6 +1,7 @@
 from django.db import models
 #Per immagine preview in admin
 from django.utils.html import mark_safe
+
 # Create your models here.
 class Carousel(models.Model):
     titolo = models.CharField("Titolo della slide", max_length=200)
