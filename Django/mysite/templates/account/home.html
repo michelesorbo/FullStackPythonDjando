@@ -55,7 +55,10 @@
 {% endblock slide %} 
 
 {% block content %}
-
-<h1 class="h1">Benvenuto nel mio sito</h1>
-<p>Nel nostro sito troverete i migliori prodotti presenti sul web</p>
+<div class="row text-center pt-5 pb-3">
+    <div class="col-lg-6 m-auto">
+        <h1 class="h1">Benvenuto {% if request.user.is_authenticated %}{{ request.user.username }} {% endif %}</h1>
+        <p>Nel nostro sito troverete i migliori prodotti presenti sul web</p>
+    </div>
+</div>
 {% endblock content %}

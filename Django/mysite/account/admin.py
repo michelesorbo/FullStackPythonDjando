@@ -12,6 +12,7 @@ class CarouselAdmin(admin.ModelAdmin):
     search_fields = ['titolo', 'sottotitolo','corpo']
     list_filter = ['categoria','titolo', 'sottotitolo']
     readonly_fields = ['img_preview']
+    list_editable = ['pubblicato']
 
 admin.site.register(CarouselCat)
 

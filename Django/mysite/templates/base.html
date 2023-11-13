@@ -61,7 +61,7 @@
                             <a class="nav-link" href="{% url "account:about" %}">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Shop</a>
+                            <a class="nav-link" href="{% url "shop:lista_prodotti" %}">Shop</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Contact</a>
@@ -84,10 +84,14 @@
                         <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
                         {% comment %} <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">7</span> {% endcomment %}
                     </a>
-                    <a class="nav-icon position-relative text-decoration-none" href="#">
+                    {% if request.user.is_authenticated %}
+                    Ciao {{ request.user.username }} / <a href="{% url "account:logout" %}">logout</a>
+                    {% else %}
+                    <a class="nav-icon position-relative text-decoration-none" href="{% url "account:login" %}">
                         <i class="fa fa-fw fa-user text-dark mr-3"></i>
                         {% comment %} <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">+99</span> {% endcomment %}
                     </a>
+                    {% endif %}
                 </div>
             </div>
 
@@ -118,12 +122,8 @@
     <!--Fine slide-->
 
     <section class="container py-5">
-        <div class="row text-center pt-5 pb-3">
-            <div class="col-lg-6 m-auto">
-                {% block content %}
-                {% endblock content %}
-            </div>
-        </div>
+        {% block content %}
+        {% endblock content %}
     </section>    
        
 

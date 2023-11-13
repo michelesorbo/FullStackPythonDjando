@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django_cleanup.apps.CleanupConfig', #Cancello i file multimediali relativi agli oggetti link: https://pypi.org/project/django-cleanup/
     'ckeditor', #Serve per editor avanzato nelle TextArea link: https://pypi.org/project/django-ckeditor/
     'ckeditor_uploader', #Per utilizzare l'editor di testo con il caricamento delle immagini
+    'shop', #Mia App per gestione prodotti
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -145,3 +146,9 @@ CKEDITOR_CONFIGS = {
         'toolbar': 'full',
     },
 }
+
+#GESTIONE LOGIN E LOGOUT
+LOGIN_REDIRECT_URL = 'account:index'
+LOGOUT_REDIRECT_URL = 'account:index'
+LOGIN_URL = 'account:login'
+LOGOUT_URL = 'account:logout'
