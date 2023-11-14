@@ -6,9 +6,10 @@
     <!--Categoria Sinistra-->
     <div class="col-lg-3">
         <h1 class="h2 pb-4">Categorie</h1>
-        <ul class="list-unstyled templatemo-accordion">
+        <ul class="list-unstyled">
+            <li><a class="text-decoration-none text-black" href="{% url "shop:lista_prodotti" %}">Titti i Prodotti</a></li>
             {% for cat in categorie  %}
-            <li><a class="text-decoration-none" href="#">{{ cat.nome }}</a></li>
+            <li><a class="text-decoration-none text-black" href="{{ cat.get_absolute_url }}">{{ cat.nome }}</a></li>
             {% endfor %}
             
             <!--<li class="pb-3">
@@ -48,9 +49,12 @@
     <!--Corpo Centrale-->
     <div class="col-lg-9">
         <!--Categorie Sopra-->
-        <!--<div class="row">
+        <div class="row">
             <div class="col-md-6">
-                <ul class="list-inline shop-top-menu pb-3 pt-1">
+                <li class="list-inline-item">
+                    <span class="h3 text-dark text-decoration-none mr-3">{% if categoria %}{{categoria}}{% else %}Prodotti{% endif %}</span>
+                </li>
+                {% comment %} <ul class="list-inline shop-top-menu pb-3 pt-1">
                     <li class="list-inline-item">
                         <a class="h3 text-dark text-decoration-none mr-3" href="#">All</a>
                     </li>
@@ -60,9 +64,9 @@
                     <li class="list-inline-item">
                         <a class="h3 text-dark text-decoration-none" href="#">Women's</a>
                     </li>
-                </ul>
+                </ul> {% endcomment %}
             </div>
-            <div class="col-md-6 pb-4">
+            {% comment %} <div class="col-md-6 pb-4">
                 <div class="d-flex">
                     <select class="form-control">
                         <option>Featured</option>
@@ -70,8 +74,8 @@
                         <option>Item</option>
                     </select>
                 </div>
-            </div>
-        </div>-->
+            </div> {% endcomment %}
+        </div>
 
         <!--Elenco Prodotti-->
         <div class="row">
@@ -83,13 +87,14 @@
                         <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                             <ul class="list-unstyled">
                                 <li><a class="btn btn-success text-white" href="shop-single.html"><i class="far fa-heart"></i></a></li>
-                                <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="far fa-eye"></i></a></li>
+                                <li><a class="btn btn-success text-white mt-2" href="{{ prodotto.get_absolute_url }}"><i class="far fa-eye"></i></a></li>
                                 <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="fas fa-cart-plus"></i></a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="card-body">
-                        <a href="shop-single.html" class="titolo_shop_list">{{ prodotto.nome }}</a>
+                        <a href="{{ prodotto.get_absolute_url }}" class="titolo_shop_list">{{ prodotto.nome }}</a>
+                        <p>{{ prodotto.descrizione|truncatechars:20|safe }}</p>
                         <p class="text-center mb-0">{{ prodotto.prezzo }}€</p>
                     </div>
                 </div>
