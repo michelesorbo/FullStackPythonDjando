@@ -1,3 +1,9 @@
 /*
 Custom Css
 */
+.titolo_shop_list{
+    color: #69bb7e !important;
+    font-weight: 700 !important;
+    font-size: 22px !important;
+    text-decoration: none;
+}

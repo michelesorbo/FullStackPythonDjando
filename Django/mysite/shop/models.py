@@ -1,6 +1,13 @@
 from django.db import models
 from django.urls import reverse
 from django.utils.html import mark_safe
+#Per Resize image
+from imagekit.models import ImageSpecField
+from imagekit.processors import ResizeToFill
+#Per eliminare immagini 
+from django_cleanup import cleanup
+#Per Editor Avanzato
+from ckeditor.fields import RichTextField #Editor senza Upload dei file
 # Create your models here.
 
 class Categorie(models.Model):
@@ -21,13 +28,15 @@ class Categorie(models.Model):
 
     def get_absolute_url(self):
         return reverse("shop:product_list_by_category", args=[self.slug])
-    
+
+@cleanup.select 
 class Prodotti(models.Model):
     categoria = models.ForeignKey(Categorie, related_name='prodotti', on_delete=models.CASCADE)
     nome = models.CharField(max_length=200)
     slug = models.SlugField(max_length=200)
     img = models.ImageField(upload_to='prodotti/%Y/%m/%d/', default='prodotti/noimg.png')
-    descrizione = models.TextField(blank=True)
+    img_resize = ImageSpecField(source='img', processors=[ResizeToFill(600,800)], format='PNG', options={'quality':40})
+    descrizione = RichTextField(blank=True)
     prezzo = models.DecimalField(max_digits=10, decimal_places=2)
     quantita = models.IntegerField("Quantità in magazzino", default=0)
     pubblicato = models.BooleanField(default=False)
