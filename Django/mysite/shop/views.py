@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Categorie, Prodotti
+from cart.forms import CartAddProductForm
 
 # Create your views here.
 
@@ -18,4 +19,5 @@ def lista_prodotti(request, categoria_slug=None):
 def dettaglio_prodotto(request, id, slug):
     prodotto = get_object_or_404(Prodotti, id=id, slug=slug, pubblicato=True)
     prodotti_correlati = Prodotti.objects.filter(categoria=prodotto.categoria).filter(pubblicato=True).exclude(id=prodotto.id)#Estraggo solo i prodotti della categoria passata
-    return render(request, 'shop/dettaglio_prodotto.html', {'prodotto':prodotto,'prodotti_correlati':prodotti_correlati})
+    cart_prodotto_form = CartAddProductForm()
+    return render(request, 'shop/dettaglio_prodotto.html', {'prodotto':prodotto,'prodotti_correlati':prodotti_correlati, 'cart_prodotto_form':cart_prodotto_form})

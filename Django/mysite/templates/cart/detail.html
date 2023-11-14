@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %}Carrello{% endblock title %}
+{% block content %}
+
+<h1>Il tuo carrello</h1>
+
+<table class="table table-hocer">
+    <thead>
+        <tr>
+            <th>Immagine</th>
+            <th>Prodotto</th>
+            <th>Quantità</th>
+            <th>Rimuovi</th>
+            <th>Prezzo unitario</th>
+            <th>Prezzo</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in cart %}
+            {% with prodotto=item.prodotto %}
+            <tr>
+                <td><a href="{{ prodotto.get_absolute_url }}"><img src="{{prodotto.img_resize.url}}" width="150"></a></td>
+                <td>{{ prodotto.nome}}</td>
+                <td>
+                    <form action="{% url "cart:cart_add" prodotto.id %}" method="post">
+                        {{ item.update_quantita_form.quantita }}
+                        {{ item.update_quantita_form.override }}
+                        <input type="submit" value="Aggiorna">
+                        {% csrf_token %}
+                    </form>
+                </td>
+                <td>
+                    <form action="{% url "cart:cart_remove" prodotto.id%}" method="post">
+                        <input type="submit" value="Rimuovi">
+                        {% csrf_token %}
+                    </form>
+                </td>
+                <td>{{ item.prezzo }}€</td>
+                <td>{{ item.prezzo_totale }}€</td>
+            </tr>
+            {% endwith %}
+        {% endfor %}
+        <!--Area totale e prezzo totale del carrello-->
+        <tr>
+            <td>Totale</td>
+            <td colspan="4"></td>
+            <td>{{ cart.get_total_price}}€</td>
+        </tr>
+    </tbody>
+</table>
+
+<p><a href="{% url "shop:lista_prodotti" %}">Continua lo shopping</p>
+
+{% endblock content %}

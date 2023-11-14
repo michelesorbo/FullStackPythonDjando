@@ -25,6 +25,7 @@ urlpatterns = [
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('', include('account.urls', namespace='account')),
     path('shop/', include('shop.urls', namespace='shop')),
+    path('cart/', include('cart.urls', namespace='cart')),
 ]
 
 #Solo se sono in sviluppo

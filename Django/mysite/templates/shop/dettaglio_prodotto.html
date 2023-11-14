@@ -47,8 +47,6 @@
 
                     
 
-                    <form action="" method="GET">
-                        <input type="hidden" name="product-title" value="Activewear">
                         <div class="row">
                             <div class="col-auto">
                                 <ul class="list-inline pb-3">
@@ -67,10 +65,13 @@
                 
                             </div>
                             <div class="col d-grid">
-                                <button type="submit" class="btn btn-success btn-lg" name="submit" value="addtocard">Add To Cart</button>
+                                <form action="{% url "cart:cart_add" prodotto.id %}" method="post">
+                                    {{ cart_prodotto_form }}
+                                    {% csrf_token %}
+                                    <input type="submit" value="Aggiungi al carrello" class="btn btn-success btn-lg">
+                                </form>
                             </div>
                         </div>
-                    </form>
 
                 </div>
             </div>

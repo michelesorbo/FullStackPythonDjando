@@ -23,17 +23,18 @@ class Cart:
     def __iter__(self):
         prodotti_ids = self.cart.keys()
         #Prendo i prodotti e li aggiungo al carrello
-        prodotti = Prodotti.objects.filter(id__in=prodotti)
+        prodotti = Prodotti.objects.filter(id__in=prodotti_ids)
         cart = self.cart.copy()
         for prodotto in prodotti:
             cart[str(prodotto.id)]['prodotto'] = prodotto
         for item in cart.values():
             item['prezzo'] = Decimal(item['prezzo'])
             item['prezzo_totale'] = item['prezzo'] * item['quantita']
+            yield item
         
     #Conoscere la quantità di prodotti nel carrello
     def __len__(self):
-        return sum(item['quantita'] for item in self.cart.value())
+        return sum(item['quantita'] for item in self.cart.values())
 
     def add(self, prodotto, quantita=1, override_quantita=False):
         """Aggiungo un prodotto al carrello o aumento la quantità"""
@@ -62,7 +63,7 @@ class Cart:
             self.save()
         
     #Cacolo il prezzo di tutti i prodotti moltiplicati per le loro quantità
-    def fet_total_price(self):
+    def get_total_price(self):
         return sum(Decimal(item['prezzo']) * item['quantita'] for item in self.cart.values())
     
     #Cancellare il carrello dalla sessione
