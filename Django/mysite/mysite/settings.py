@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'ckeditor_uploader', #Per utilizzare l'editor di testo con il caricamento delle immagini
     'shop', #Mia App per gestione prodotti
     'cart', #Gestione del carrello
+    'coupons',#Gestione coupons dello shop
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -70,6 +71,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'cart.context_processors.cart', #Rendo visibile le informazioni del carrello su tutto il template
             ],
         },
     },

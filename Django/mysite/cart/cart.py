@@ -2,6 +2,7 @@
 from decimal import Decimal
 from django.conf import settings
 from shop.models import Prodotti
+from coupons.models import Coupon #Mi importo la tabella coupon dell'app coupons
 
 class Cart:
     #Creo il costruttore della classe
@@ -18,6 +19,8 @@ class Cart:
             cart = self.session[settings.CART_SESSION_ID] = {}
         
         self.cart = cart
+        #Memorizzo il coupon applicato
+        self.coupon_id = self.session.get('coupon_id')
     
     #Aggiorrnare il prezzo in base alla quantità
     def __iter__(self):
@@ -70,3 +73,23 @@ class Cart:
     def clear(self):
         del self.session[settings.CART_SESSION_ID]
         self.save()
+
+#Proprietà del COUPON
+    @property
+    def coupon(self):
+        if self.coupon_id:
+            try:
+                return Coupon.objects.get(id=self.coupon_id)
+            except Coupon.DoesNotExist:
+                pass # Non fare nulla
+        return None
+    
+    #Calcolo Sconto
+    def get_discount(self):
+        if self.coupon:
+            return (self.coupon.sconto/Decimal(100)) * self.get_total_price()
+        return Decimal(0)
+    
+    #Aggiorno il totla dopo aver applicato lo sconto ai prezzi dei prodotti
+    def get_total_price_after_discount(self):
+        return self.get_total_price() - self.get_discount()

@@ -81,9 +81,15 @@
                     <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal" data-bs-target="#templatemo_search">
                         <i class="fa fa-fw fa-search text-dark mr-2"></i>
                     </a>
-                    <a class="nav-icon position-relative text-decoration-none" href="#">
+                    <a class="nav-icon position-relative text-decoration-none" href="{% url "cart:cart_detail" %}">
                         <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
-                        {% comment %} <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">7</span> {% endcomment %}
+                        
+                            {% with total_item=cart|length %}
+                                {% if total_item > 0 %}
+                                <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">{{total_item}}</span>
+                                {% endif %}
+                            {% endwith %}
+                        
                     </a>
                     {% if request.user.is_authenticated %}
                     Ciao {{ request.user.username }} / <a href="{% url "account:logout" %}">logout</a>

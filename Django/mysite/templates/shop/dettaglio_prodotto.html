@@ -47,7 +47,7 @@
 
                     
 
-                        <div class="row">
+                        {% comment %} <div class="row">
                             <div class="col-auto">
                                 <ul class="list-inline pb-3">
                                     <li class="list-inline-item text-right">
@@ -59,14 +59,24 @@
                                     <li class="list-inline-item"><span class="btn btn-success" id="btn-plus">+</span></li>
                                 </ul>
                             </div>
-                        </div>
+                        </div> {% endcomment %}
                         <div class="row pb-3">
                             <div class="col d-grid">
                 
                             </div>
                             <div class="col d-grid">
                                 <form action="{% url "cart:cart_add" prodotto.id %}" method="post">
-                                    {{ cart_prodotto_form }}
+                                    <tr>
+                                        <th><label for="id_quantita">Quantita:</label></th>
+                                        <td>
+                                          <select name="quantita" id="id_quantita">
+                                            {% for i in max_buy  %}
+                                            <option value="{{i}}">{{i}}</option>
+                                            {% endfor %}
+                                          </select>
+                                        </td>
+                                    </tr>
+                                    <input type="hidden" name="override" id="id_override">
                                     {% csrf_token %}
                                     <input type="submit" value="Aggiungi al carrello" class="btn btn-success btn-lg">
                                 </form>

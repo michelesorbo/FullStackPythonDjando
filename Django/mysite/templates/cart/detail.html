@@ -41,13 +41,40 @@
             {% endwith %}
         {% endfor %}
         <!--Area totale e prezzo totale del carrello-->
-        <tr>
+        {% comment %} <tr>
             <td>Totale</td>
             <td colspan="4"></td>
             <td>{{ cart.get_total_price}}€</td>
+        </tr> {% endcomment %}
+        <!-- Area Coupon Prezzo -->
+        {% if cart.coupon %}
+        <tr>
+            <td>Subtotale</td>
+            <td colspan="4"></td>
+            <td>{{ cart.get_total_price|floatformat:2 }}€</td>
         </tr>
+        <tr>
+            <td>"{{ cart.coupon.codice }}" coupon ({{ cart.coupon.sconto }}% di sconto)</td>
+            <td colspan="4"></td>
+            <td>-{{ cart.get_discount}}€</td>
+        </tr>
+        {% endif %}
+        <tr>
+            <td>Totale</td>
+            <td colspan="4"></td>
+            <td>{{ cart.get_total_price_after_discount|floatformat:2}}€</td>
+        </tr>
+        <!-- Fine Area Coupon Prezzo -->
     </tbody>
 </table>
+
+<!--Form per applicare il coupon -->
+<p>Applica Coupon</p>
+<form action={% url "coupons:applica" %} method="post">
+    {{ coupon_applica_form }}
+    {% csrf_token %}
+    <input type="submit" value="Appllica">
+</form>
 
 <p><a href="{% url "shop:lista_prodotti" %}">Continua lo shopping</p>
 
