@@ -2,24 +2,23 @@
 {% block title %}LogIn{% endblock title %}
 
 {% block content %}
-<h1>LogIn Page</h1>
-
-
 
 <form method="post" action="{% url "account:login" %}">
-    {% csrf_token %}
-    <div class="mb-3 row">
-        <label for="email" class="col-sm-2 col-form-label">Email</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" name='username'>
-        </div>
-      </div>
-      <div class="mb-3 row">
-        <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
-        <div class="col-sm-10">
-          <input type="password" name='password' class="form-control">
-        </div>
-    </div>
-    <input type="submit" value="LogIn">
+{% csrf_token %}
+<div class="login-box">
+  <h1>Login Page</h1>
+  <div class="textbox">
+      <i class="fa fa-user" aria-hidden="true"></i>
+      <input type="text" placeholder="Username" name='username' value="">
+  </div>
+
+  <div class="textbox">
+      <i class="fa fa-lock" aria-hidden="true"></i>
+      <input type="password" placeholder="Password" name='password' value="">
+  </div>
+
+  <input type="submit" class="btn" name="" value="LogIn">
+</div>
 </form>
+
 {% endblock content %}
