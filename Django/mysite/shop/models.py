@@ -11,6 +11,7 @@ from ckeditor.fields import RichTextField #Editor senza Upload dei file
 # Create your models here.
 
 class Categorie(models.Model):
+    categoria_principale = models.ForeignKey('self', null=True, blank=True, related_name='caegoria_principale', on_delete=models.CASCADE)
     nome = models.CharField(max_length=200)
     slug = models.SlugField(max_length=200, unique=True)
 
@@ -20,6 +21,7 @@ class Categorie(models.Model):
             models.Index(fields=['nome'])
         ]
 
+        unique_together = ('slug','categoria_principale') #rendo unico il nome della categoria
         verbose_name = 'categorie'
         verbose_name_plural = 'categorie'
 
@@ -28,6 +30,15 @@ class Categorie(models.Model):
 
     def get_absolute_url(self):
         return reverse("shop:product_list_by_category", args=[self.slug])
+    
+    #Riscrivo la visualizzazione delle sottocategorie
+    def __str__(self):
+        full_path = [self.nome]
+        k = self.categoria_principale
+        while k is not None:
+            full_path.append(k.nome)
+            k = k.categoria_principale
+        return ' -> '.join(full_path[::-1])
 
 @cleanup.select 
 class Prodotti(models.Model):

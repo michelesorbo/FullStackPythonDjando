@@ -59,7 +59,7 @@ Custom Css
     margin: 0 10px;
 }
 
-.btn {
+.btn_l {
     width: 100%;
     background-color: transparent;
     border: 2px solid #59ab6e;
@@ -70,13 +70,13 @@ Custom Css
     margin: 12px 0;
 }
 
-.btn:hover {
+.btn_l:hover {
     background-color: #59ab6e;
     color: #fff;
     transition: .5s;
 }
 
-.btn:active {
+.btn_:active {
     background-color: #000;
     color: #59ab6e;
 }

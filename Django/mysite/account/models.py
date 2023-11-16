@@ -16,7 +16,10 @@ from ckeditor_uploader.fields import RichTextUploadingField #Con la possibilità
 #Librerie per Espandere le informazioni su utenti
 from django.contrib.auth.admin import User
 from django.dispatch import receiver
-from django.db.models.signals import post_save
+from django.db.models.signals import post_save, pre_save
+
+#Vado ad importare il validatore tramite regex
+from django.core.validators import RegexValidator
 
 # Create your models here.
 #Modelli per Slide
@@ -59,8 +62,19 @@ class UserProfile(models.Model):
 
     user = models.OneToOneField(User, on_delete=models.CASCADE) #Creo la relazione uno a uno con Utente
     data_nascita = models.DateField("Data di nascita", null=True, blank=True)
+    cf = models.CharField("Codice Fiscale", max_length=16, blank=True, null=True, validators=[RegexValidator(
+        regex=r'^[A-Za-z]{6}[0-9]{2}[A-Za-z]{1}[0-9]{2}[A-Za-z]{1}[0-9]{3}[A-Za-z]{1}$', #r'(?i...)' metodo Carlo
+        message='Inserisci un Codice Fiscale valido',
+    )])
     tipo_account = models.CharField("Tipologi Utente", max_length=50, default='cliente', choices=ACCOUNT_TYPE_CHOICES)
     img_profilo = ProcessedImageField(upload_to='user_profile/%Y/%m/%d/', processors=[ResizeToCover(128,128)], format='PNG', options={'quality':60}, default='user_profile/profile_user.png')
+    indirizzo = models.CharField(max_length=250, blank=True, null=True)
+    comune = models.CharField(max_length=150, blank=True, null=True)
+    citta = models.CharField("Città", max_length=150, blank=True, null=True)
+    cap = models.CharField("C.A.P.", max_length=5, blank=True, null=True, validators=[RegexValidator(
+        regex=r'^[0-9]{5}$',#Scrivo l'espressione Regolare
+        message='Inseriesci un CAP valido',#Errore da far comparire sul campo in caso di errore
+    )])
 
     def __str__(self):
         return self.user.username
@@ -68,6 +82,14 @@ class UserProfile(models.Model):
     #Metodo per visulizzare l'immagine in admin
     def img_preview(self):
         return mark_safe(f'<img src="{self.img_profilo.url}" width="100" />')
+    
+
+    #Salvo il CF in Maiuscolo nel DB
+    def save(self, *args, **kwargs):
+        if self.cf:
+            self.cf = self.cf.upper()
+            super(UserProfile, self).save(*args, **kwargs)
+        return None
     
     #Salvo il profilo utente appena si crea un nuovo utente nel DB
     @receiver(post_save, sender=User)
