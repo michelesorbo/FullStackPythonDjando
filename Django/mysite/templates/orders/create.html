@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Crea Ordine{% endblock title %}
+
+{% block content %}
+<h1>CeckOut</h1>
+<div>
+    <h3>Il tuo Ordine</h3>
+    <ul>
+        {% for item in cart  %}
+            <li>
+               {{ item.quantita}} x {{ item.prodotto.nome }} <span>{{ item.prezzo_totale }}€</span>
+            </li>
+        {% endfor %}
+    </ul>
+    <p>Totale: {{ cart.get_total_price }}€
+</div>
+<!--Carico il form di compilazione dell'ordine-->
+<form method="post">
+    {{ form.as_p }}
+    {% csrf_token %}
+    <p><input type="submit" value="Concludi Ordine"></p>
+</form>
+{% endblock content %}

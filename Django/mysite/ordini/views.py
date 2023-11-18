@@ -12,3 +12,19 @@ def order_create(request):
         form = OrderCreateForm(request.POST)
         if form.is_valid():
             order = form.save(commit=False) #Non posso salvare perchè devo inserire l'utente corrente
+            order.user_id = request.user.id #Inserisco l'id dell'utente loggato sul sito
+            order.save() #Salvo l'ordine nella tabelle
+            #Vado a salvare i prodotti nella tabella Prodotti Ordine
+            for item in cart:
+                OrderItem.objects.create(order=order,
+                                         prodotto=item['prodotto'],
+                                         prezzo=item['prezzo'],
+                                         quantita=item['quantita'])
+            
+            #Cancello il carrello
+            cart.clear()
+
+            return render(request, 'orders/created.html', {'order':order})
+    else:
+        form = OrderCreateForm()
+    return render(request, 'orders/create.html', {'form':form})

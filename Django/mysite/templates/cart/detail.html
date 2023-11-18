@@ -76,6 +76,6 @@
     <input type="submit" value="Appllica">
 </form>
 
-<p><a href="{% url "shop:lista_prodotti" %}">Continua lo shopping</p>
-
+<p><a href="{% url "shop:lista_prodotti" %}">Continua lo shopping</a></p>
+<p><a href="{% url "orders:order_create" %}">Checkout</a></p>
 {% endblock content %}
