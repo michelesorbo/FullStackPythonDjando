@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'shop', #Mia App per gestione prodotti
     'cart', #Gestione del carrello
     'coupons',#Gestione coupons dello shop
+    'ordini', #Gestione ordini
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
