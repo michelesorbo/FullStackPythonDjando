@@ -96,3 +96,17 @@ class UserProfile(models.Model):
     def create_user_profile(sender, instance, created, **kwargs):
         if created:
             UserProfile.objects.create(user=instance)
+
+class Contatti(models.Model):
+    nome = models.CharField(max_length=150)
+    email = models.EmailField()
+    oggetto = models.CharField(max_length=150)
+    corpo = models.TextField()
+    data_invio = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.oggetto
+    
+    class Meta:
+        verbose_name_plural = 'contatti'
+        verbose_name = 'contatti'

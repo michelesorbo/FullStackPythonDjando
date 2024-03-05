@@ -4,6 +4,7 @@ from .models import OrderItem
 from cart.cart import Cart #Vado a prendere i prodotti che sono nella session del carrello
 from django.contrib.auth.decorators import login_required
 # Create your views here.
+#Per completare il pagamento con PayPal https://www.youtube.com/watch?v=LJ7pzebXX6g
 
 @login_required
 def order_create(request):

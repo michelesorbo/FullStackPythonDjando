@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Contatti{% endblock title %}
+
+{% block content %}
+<h1>Contatti</h1>
+<form method="post">
+<!--
+<div class="mb-3">
+    <label for="nome" class="form-label">Nome</label>
+    <input type="text" class="form-control" id="nome" name="nome">
+    <span class="errorlist">Erorre</span>
+</div>
+<div class="mb-3">
+    <label for="email" class="form-label">Email address</label>
+    <input type="email" class="form-control" id="email" name="email">
+    <span class="errorlist">Erorre</span>
+</div>
+<div class="mb-3">
+    <label for="oggetto" class="form-label">Oggetto</label>
+    <input type="text" class="form-control" id="nome" name="oggetto">
+    <span class="errorlist">Erorre</span>
+</div>
+<div class="mb-3">
+    <label for="corpo" class="form-label">Corpo del Messaggio <span class="errorlist">Erorre</span></label>
+    <textarea class="form-control" id="corpo" rows="3" name="corpo"></textarea>
+</div>
+-->
+{{ form.as_div }}
+<div class"mb-3">
+    {% csrf_token %}
+    <button>Invia Messaggio</button>
+</div>
+</form>
+{% endblock content %}

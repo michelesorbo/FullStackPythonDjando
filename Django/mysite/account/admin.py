@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Carousel, CarouselCat, UserProfile
+from .models import Carousel, CarouselCat, UserProfile, Contatti
 #Per aggiungere UserProfile dentro la vista User
 from django.contrib.auth.models import User
 from django.contrib.auth.admin import UserAdmin
@@ -34,3 +34,7 @@ class AccountsUserAdmin(UserAdmin):
 
 admin.site.unregister(User)
 admin.site.register(User,AccountsUserAdmin)
+
+@admin.register(Contatti)
+class ContattiAdmin(admin.ModelAdmin):
+    list_display = ['nome','oggetto', 'data_invio']
